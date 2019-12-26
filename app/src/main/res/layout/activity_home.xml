@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gray_background"
+    android:background="#ececec"
     tools:context=".HomeActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -23,8 +23,8 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="180dp"
-                android:layout_height="117dp"
+                android:layout_width="157dp"
+                android:layout_height="143dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
@@ -51,18 +51,20 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/home_gradient_learn"
+                    android:background="@drawable/home_white_card"
                     android:minHeight="100dp"
                     android:padding="10dp">
 
                     <TextView
                         android:id="@+id/textViewSub1Title"
                         style="@style/viewParent.headerText.HomeCardTitle"
-                        android:text="تعلم لغة الإشارة" />
+                        android:text="تعلم لغة الإشارة"
+                        android:textColor="#000000"/>
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title"
+                        android:textColor="#000000"
                         android:text="تابع دروس لغة الإشارات بمختلف المستويات" />
 
                     <ImageView
@@ -83,18 +85,20 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/home_gradient_communicate"
+                    android:background="@drawable/home_white_card"
                     android:minHeight="100dp"
                     android:padding="10dp">
 
                     <TextView
                         android:id="@+id/textViewSub1Title2"
                         style="@style/viewParent.headerText.HomeCardTitle"
-                        android:text="التواصل بالإشارات" />
+                        android:text="التواصل بالإشارات"
+                        android:textColor="#000000"/>
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title2"
+                        android:textColor="#000000"
                         android:text="تواصل بسهولة مع الآخرين عن طريق الإشارات" />
 
                     <ImageView
@@ -115,19 +119,21 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/home_gradient_settings"
+                    android:background="@drawable/home_white_card"
                     android:minHeight="100dp"
                     android:padding="10dp">
 
                     <TextView
                         android:id="@+id/textViewSub1Title3"
                         style="@style/viewParent.headerText.HomeCardTitle"
-                        android:text="الإعدادات" />
+                        android:text="الإعدادات"
+                        android:textColor="#000000"/>
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title3"
-                        android:text="ضبط إعدادات التطبيف" />
+                        android:text="ضبط إعدادات التطبيق"
+                        android:textColor="#000000"/>
 
                     <ImageView
                         style="@style/homeCardImage"
