@@ -29,5 +29,10 @@
     <color name="gradientOrange3">#F7A23C</color>
     <color name="gradientLightBlue">#376DF6</color>
     <color name="gradientLightGreen">#21E8AC</color>
+    <color name="colorWhite">#FFF</color>
+    <color name="colorred">#780000</color>
+    <color name="colorDark">#1b0045</color>
+    <color name="colorHint">#7fffffff</color>
+    <color name="colorDarkApha">#7a071724</color>
 
 </resources>

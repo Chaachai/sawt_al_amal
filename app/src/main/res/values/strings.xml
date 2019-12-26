@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">صوت الأمل</string>
+    <string name="Login">تسجيل الدخول</string>
+    <string name="signup"><b> انشاء حساب جديد </b></string>
+    <string name="logo_name">صوت الأمل</string>
+    <string name="label">قم بالتسجيل أو انشاء حساب جديد</string>
+    <string name="login">اسم المستخدم</string>
+    <string name="password">كلمة المرور</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="cpassword">تأكيد كلمة المرور </string>
+    <string name="social">سجل دخولك عن طريق</string>
+    <string name="facebook">فيس بوك</string>
+    <string name="google">جوجل </string>
 </resources>
