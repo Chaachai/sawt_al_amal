@@ -23,12 +23,12 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="157dp"
-                android:layout_height="143dp"
+                android:layout_width="130dp"
+                android:layout_height="94dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
-                app:srcCompat="@drawable/logo_hopevoice" />
+                app:srcCompat="@drawable/learn" />
 
             <!--        <TextView-->
             <!--            style="@style/viewParent.headerText"-->
@@ -38,11 +38,12 @@
                 style="@style/viewParent.headerText.contentText"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
-                android:text="&quot; إعاقة الصمم ليست في الأذن.. بل هي في العقل  &quot; " />
+                android:text="تعلم لغة الاشارة"
+                android:textSize="24dp"
+                android:textColor="#000000"/>
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/lessons_cv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -59,19 +60,19 @@
                     <TextView
                         android:id="@+id/textViewSub1Title"
                         style="@style/viewParent.headerText.HomeCardTitle"
-                        android:text="تعلم لغة الإشارة"
+                        android:text="المستوى الأول"
                         android:textColor="#000000"/>
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title"
                         android:textColor="#000000"
-                        android:text="تابع دروس لغة الإشارات بمختلف المستويات" />
+                        android:text="تعلم الحروف الأبجدية" />
 
                     <ImageView
                         style="@style/homeCardImage"
                         android:maxHeight="90dp"
-                        android:src="@drawable/learn" />
+                        android:src="@drawable/letters" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -93,19 +94,21 @@
                     <TextView
                         android:id="@+id/textViewSub1Title2"
                         style="@style/viewParent.headerText.HomeCardTitle"
-                        android:text="التواصل بالإشارات"
+                        android:text="المستوى الثاني"
                         android:textColor="#000000"/>
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title2"
                         android:textColor="#000000"
-                        android:text="تواصل بسهولة مع الآخرين عن طريق الإشارات" />
+                        android:text="تعلم الأرقام والأعداد" />
 
                     <ImageView
                         style="@style/homeCardImage"
+                        android:layout_width="75dp"
+                        android:layout_height="73dp"
                         android:maxHeight="90dp"
-                        android:src="@drawable/communication" />
+                        android:src="@drawable/numbers" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -127,22 +130,91 @@
                     <TextView
                         android:id="@+id/textViewSub1Title3"
                         style="@style/viewParent.headerText.HomeCardTitle"
-                        android:text="الإعدادات"
+                        android:text="المستوى الثالث"
                         android:textColor="#000000"/>
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title3"
-                        android:text="ضبط إعدادات التطبيق"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000"
+                        android:text="أيام الأسبوع" />
 
                     <ImageView
                         style="@style/homeCardImage"
                         android:maxHeight="90dp"
-                        android:src="@drawable/settings" />
+                        android:src="@drawable/calandar" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="15dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/home_white_card"
+                    android:minHeight="100dp"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewSub1Title4"
+                        style="@style/viewParent.headerText.HomeCardTitle"
+                        android:text="المستوى الرابع"
+                        android:textColor="#000000"/>
+
+                    <TextView
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/textViewSub1Title4"
+                        android:textColor="#000000"
+                        android:text="تعلم الألوان" />
+
+                    <ImageView
+                        style="@style/homeCardImage"
+                        android:maxHeight="90dp"
+                        android:src="@drawable/colors" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="15dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/home_white_card"
+                    android:minHeight="100dp"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewSub1Title5"
+                        style="@style/viewParent.headerText.HomeCardTitle"
+                        android:text="المستوى الخامس"
+                        android:textColor="#000000"/>
+
+                    <TextView
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/textViewSub1Title5"
+                        android:textColor="#000000"
+                        android:text="الوقت" />
+
+                    <ImageView
+                        style="@style/homeCardImage"
+                        android:maxHeight="90dp"
+                        android:src="@drawable/time" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
