@@ -1,12 +1,13 @@
-package com.example.sawt_al_amal;
+package com.example.sawt_al_amal.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.sawt_al_amal.R;
 
 public class HomeActivity extends AppCompatActivity {
 
