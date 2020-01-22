@@ -17,33 +17,36 @@ public abstract class AbstractDao<T> {
 
 
     public abstract long create(T t);
+
     public abstract long edit(T t);
+
     protected abstract T transformeCursorToBean(Cursor cursor);
 
 
-
-    public  long remove(Object id){
-        return db.delete(tableName,idName + " = " + id,null);
+    public long remove(Object id) {
+        return db.delete(tableName, idName + " = " + id, null);
     }
 
-    public T find(Object id){
+    public T find(Object id) {
         open();
-        Cursor cursor = db.query(tableName, columns,idName+"='"+id+"'" ,null,null,null,null);
+        Cursor cursor = db.query(tableName, columns, idName + "='" + id + "'", null, null, null, null);
         return splitCursor(cursor);
     }
-    public List<T> findAll(){
+
+    public List<T> findAll() {
         return loadAll(null);
     }
 
-    public List<T> findAll(String constraint){
+    public List<T> findAll(String constraint) {
         return loadAll(constraint);
     }
-    private List<T> loadAll(String constraint){
+
+    private List<T> loadAll(String constraint) {
         open();
-        Cursor cursor = db.query(tableName, columns,constraint ,null,null,null,null);
+        Cursor cursor = db.query(tableName, columns, constraint, null, null, null, null);
         List<T> beans = new ArrayList<>();
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             T bean = transformeCursorToBean(cursor);
             beans.add(bean);
             cursor.moveToNext();
@@ -52,7 +55,7 @@ public abstract class AbstractDao<T> {
     }
 
     public AbstractDao(Context context) {
-        dbHelper =  new DbConnect(context);
+        dbHelper = new DbConnect(context);
     }
 
     public void open() {
@@ -78,8 +81,9 @@ public abstract class AbstractDao<T> {
     public void setDbHelper(DbConnect dbHelper) {
         this.dbHelper = dbHelper;
     }
-    public   T splitCursor(Cursor c) {
-        if (c.getCount()==0)
+
+    public T splitCursor(Cursor c) {
+        if (c.getCount() == 0)
             return null;
         c.moveToFirst();
         T bean = transformeCursorToBean(c);

@@ -15,6 +15,9 @@ public class UserDao extends AbstractDao<User> {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DbStructure.User.C_LASTNAME, user.getLastName());
         contentValues.put(DbStructure.User.C_FIRSTNAME, user.getFirstName());
+        contentValues.put(DbStructure.User.C_PASSWORD, user.getFirstName());
+        contentValues.put(DbStructure.User.C_USERNAME, user.getFirstName());
+        contentValues.put(DbStructure.User.C_EMAIL, user.getFirstName());
         return getDb().insert(DbStructure.User.T_NAME, null, contentValues);
     }
 
@@ -24,6 +27,9 @@ public class UserDao extends AbstractDao<User> {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DbStructure.User.C_LASTNAME, user.getLastName());
         contentValues.put(DbStructure.User.C_FIRSTNAME, user.getFirstName());
+        contentValues.put(DbStructure.User.C_PASSWORD, user.getFirstName());
+        contentValues.put(DbStructure.User.C_USERNAME, user.getFirstName());
+        contentValues.put(DbStructure.User.C_EMAIL, user.getFirstName());
         return db.update(DbStructure.User.T_NAME, contentValues, DbStructure.User._ID + " = '" + user.getId() + "'", null);
     }
 
@@ -33,7 +39,14 @@ public class UserDao extends AbstractDao<User> {
     }
 
     protected User transformeCursorToBean(Cursor cursor) {
-        return new User(cursor.getString(0), cursor.getString(1), cursor.getString(2));
+        User user = new User();
+        user.setId(cursor.getInt(0));
+        user.setFirstName(cursor.getString(1));
+        user.setLastName(cursor.getString(2));
+        user.setPassword(cursor.getString(3));
+        user.setUsername(cursor.getString(4));
+        user.setEmail(cursor.getString(5));
+        return user;
     }
 
     public UserDao(Context context) {
@@ -41,6 +54,9 @@ public class UserDao extends AbstractDao<User> {
         columns = new String[]{
                 DbStructure.User.C_LASTNAME,
                 DbStructure.User.C_FIRSTNAME,
+                DbStructure.User.C_PASSWORD,
+                DbStructure.User.C_USERNAME,
+                DbStructure.User.C_EMAIL
         };
         tableName = DbStructure.User.T_NAME;
         idName = DbStructure.User._ID;

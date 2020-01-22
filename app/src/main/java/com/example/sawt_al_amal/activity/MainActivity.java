@@ -8,16 +8,24 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.sawt_al_amal.R;
+import com.example.sawt_al_amal.facade.UserFacade;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btLogin;
     private Button btSigIn;
 
+    UserFacade userFacade = new UserFacade(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        userFacade.open();
+        userFacade.close();
+
 
         btLogin = findViewById(R.id.btlogin);
         btSigIn = findViewById(R.id.btsignup);
