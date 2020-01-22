@@ -13,12 +13,14 @@ public class DbConnect extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DbStructure.User.SQL_CREATE);
+        db.execSQL(DbStructure.Geste.SQL_CREATE);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(DbStructure.User.SQL_DROP);
+        db.execSQL(DbStructure.Geste.SQL_DROP);
         onCreate(db);
     }
 }
