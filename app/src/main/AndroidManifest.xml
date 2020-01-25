@@ -23,11 +23,10 @@
         <activity android:name=".activity.Num3" />
         <activity android:name=".activity.Num2" />
         <activity android:name=".activity.Num1" />
-        <activity android:name=".activity.LessonsActivity" />
         <activity android:name=".activity.signup" />
         <activity android:name=".activity.login" />
         <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.Numeros">
+        <activity android:name=".activity.Numeros"/>
         <activity android:name=".activity.MainActivity1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,7 +47,6 @@
         <activity android:name=".activity.soundRec.vr.record.Licenses" />
         <activity android:name=".activity.soundRec.vr.record.recorder.RecordActivity" />
         <activity android:name=".activity.soundRec.vr.record.list.RecordingsListActivity" />
-        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>
