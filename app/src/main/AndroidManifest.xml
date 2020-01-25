@@ -9,11 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.LessonsActivity"></activity>
+        <activity android:name=".activity.Num0"></activity>
+        <activity android:name=".activity.Num5" />
+        <activity android:name=".activity.Num4" />
+        <activity android:name=".activity.Num3" />
+        <activity android:name=".activity.Num2" />
+        <activity android:name=".activity.Num1" />
+        <activity android:name=".activity.LessonsActivity" />
         <activity android:name=".activity.signup" />
         <activity android:name=".activity.login" />
         <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.Numeros">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,6 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.GifsActivity" />
+        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>
