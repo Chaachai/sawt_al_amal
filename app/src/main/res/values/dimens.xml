@@ -11,4 +11,11 @@
     <dimen name="card_margin">5dp</dimen>
     <dimen name="frutorial_title">15sp</dimen>
 
+
+    <!-- HADO DYAL SOUND REC -->
+    <dimen name="list_item_height">72dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
 </resources>

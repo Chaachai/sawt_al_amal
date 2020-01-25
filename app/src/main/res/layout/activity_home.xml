@@ -111,6 +111,41 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/noise_cv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="15dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/home_white_card"
+                    android:minHeight="100dp"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewSub1Title4"
+                        style="@style/viewParent.headerText.HomeCardTitle"
+                        android:text="التعرف على الأصوات"
+                        android:textColor="#000000"/>
+
+                    <TextView
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/textViewSub1Title4"
+                        android:text="تعرف على نوع الأصوات في الجوار"
+                        android:textColor="#000000"/>
+
+                    <ImageView
+                        style="@style/homeCardImage"
+                        android:maxHeight="90dp"
+                        android:src="@drawable/noise" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

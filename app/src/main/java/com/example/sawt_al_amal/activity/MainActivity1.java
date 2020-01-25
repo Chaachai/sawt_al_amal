@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.example.sawt_al_amal.R;
 import com.example.sawt_al_amal.facade.UserFacade;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity1 extends AppCompatActivity {
 
     private Button btLogin;
     private Button btSigIn;
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_1);
 
 
         userFacade.open();
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (v.getId()) {
 
                     case R.id.btlogin:
-                        startActivity(new Intent(MainActivity.this, login.class));
+                        startActivity(new Intent(MainActivity1.this, login.class));
                         break;
                     default:
                         break;
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (v.getId()) {
 
                     case R.id.btsignup:
-                        startActivity(new Intent(MainActivity.this, signup.class));
+                        startActivity(new Intent(MainActivity1.this, signup.class));
                         break;
                     default:
                         break;
