@@ -44,6 +44,7 @@
 
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/numbers_cv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -67,12 +68,12 @@
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title"
                         android:textColor="#000000"
-                        android:text="تعلم الحروف الأبجدية" />
+                        android:text="تعلم الأرقام والأعداد" />
 
                     <ImageView
                         style="@style/homeCardImage"
                         android:maxHeight="90dp"
-                        android:src="@drawable/letters" />
+                        android:src="@drawable/numbers" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -101,14 +102,14 @@
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title2"
                         android:textColor="#000000"
-                        android:text="تعلم الأرقام والأعداد" />
+                        android:text="تعلم الحروف الأبجدية" />
 
                     <ImageView
                         style="@style/homeCardImage"
                         android:layout_width="75dp"
                         android:layout_height="73dp"
                         android:maxHeight="90dp"
-                        android:src="@drawable/numbers" />
+                        android:src="@drawable/letters" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>

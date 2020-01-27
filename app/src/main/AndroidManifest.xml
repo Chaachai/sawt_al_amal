@@ -15,18 +15,51 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.NumZeroActivity"></activity>
+        <activity android:name=".activity.NumbersActivity" /> <!-- SOUND REC -->
+        <activity
+            android:name=".activity.soundRec.vr.record.MainActivity2"
+            android:configChanges="keyboard|orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.soundRec.vr.record.list.RecordingsListActivity"
+            android:configChanges="keyboard|orientation|screenSize"
+            android:label="@string/title_activity_recordings_list"
+            android:parentActivityName=".activity.soundRec.vr.record.MainActivity2"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.soundRec.vr.record.MainActivity2" />
+        </activity>
+        <activity
+            android:name=".activity.soundRec.vr.record.recorder.RecordActivity"
+            android:configChanges="keyboard|orientation|screenSize"
+            android:label="@string/title_activity_record"
+            android:parentActivityName=".activity.soundRec.vr.record.MainActivity2"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.soundRec.vr.record.MainActivity2" />
+        </activity>
+        <activity
+            android:name=".activity.soundRec.vr.record.SettingsActivity"
+            android:configChanges="keyboard|orientation|screenSize"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".activity.soundRec.vr.record.MainActivity2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.soundRec.vr.record.MainActivity2" />
+        </activity>
+        <activity android:name=".activity.soundRec.vr.record.Testing" />
 
-        <activity android:name=".activity.LessonsActivity"/>
-        <activity android:name=".activity.Num0"></activity>
-        <activity android:name=".activity.Num5" />
-        <activity android:name=".activity.Num4" />
-        <activity android:name=".activity.Num3" />
-        <activity android:name=".activity.Num2" />
-        <activity android:name=".activity.Num1" />
+        <service android:name=".activity.soundRec.vr.record.recorder.ContinuousRecordingService" />
+
+        <activity android:name=".activity.soundRec.vr.record.Licenses" /> <!-- FIN SOUND REC -->
+        <activity android:name=".activity.LessonsActivity" />
         <activity android:name=".activity.signup" />
         <activity android:name=".activity.login" />
         <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.Numeros"/>
         <activity android:name=".activity.MainActivity1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,18 +68,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.GifsActivity" />
-        <activity android:name=".activity.soundRec.vr.record.Testing" />
-        <activity android:name=".activity.soundRec.vr.record.SettingsActivity" />
-        <activity
-            android:name=".activity.soundRec.vr.record.MainActivity2"
-            android:configChanges="keyboard|orientation|screenSize"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".activity.soundRec.vr.record.Licenses" />
-        <activity android:name=".activity.soundRec.vr.record.recorder.RecordActivity" />
-        <activity android:name=".activity.soundRec.vr.record.list.RecordingsListActivity" />
     </application>
 
 </manifest>
