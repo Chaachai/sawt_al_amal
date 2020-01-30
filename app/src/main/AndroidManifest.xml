@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.NumZeroActivity"></activity>
+        <activity android:name=".activity.CreateGeste"></activity>
+        <activity android:name=".activity.GesteActivity" />
+        <activity android:name=".activity.NumZeroActivity" />
         <activity android:name=".activity.NumbersActivity" /> <!-- SOUND REC -->
         <activity
             android:name=".activity.soundRec.vr.record.MainActivity2"
@@ -56,7 +58,7 @@
         <service android:name=".activity.soundRec.vr.record.recorder.ContinuousRecordingService" />
 
         <activity android:name=".activity.soundRec.vr.record.Licenses" /> <!-- FIN SOUND REC -->
-        <activity android:name=".activity.LessonsActivity" />
+        <activity android:name=".activity.LevelsActivity" />
         <activity android:name=".activity.signup" />
         <activity android:name=".activity.login" />
         <activity android:name=".activity.HomeActivity" />

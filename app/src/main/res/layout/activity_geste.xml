@@ -4,8 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_signs"
-    tools:context=".activity.NumZeroActivity">
+    tools:context=".activity.GesteActivity">
+
+
+    <Button
+        android:id="@+id/createGeste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:text="+"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,65 +26,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="1dp"
-            android:layout_weight="1"
-            android:gravity="center|top"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/geste_text"
-                style="@style/viewParent.headerText.HomeCardTitle"
-                android:layout_gravity="center"
-                android:layout_weight="0"
-                android:text="صِفْرٌ"
-                android:textColor="#FFFFFF"
-                android:textSize="90dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/geste_text"
+            style="@style/viewParent.headerText.HomeCardTitle"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="213dp"
-                android:layout_height="139dp"
-                app:srcCompat="@drawable/goldr0"
-                tools:layout_editor_absoluteX="137dp"
-                tools:layout_editor_absoluteY="189dp" />
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="0"
+            android:text="صِفْرٌ"
+            android:textColor="#000000"
+            android:textSize="48dp" />
 
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/geste_image"
+            android:layout_width="213dp"
+            android:layout_height="139dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/goldr0"
+            tools:layout_editor_absoluteX="137dp"
+            tools:layout_editor_absoluteY="189dp" />
 
-            <ImageView
-                android:layout_width="255dp"
-                android:layout_height="267dp"
-                app:srcCompat="@drawable/sign0"
-                tools:layout_editor_absoluteX="137dp"
-                tools:layout_editor_absoluteY="189dp" />
-
-
-        </LinearLayout>
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/geste_gif"
+            android:layout_width="match_parent"
+            android:layout_height="368dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/service_etat_civil"
+            tools:layout_editor_absoluteX="137dp"
+            tools:layout_editor_absoluteY="189dp" />
 
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center|bottom"
             android:orientation="horizontal">
@@ -132,7 +123,6 @@
 
 
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,9 @@ public class DbConnect extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DbStructure.User.SQL_CREATE);
         db.execSQL(DbStructure.Geste.SQL_CREATE);
+        db.execSQL(DbStructure.Cours.SQL_CREATE);
+        db.execSQL(DbStructure.Niveau.SQL_CREATE);
+        db.execSQL(DbStructure.Category.SQL_CREATE);
 
     }
 
@@ -21,6 +24,9 @@ public class DbConnect extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(DbStructure.User.SQL_DROP);
         db.execSQL(DbStructure.Geste.SQL_DROP);
+        db.execSQL(DbStructure.Cours.SQL_DROP);
+        db.execSQL(DbStructure.Niveau.SQL_DROP);
+        db.execSQL(DbStructure.Category.SQL_DROP);
         onCreate(db);
     }
 }
