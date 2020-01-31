@@ -22,6 +22,7 @@ import com.example.sawt_al_amal.facade.CategoryFacade;
 import com.example.sawt_al_amal.facade.CoursFacade;
 import com.example.sawt_al_amal.facade.GesteFacade;
 import com.example.sawt_al_amal.util.FileUtils;
+import com.example.sawt_al_amal.util.Session;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,7 +37,6 @@ public class CreateGeste extends AppCompatActivity {
     Button insert;
     GifImageView gifImageView;
     EditText geste_text;
-    EditText id_cours;
     EditText id_category;
 
     private byte[] b = null;
@@ -57,8 +57,9 @@ public class CreateGeste extends AppCompatActivity {
         insert = findViewById(R.id.insert);
         gifImageView = findViewById(R.id.mygif);
         geste_text = findViewById(R.id.designationGeste);
-        id_cours = findViewById(R.id.id_cours);
         id_category = findViewById(R.id.id_category);
+
+
 
         choose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +80,8 @@ public class CreateGeste extends AppCompatActivity {
                 } else {
                     try {
                         Geste geste = new Geste();
-                        Cours cours = coursFacade.find(id_cours.getText());
+                        int idCours = (int) Session.getAttribut("id_cours");
+                        Cours cours = coursFacade.find(idCours);
                         Category category = categoryFacade.find(id_category.getText());
                         if(cours == null || category == null){
                             Toast.makeText(getApplicationContext(), "Cours ola category makayninch", Toast.LENGTH_SHORT).show();

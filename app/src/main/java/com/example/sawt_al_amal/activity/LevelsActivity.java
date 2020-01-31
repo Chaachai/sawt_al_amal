@@ -17,15 +17,15 @@ public class LevelsActivity extends AppCompatActivity {
 
 //    NiveauFacade niveauFacade = new NiveauFacade(this);
 //    CoursFacade coursFacade = new CoursFacade(this);
-    CategoryFacade categoryFacade = new CategoryFacade(this);
+//    CategoryFacade categoryFacade = new CategoryFacade(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
 
-        categoryFacade.create(new Category("TEST 1"));
-        categoryFacade.create(new Category( "TEST 2"));
+//        categoryFacade.create(new Category("TEST 1"));
+//        categoryFacade.create(new Category( "TEST 2"));
 
 //        Niveau niveau1 = niveauFacade.find(1);
 //        if (niveau1 == null)

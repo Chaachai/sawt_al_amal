@@ -51,27 +51,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mygif" />
 
-    <EditText
-        android:id="@+id/id_cours"
-        android:layout_width="301dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="id dyal cours (khaso ykon comboox)"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/designationGeste" />
 
     <EditText
         android:id="@+id/id_category"
         android:layout_width="301dp"
         android:layout_height="40dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="id dyal category (khaso ykon comboox)"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_cours" />
+        app:layout_constraintTop_toBottomOf="@+id/designationGeste" />
 </androidx.constraintlayout.widget.ConstraintLayout>

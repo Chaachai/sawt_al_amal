@@ -19,6 +19,7 @@
         android:gravity="center"
         android:text="رقم gggg 37"
         android:textColor="#fff"
+        android:rotationY="180"
         android:textSize="14sp" />
 
 

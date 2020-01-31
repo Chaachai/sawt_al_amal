@@ -11,14 +11,16 @@
         android:id="@+id/createGeste"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
         android:text="+"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -75,14 +77,13 @@
                 android:layout_height="60dp"
                 android:layout_marginLeft="-1dp"
                 android:layout_weight="0"
+                android:background="@drawable/round_red_button"
                 android:focusable="false"
-                android:textColor="@color/whiteTextColor"
-                android:textStyle="bold"
-                android:textSize="22dp"
                 android:focusableInTouchMode="false"
-                android:background="@drawable/round_green_button"
-                android:text="السابق">
-            </Button>
+                android:text="السابق"
+                android:textColor="@color/whiteTextColor"
+                android:textSize="22dp"
+                android:textStyle="bold"></Button>
 
             <Button
                 android:id="@+id/menu_btn"
@@ -90,13 +91,13 @@
                 android:layout_height="60dp"
                 android:layout_marginLeft="-1dp"
                 android:layout_weight="0"
+                android:background="@drawable/round_red_button"
                 android:focusable="false"
-                android:textColor="@color/whiteTextColor"
-                android:textStyle="bold"
-                android:textSize="22dp"
                 android:focusableInTouchMode="false"
-                android:background="@drawable/round_green_button"
-                android:text="القائمة">
+                android:text="القائمة"
+                android:textColor="@color/whiteTextColor"
+                android:textSize="22dp"
+                android:textStyle="bold">
 
             </Button>
 
@@ -106,20 +107,18 @@
                 android:layout_height="60dp"
                 android:layout_marginLeft="-1dp"
                 android:layout_weight="0"
+                android:background="@drawable/round_red_button"
                 android:focusable="false"
-                android:textColor="@color/whiteTextColor"
-                android:textStyle="bold"
-                android:textSize="22dp"
-
                 android:focusableInTouchMode="false"
-                android:background="@drawable/round_green_button"
-                android:text="التالي">
+                android:text="التالي"
+
+                android:textColor="@color/whiteTextColor"
+                android:textSize="22dp"
+                android:textStyle="bold">
 
             </Button>
 
         </LinearLayout>
-
-
 
 
     </LinearLayout>

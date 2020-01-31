@@ -38,6 +38,7 @@ import java.util.List;
 
 public class NumbersActivity extends AppCompatActivity {
 
+    Button start;
     GridView gridView;
     List<Cours> list;
     CoursListAdapter adapter = null;
@@ -53,6 +54,7 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
+        start = findViewById(R.id.start_numbers_btn);
         gridView = findViewById(R.id.gridView);
 
         list = new ArrayList<>();
@@ -73,11 +75,21 @@ public class NumbersActivity extends AppCompatActivity {
 
         adapter.notifyDataSetChanged();
 
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Session.updateAttribute(list, "coursList");
+                Session.updateAttribute(0, "currentPosition");
+                startActivity(new Intent(NumbersActivity.this, GesteActivity.class));
+            }
+        });
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Cours cours = list.get(position);
-                Session.updateAttribute(cours, "selectedCours");
+                //Cours cours = list.get(position);
+                Session.updateAttribute(list, "coursList");
+                Session.updateAttribute(position, "currentPosition");
                 startActivity(new Intent(NumbersActivity.this, GesteActivity.class));
                 //System.out.println("COURS ===== " + cours.toString());
             }
