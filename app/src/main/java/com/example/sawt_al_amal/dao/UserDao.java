@@ -15,9 +15,9 @@ public class UserDao extends AbstractDao<User> {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DbStructure.User.C_LASTNAME, user.getLastName());
         contentValues.put(DbStructure.User.C_FIRSTNAME, user.getFirstName());
-        contentValues.put(DbStructure.User.C_PASSWORD, user.getFirstName());
-        contentValues.put(DbStructure.User.C_USERNAME, user.getFirstName());
-        contentValues.put(DbStructure.User.C_EMAIL, user.getFirstName());
+        contentValues.put(DbStructure.User.C_PASSWORD, user.getPassword());
+        contentValues.put(DbStructure.User.C_USERNAME, user.getUsername());
+        contentValues.put(DbStructure.User.C_EMAIL, user.getEmail());
         return getDb().insert(DbStructure.User.T_NAME, null, contentValues);
     }
 
@@ -27,9 +27,9 @@ public class UserDao extends AbstractDao<User> {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DbStructure.User.C_LASTNAME, user.getLastName());
         contentValues.put(DbStructure.User.C_FIRSTNAME, user.getFirstName());
-        contentValues.put(DbStructure.User.C_PASSWORD, user.getFirstName());
-        contentValues.put(DbStructure.User.C_USERNAME, user.getFirstName());
-        contentValues.put(DbStructure.User.C_EMAIL, user.getFirstName());
+        contentValues.put(DbStructure.User.C_PASSWORD, user.getPassword());
+        contentValues.put(DbStructure.User.C_USERNAME, user.getUsername());
+        contentValues.put(DbStructure.User.C_EMAIL, user.getEmail());
         return db.update(DbStructure.User.T_NAME, contentValues, DbStructure.User.C_ID + " = '" + user.getId() + "'", null);
     }
 
@@ -62,4 +62,27 @@ public class UserDao extends AbstractDao<User> {
         tableName = DbStructure.User.T_NAME;
         idName = DbStructure.User.C_ID;
     }
+
+    public boolean check(String col,String val) {
+        open();
+        Cursor cursor = db.rawQuery("select * from "+tableName+" where " + col + " = '" + val + "'",null);
+        int cursorCount = cursor.getCount();
+        if (cursorCount > 0) {
+            return true;
+        }
+        return false;
+    }
+    public Cursor all() {
+        open();
+        Cursor cursor = db.rawQuery("select * from "+tableName,null);
+        return cursor;
+    }
+    public Cursor checklogin(String val1,String val2) {
+        open();
+        Cursor cursor = db.rawQuery("select * from "+tableName+" where "
+                +DbStructure.User.C_USERNAME + " = '" + val1 + "' AND " + DbStructure.User.C_PASSWORD + " = '" + val2 + "'",null);
+        return cursor;
+    }
+
+
 }
