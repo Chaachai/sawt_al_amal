@@ -3,16 +3,19 @@ package com.example.sawt_al_amal.dao.helper;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractDao<T> {
 
     protected SQLiteDatabase db;
+
     protected DbConnect dbHelper;
+
     protected String[] columns;
+
     protected String tableName;
+
     protected String idName;
 
 
@@ -83,8 +86,9 @@ public abstract class AbstractDao<T> {
     }
 
     public T splitCursor(Cursor c) {
-        if (c.getCount() == 0)
+        if (c.getCount() == 0) {
             return null;
+        }
         c.moveToFirst();
         T bean = transformeCursorToBean(c);
         c.close();

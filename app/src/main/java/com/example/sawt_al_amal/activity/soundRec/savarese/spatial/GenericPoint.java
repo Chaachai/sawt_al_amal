@@ -17,166 +17,105 @@
 
 package com.example.sawt_al_amal.activity.soundRec.savarese.spatial;
 
-/**
- * A Point implementation supporting k dimensions.
- */
+
 public class GenericPoint<Coord extends Comparable<? super Coord>>
-  implements Point<Coord>
-{
-  private Comparable<? super Coord>[] __coordinates;
+        implements Point<Coord> {
 
-  /**
-   * Constructs a GenericPoint with the specified dimensions.
-   *
-   * @param dimensions The number of dimensions in the point.  Must be
-   * greater than 0.
-   */
-  public GenericPoint(int dimensions) {
-    assert(dimensions > 0);
-    __coordinates  = new Comparable[dimensions];
-  }
+    private Comparable<? super Coord>[] __coordinates;
 
-  /**
-   * Two-dimensional convenience constructor.
-   *
-   * @param x The coordinate value of the first dimension.
-   * @param y The coordinate value of the second dimension.
-   */
-  public GenericPoint(Coord x, Coord y) {
-    this(2);
-    setCoord(0, x);
-    setCoord(1, y);
-  }
 
-  /**
-   * Three-dimensional convenience constructor.
-   *
-   * @param x The coordinate value of the first dimension.
-   * @param y The coordinate value of the second dimension.
-   * @param z The coordinate value of the third dimension.
-   */
-  public GenericPoint(Coord x, Coord y, Coord z) {
-    this(3);
-    setCoord(0, x);
-    setCoord(1, y);
-    setCoord(2, z);
-  }
+    public GenericPoint(int dimensions) {
+        assert (dimensions > 0);
+        __coordinates = new Comparable[dimensions];
+    }
 
-  /**
-   * Four-dimensional convenience constructor.
-   *
-   * @param x The coordinate value of the first dimension.
-   * @param y The coordinate value of the second dimension.
-   * @param z The coordinate value of the third dimension.
-   * @param w The coordinate value of the fourth dimension.
-   */
-  public GenericPoint(Coord x, Coord y, Coord z, Coord w) {
-    this(4);
-    setCoord(0, x);
-    setCoord(1, y);
-    setCoord(2, z);
-    setCoord(3, w);
-  }
 
-  /**
-   * Sets the value of the coordinate for the specified dimension.
-   *
-   * @param dimension The dimension (starting from 0) of the
-   * coordinate value to set.
-   * @param value The new value of the coordinate.
-   * @exception ArrayIndexOutOfBoundsException If the dimension is
-   * outside of the range [0,getDimensions()-1].
-   */
-  public void setCoord(int dimension, Coord value)
-    throws ArrayIndexOutOfBoundsException
-  {
-    __coordinates[dimension] = value;
-  }
+    public GenericPoint(Coord x, Coord y) {
+        this(2);
+        setCoord(0, x);
+        setCoord(1, y);
+    }
 
-  /**
-   * Returns the value of the coordinate for the specified dimension.
-   *
-   * @param dimension The dimension (starting from 0) of the
-   * coordinate value to retrieve.
-   * @return The value of the coordinate for the specified dimension.
-   * @exception ArrayIndexOutOfBoundsException If the dimension is
-   * outside of the range [0,getDimensions()-1].
-   */
-  public Coord getCoord(int dimension) {
-    return (Coord)__coordinates[dimension];
-  }
 
-  /**
-   * Returns the number of dimensions of the point.
-   *
-   * @return The number of dimensions of the point.
-   */
-  public int getDimensions() { return __coordinates.length; }
+    public GenericPoint(Coord x, Coord y, Coord z) {
+        this(3);
+        setCoord(0, x);
+        setCoord(1, y);
+        setCoord(2, z);
+    }
 
-  /**
-   * Returns the hash code value for this point.
-   *
-   * @return The hash code value for this point.
-   */
-  public int hashCode() {
-    int hash = 0;
-    for(Comparable<? super Coord> c : __coordinates)
-      hash+=c.hashCode();
-    return hash;
-  }
 
-  /**
-   * Returns true if the specified object is equal to the GenericPoint.
-   *
-   * @param obj The object to test for equality.
-   * @return true if the specified object is equal to the
-   * GenericPoint, false if not.
-   */
-  public boolean equals(Object obj) {
-    if(!(obj instanceof GenericPoint)) 
-      return false;
+    public GenericPoint(Coord x, Coord y, Coord z, Coord w) {
+        this(4);
+        setCoord(0, x);
+        setCoord(1, y);
+        setCoord(2, z);
+        setCoord(3, w);
+    }
 
-    GenericPoint point = (GenericPoint)obj;
 
-    for(int i = 0; i < __coordinates.length; ++i)
-      if(!__coordinates[i].equals(point.getCoord(i)))
-        return false;
+    public void setCoord(int dimension, Coord value)
+            throws ArrayIndexOutOfBoundsException {
+        __coordinates[dimension] = value;
+    }
 
-    return true;
-  }
+    public Coord getCoord(int dimension) {
+        return (Coord) __coordinates[dimension];
+    }
 
-  /**
-   * Returns a copy of the point.
-   *
-   * @return A copy of the point.
-   */
-  public Object clone() {
-    GenericPoint<Coord> point =
-      new GenericPoint<Coord>(__coordinates.length);
-    for(int i = 0; i < __coordinates.length; ++i)
-      point.setCoord(i, (Coord)__coordinates[i]);
-    return point;
-  }
 
-  /**
-   * Returns a string representation of the point, listing its
-   * coordinate values in order.
-   *
-   * @return A string representation of the point.
-   */
-  public String toString() {
-    StringBuffer buffer = new StringBuffer();
+    public int getDimensions() {
+        return __coordinates.length;
+    }
 
-    buffer.append("[ ");
-    buffer.append(__coordinates[0].toString());
+    public int hashCode() {
+        int hash = 0;
+        for (Comparable<? super Coord> c : __coordinates) {
+            hash += c.hashCode();
+        }
+        return hash;
+    }
 
-    for(int i = 1; i < __coordinates.length; ++i) {
-      buffer.append(", ");
-      buffer.append(__coordinates[i].toString());
-    }    
+    public boolean equals(Object obj) {
+        if (!(obj instanceof GenericPoint)) {
+            return false;
+        }
 
-    buffer.append(" ]");
+        GenericPoint point = (GenericPoint) obj;
 
-    return buffer.toString();
-  }
+        for (int i = 0; i < __coordinates.length; ++i) {
+            if (!__coordinates[i].equals(point.getCoord(i))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    public Object clone() {
+        GenericPoint<Coord> point =
+                new GenericPoint<Coord>(__coordinates.length);
+        for (int i = 0; i < __coordinates.length; ++i) {
+            point.setCoord(i, (Coord) __coordinates[i]);
+        }
+        return point;
+    }
+
+
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+
+        buffer.append("[ ");
+        buffer.append(__coordinates[0].toString());
+
+        for (int i = 1; i < __coordinates.length; ++i) {
+            buffer.append(", ");
+            buffer.append(__coordinates[i].toString());
+        }
+
+        buffer.append(" ]");
+
+        return buffer.toString();
+    }
 }

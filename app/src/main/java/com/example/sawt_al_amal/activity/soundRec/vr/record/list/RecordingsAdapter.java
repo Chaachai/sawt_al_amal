@@ -2,17 +2,15 @@ package com.example.sawt_al_amal.activity.soundRec.vr.record.list;
 
 import android.app.Activity;
 import android.content.Intent;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
+import androidx.recyclerview.widget.RecyclerView;
 import com.example.sawt_al_amal.R;
 import com.example.sawt_al_amal.activity.soundRec.vr.record.recorder.RecordActivity;
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,19 +21,24 @@ public class RecordingsAdapter extends RecyclerView.Adapter<RecordingsAdapter.Vi
     private static final String TAG = RecordingsAdapter.class.getSimpleName();
 
     private final Activity activity;
+
     private final RecordingsDatabase recordingsDatabase;
+
     private final SimpleDateFormat dateFormat;
+
     private final OnRemovedAllListener onRemovedAllListener;
 
     private List<Recording> recordingList;
+
     private int requestCodeEdit;
 
     public interface OnRemovedAllListener {
+
         void onRemovedAll();
     }
 
     public RecordingsAdapter(Activity activity, OnRemovedAllListener onRemovedAllListener,
-                             int requestCodeEdit) {
+            int requestCodeEdit) {
         this.activity = activity;
         this.onRemovedAllListener = onRemovedAllListener;
         this.requestCodeEdit = requestCodeEdit;
@@ -110,8 +113,11 @@ public class RecordingsAdapter extends RecyclerView.Adapter<RecordingsAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         private final View view;
+
         private final TextView name;
+
         private final TextView date;
+
         private final ImageButton delete;
 
         public ViewHolder(View view) {
