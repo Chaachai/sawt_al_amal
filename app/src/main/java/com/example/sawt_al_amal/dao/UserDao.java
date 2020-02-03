@@ -3,12 +3,12 @@ package com.example.sawt_al_amal.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-
 import com.example.sawt_al_amal.bean.User;
 import com.example.sawt_al_amal.dao.helper.AbstractDao;
 import com.example.sawt_al_amal.dao.helper.DbStructure;
 
 public class UserDao extends AbstractDao<User> {
+
     @Override
     public long create(User user) {
         open();
@@ -30,7 +30,8 @@ public class UserDao extends AbstractDao<User> {
         contentValues.put(DbStructure.User.C_PASSWORD, user.getFirstName());
         contentValues.put(DbStructure.User.C_USERNAME, user.getFirstName());
         contentValues.put(DbStructure.User.C_EMAIL, user.getFirstName());
-        return db.update(DbStructure.User.T_NAME, contentValues, DbStructure.User._ID + " = '" + user.getId() + "'", null);
+        return db.update(DbStructure.User.T_NAME, contentValues, DbStructure.User._ID + " = '" + user.getId() + "'",
+                null);
     }
 
     public long remove(User user) {

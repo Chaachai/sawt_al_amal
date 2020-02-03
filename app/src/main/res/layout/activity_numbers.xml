@@ -118,9 +118,8 @@
                         android:textSize="30sp" />
 
 
-
-
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -173,9 +172,8 @@
                         android:textSize="30sp" />
 
 
-
-
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -228,9 +226,8 @@
                         android:textSize="30sp" />
 
 
-
-
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -283,6 +280,7 @@
                         android:textSize="30sp" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -335,9 +333,8 @@
                         android:textSize="30sp" />
 
 
-
-
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -390,9 +387,8 @@
                         android:textSize="30sp" />
 
 
-
-
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -445,9 +441,8 @@
                         android:textSize="30sp" />
 
 
-
-
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -501,6 +496,7 @@
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -509,16 +505,16 @@
                     android:layout_marginBottom="20dp"
                     android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btn32"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    android:background="@drawable/round_button"
-                    android:gravity="center"
-                    android:text="32"
-                    android:layout_marginRight="10dp"
-                    android:textColor="#fff"
-                    android:textSize="30sp" />
+                    <Button
+                        android:id="@+id/btn32"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:background="@drawable/round_button"
+                        android:gravity="center"
+                        android:text="32"
+                        android:layout_marginRight="10dp"
+                        android:textColor="#fff"
+                        android:textSize="30sp" />
 
                     <Button
                         android:id="@+id/btn33"

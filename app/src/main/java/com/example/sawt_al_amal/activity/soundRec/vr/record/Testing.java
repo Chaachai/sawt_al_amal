@@ -1,16 +1,14 @@
 package com.example.sawt_al_amal.activity.soundRec.vr.record;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.example.sawt_al_amal.R;
 import com.example.sawt_al_amal.activity.soundRec.vr.record.Recognizer.SoundsManager;
 import com.example.sawt_al_amal.activity.soundRec.vr.record.list.Recording;
 import com.example.sawt_al_amal.activity.soundRec.vr.record.list.RecordingsDatabase;
 import com.example.sawt_al_amal.activity.soundRec.vr.record.recorder.SoundFile;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.ShortBuffer;
@@ -22,6 +20,7 @@ import java.util.Set;
 public class Testing extends AppCompatActivity {
 
     private static final Object WAV_EXTENSION = ".wav";
+
     private static final String TAG = Testing.class.getSimpleName();
 
 
@@ -101,7 +100,7 @@ public class Testing extends AppCompatActivity {
             short[] array = new short[samples.limit()];
             samples.get(array);
             String s = soundsManager.recognizeSound(array);
-            Log.e(TAG, "FINAL RECOGNITION: "+ s);
+            Log.e(TAG, "FINAL RECOGNITION: " + s);
             Toast.makeText(this, "FOUND " + s, Toast.LENGTH_SHORT).show();
             winnerMethod(soundsManager);
         }

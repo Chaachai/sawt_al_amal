@@ -1,12 +1,10 @@
 package com.example.sawt_al_amal.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import com.example.sawt_al_amal.R;
 
 public class LessonsActivity extends AppCompatActivity {

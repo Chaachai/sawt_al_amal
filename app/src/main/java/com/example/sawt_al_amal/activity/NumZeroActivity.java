@@ -1,12 +1,10 @@
 package com.example.sawt_al_amal.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.example.sawt_al_amal.R;
 
 public class NumZeroActivity extends AppCompatActivity {

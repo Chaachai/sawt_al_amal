@@ -1,18 +1,17 @@
 package com.example.sawt_al_amal.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import com.example.sawt_al_amal.R;
 import com.example.sawt_al_amal.activity.soundRec.vr.record.MainActivity2;
 
 public class HomeActivity extends AppCompatActivity {
 
     CardView lessons_cv;
+
     CardView noise_cv;
 
     @Override

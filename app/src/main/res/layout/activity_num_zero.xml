@@ -90,8 +90,7 @@
                 android:textSize="22dp"
                 android:focusableInTouchMode="false"
                 android:background="@drawable/round_green_button"
-                android:text="السابق">
-            </Button>
+                android:text="السابق"></Button>
 
             <Button
                 android:id="@+id/menu_btn"
@@ -129,10 +128,7 @@
         </LinearLayout>
 
 
-
-
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

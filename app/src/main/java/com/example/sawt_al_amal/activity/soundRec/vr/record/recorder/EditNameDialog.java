@@ -1,7 +1,6 @@
 package com.example.sawt_al_amal.activity.soundRec.vr.record.recorder;
 
 import android.os.Bundle;
-import androidx.fragment.app.DialogFragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,13 +9,14 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import androidx.fragment.app.DialogFragment;
 import com.example.sawt_al_amal.R;
 
 
 public class EditNameDialog extends DialogFragment implements TextView.OnEditorActionListener {
 
     public interface EditNameDialogListener {
+
         void onFinishEditDialog(String inputText);
     }
 
@@ -28,7 +28,7 @@ public class EditNameDialog extends DialogFragment implements TextView.OnEditorA
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+            Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit_name, container);
         mEditText = (EditText) view.findViewById(R.id.txt_your_name);
         getDialog().setTitle(getString(R.string.enter_recording_name));

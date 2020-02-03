@@ -1,11 +1,17 @@
 package com.example.sawt_al_amal.bean;
 
 public class User {
+
     private int id;
+
     private String lastName;
+
     private String firstName;
+
     private String password;
+
     private String username;
+
     private String email;
 
 

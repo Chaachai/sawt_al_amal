@@ -23,19 +23,20 @@ package com.example.sawt_al_amal.activity.soundRec.savarese.spatial;
  * structures.
  */
 public interface Point<Coord extends Comparable<? super Coord>> {
-  /**
-   * Returns the value of the coordinate of the given dimension.
-   *
-   * @return The value of the coordinate of the given dimension.
-   * @exception IllegalArgumentException if the Point does not
-   *            support the dimension.
-   */
-  public Coord getCoord(int dimension);
 
-  /**
-   * Returns the number of dimensions in the point.
-   *
-   * @return The number of dimensions in the point.
-   */
-  public int getDimensions();
+    /**
+     * Returns the value of the coordinate of the given dimension.
+     *
+     * @return The value of the coordinate of the given dimension.
+     * @throws IllegalArgumentException if the Point does not
+     *                                  support the dimension.
+     */
+    public Coord getCoord(int dimension);
+
+    /**
+     * Returns the number of dimensions in the point.
+     *
+     * @return The number of dimensions in the point.
+     */
+    public int getDimensions();
 }

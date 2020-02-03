@@ -1,7 +1,9 @@
 package com.example.sawt_al_amal.util;
 
 public class SessionItem {
+
     private String key;
+
     private Object object;
 
     public String getKey() {

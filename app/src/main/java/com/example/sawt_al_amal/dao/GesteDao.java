@@ -3,7 +3,6 @@ package com.example.sawt_al_amal.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-
 import com.example.sawt_al_amal.bean.Category;
 import com.example.sawt_al_amal.bean.Cours;
 import com.example.sawt_al_amal.bean.Geste;
@@ -11,6 +10,7 @@ import com.example.sawt_al_amal.dao.helper.AbstractDao;
 import com.example.sawt_al_amal.dao.helper.DbStructure;
 
 public class GesteDao extends AbstractDao<Geste> {
+
     @Override
     public long create(Geste geste) {
         open();
@@ -32,7 +32,9 @@ public class GesteDao extends AbstractDao<Geste> {
         contentValues.put(DbStructure.Geste.C_TEXT, geste.getText());
         contentValues.put(DbStructure.Geste.C_ID_COURS, geste.getCours().getId());
         contentValues.put(DbStructure.Geste.C_ID_COURS, geste.getCours().getId());
-        return db.update(DbStructure.Geste.T_NAME, contentValues, DbStructure.Geste._ID + " = '" + geste.getId() + "'", null);
+        return db
+                .update(DbStructure.Geste.T_NAME, contentValues, DbStructure.Geste._ID + " = '" + geste.getId() + "'",
+                        null);
     }
 
     public long remove(Geste geste) {

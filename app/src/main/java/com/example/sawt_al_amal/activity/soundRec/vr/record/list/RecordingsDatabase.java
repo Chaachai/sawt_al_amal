@@ -5,22 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
-
 import java.util.LinkedList;
 import java.util.List;
 
 public class RecordingsDatabase {
-
-    private static final String TAG = RecordingsDatabase.class.getSimpleName();
-
-    public static final String DATABASE_NAME = "recordings_db";
-
-    public static final String TABLE_NAME = "recordings";
-    public static final String COLUMN_NAME = "name";
-    public static final String COLUMN_TIMESTAMP = "timestamp";
-
-    private DbHelper dbHelper;
 
     public class DbHelper extends SQLiteOpenHelper {
 
@@ -29,7 +20,8 @@ public class RecordingsDatabase {
         private static final String TABLE_CREATE =
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         COLUMN_NAME + " TEXT, " +
-                        COLUMN_TIMESTAMP + " LONG);";
+                        COLUMN_IMAGE + " BLOB, "
+                        + COLUMN_TIMESTAMP + " LONG);";
 
         private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TABLE_NAME;
 
@@ -48,20 +40,59 @@ public class RecordingsDatabase {
         }
     }
 
+    private static final String TAG = "recordings_db";
+
+    public static final String DATABASE_NAME = "recordings_db";
+
+    public static final String TABLE_NAME = "recordings";
+
+    public static final String COLUMN_NAME = "name";
+
+    public static final String COLUMN_TIMESTAMP = "timestamp";
+
+    public static final String COLUMN_IMAGE = "image";
+
+    private static DbHelper dbHelper;
+
+    public static Bitmap findImage(String sound) {
+        Log.d(TAG, "saveRecording " + 2);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Log.d(TAG, "saveRecording " + 2);
+        byte[] column1 = null;
+        Cursor c = db.rawQuery("SELECT image FROM  recordings WHERE name LIKE ? ", new String[]{sound + ""});
+        if (c.moveToFirst()) {
+            do {
+                int id1 = c.getColumnIndex("image");
+                column1 = c.getBlob(id1);
+
+                if (column1 == null) {
+                    Log.d("OUCH", "Row   is null");
+                }
+
+                Log.d(TAG, "saveRecording " + column1.length);
+
+            } while (c.moveToNext());
+
+        }
+        return getImage(column1);
+
+    }
+
+    public static Bitmap getImage(byte[] image) {
+        return BitmapFactory.decodeByteArray(image, 0, image.length);
+    }
+
     public RecordingsDatabase(Context context) {
         this.dbHelper = new DbHelper(context);
     }
 
-    public void saveRecording(Recording recording) {
-        Log.d(TAG, "saveRecording " + recording.getName() + " timestamp " + recording.getTimestamp());
-
+    public boolean deleteRecording(Long timestamp) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME, recording.getName());
-        values.put(COLUMN_TIMESTAMP, recording.getTimestamp());
+        String selection = COLUMN_TIMESTAMP + " LIKE ?";
+        String[] selectionArgs = {String.valueOf(timestamp)};
 
-        db.insert(TABLE_NAME, null, values);
+        return db.delete(TABLE_NAME, selection, selectionArgs) > 0;
     }
 
     public List<Recording> getAllRecordings() {
@@ -90,12 +121,15 @@ public class RecordingsDatabase {
         return recordings;
     }
 
-    public boolean deleteRecording(Long timestamp) {
+    public void saveRecording(Recording recording) {
+        Log.d(TAG, "saveRecording " + recording.getName() + " timestamp " + recording.getTimestamp());
+
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        String selection = COLUMN_TIMESTAMP + " LIKE ?";
-        String[] selectionArgs = { String.valueOf(timestamp) };
-
-        return db.delete(TABLE_NAME, selection, selectionArgs) > 0;
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NAME, recording.getName());
+        values.put(COLUMN_TIMESTAMP, recording.getTimestamp());
+        values.put(COLUMN_IMAGE, recording.getImage());
+        db.insert(TABLE_NAME, null, values);
     }
 }

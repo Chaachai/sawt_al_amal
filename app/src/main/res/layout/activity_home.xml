@@ -60,7 +60,7 @@
                         android:id="@+id/textViewSub1Title"
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="تعلم لغة الإشارة"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
@@ -94,7 +94,7 @@
                         android:id="@+id/textViewSub1Title2"
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="التواصل بالإشارات"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
@@ -129,13 +129,13 @@
                         android:id="@+id/textViewSub1Title4"
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="التعرف على الأصوات"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title4"
                         android:text="تعرف على نوع الأصوات في الجوار"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <ImageView
                         style="@style/homeCardImage"
@@ -163,13 +163,13 @@
                         android:id="@+id/textViewSub1Title3"
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="الإعدادات"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title3"
                         android:text="ضبط إعدادات التطبيق"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <ImageView
                         style="@style/homeCardImage"

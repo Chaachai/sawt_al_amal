@@ -3,14 +3,12 @@ package com.example.sawt_al_amal.activity.soundRec.vr.record.recorder;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import androidx.annotation.Nullable;
 import android.util.Log;
-
+import androidx.annotation.Nullable;
 import com.example.sawt_al_amal.activity.soundRec.vr.record.Recognizer.ResultsManager;
 import com.example.sawt_al_amal.activity.soundRec.vr.record.Recognizer.SoundsManager;
 import com.example.sawt_al_amal.activity.soundRec.vr.record.list.Recording;
 import com.example.sawt_al_amal.activity.soundRec.vr.record.list.RecordingsDatabase;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.ShortBuffer;
@@ -22,7 +20,9 @@ public class ContinuousRecordingService extends Service implements ContinuousRec
     private static final Object WAV_EXTENSION = ".wav";
 
     private static final String TAG = ContinuousRecordingService.class.getSimpleName();
+
     private SoundsManager soundsManager;
+
     private ContinuousRecorder continuousRecorder;
 
     @Nullable
@@ -114,7 +114,7 @@ public class ContinuousRecordingService extends Service implements ContinuousRec
     @Override
     public void onBufferReady(short[] array) {
         String s = soundsManager.recognizeSound(array);
-        if(!s.contains("noise")) {
+        if (!s.contains("noise")) {
             //Notify recognized sound.
             ResultsManager.setRecognizedSound(s);
         }
