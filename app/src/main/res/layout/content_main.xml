@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,6 +16,7 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -30,7 +30,7 @@
                 android:layout_marginTop="00dp"
                 android:gravity="center"
                 android:textColor="@color/accent"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/logo"
@@ -40,8 +40,7 @@
                 android:gravity="center"
                 android:layout_marginTop="0dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/logo"
-                android:tint="@color/accent"/>
+                android:src="@drawable/logo" />
 
             <TextView
                 android:id="@+id/add_recordings"
@@ -52,8 +51,8 @@
                 android:layout_marginTop="50dp"
                 android:gravity="center"
                 android:text="@string/add_recordings"
-                android:textColor="@color/accent"
-                android:textSize="18sp"/>
+                android:textColor="@color/bottomNavigationBackground"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/recordings_list"
@@ -62,9 +61,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/add_recordings"
                 android:layout_centerHorizontal="true"
-                android:textSize="20dp"
                 android:layout_marginTop="20dp"
-                android:text="@string/recordings_list"/>
+                android:text="@string/recordings_list"
+                android:textColor="@color/accent"
+                android:textColorLink="@color/accent"
+                android:textSize="20dp" />
 
             <Button
                 android:id="@+id/testing"
@@ -75,17 +76,18 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
                 android:visibility="gone"
-                android:text="TESTING"/>
+                android:text="TESTING" />
 
             <Button
                 android:id="@+id/start_recognition"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
                 android:layout_below="@id/recordings_list"
                 android:layout_centerHorizontal="true"
-                android:text="Start Recognition"/>
+                android:text="ابدء التعرف"
+                android:textColor="@color/accent"
+                android:textSize="20dp" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

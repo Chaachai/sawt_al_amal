@@ -2,12 +2,11 @@ package com.example.sawt_al_amal.activity.soundRec.vr.record.list;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
-import android.widget.Toast;
-
 import com.example.sawt_al_amal.R;
 
 
@@ -16,6 +15,7 @@ public class RecordingsListActivity extends AppCompatActivity implements Recordi
     private static final String TAG = RecordingsListActivity.class.getSimpleName();
 
     private static final int REQ_CODE_EDIT = 1;
+
     private RecordingsAdapter adapter;
 
     @Override

@@ -1,23 +1,27 @@
 package com.example.sawt_al_amal.activity.soundRec.vr.record.recorder;
 
-import android.content.Intent;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
-import android.util.Log;
 
 public class ContinuousRecorder implements AudioRecord.OnRecordPositionUpdateListener {
 
     private static final String TAG = ContinuousRecorder.class.getSimpleName();
 
     private static final int SAMPLE_RATE = 16000;
+
     private static final int SAMPLES_PER_FRAME = SAMPLE_RATE / 4;
+
     private static final int BYTES_PER_SAMPLE = 2;
+
     private final OnBufferReadyListener onBufferReadyListener;
+
     private AudioRecord audioRecord = null;
+
     private short[] buffer;
 
     public interface OnBufferReadyListener {
+
         void onBufferReady(short[] buffer);
     }
 

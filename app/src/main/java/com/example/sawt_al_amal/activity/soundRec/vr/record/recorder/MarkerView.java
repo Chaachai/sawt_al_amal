@@ -37,18 +37,30 @@ import android.widget.ImageView;
 public class MarkerView extends ImageView {
 
     public interface MarkerListener {
+
         public void markerTouchStart(MarkerView marker, float pos);
+
         public void markerTouchMove(MarkerView marker, float pos);
+
         public void markerTouchEnd(MarkerView marker);
+
         public void markerFocus(MarkerView marker);
+
         public void markerLeft(MarkerView marker, int velocity);
+
         public void markerRight(MarkerView marker, int velocity);
+
         public void markerEnter(MarkerView marker);
+
         public void markerKeyUp();
+
         public void markerDraw();
-    };
+    }
+
+    ;
 
     private int mVelocity;
+
     private MarkerListener mListener;
 
     public MarkerView(Context context, AttributeSet attrs) {
@@ -67,30 +79,31 @@ public class MarkerView extends ImageView {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        switch(event.getAction()) {
-        case MotionEvent.ACTION_DOWN:
-            requestFocus();
-            // We use raw x because this window itself is going to
-            // move, which will screw up the "local" coordinates
-            mListener.markerTouchStart(this, event.getRawX());
-            break;
-        case MotionEvent.ACTION_MOVE:
-            // We use raw x because this window itself is going to
-            // move, which will screw up the "local" coordinates
-            mListener.markerTouchMove(this, event.getRawX());
-            break;
-        case MotionEvent.ACTION_UP:
-            mListener.markerTouchEnd(this);
-            break;
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                requestFocus();
+                // We use raw x because this window itself is going to
+                // move, which will screw up the "local" coordinates
+                mListener.markerTouchStart(this, event.getRawX());
+                break;
+            case MotionEvent.ACTION_MOVE:
+                // We use raw x because this window itself is going to
+                // move, which will screw up the "local" coordinates
+                mListener.markerTouchMove(this, event.getRawX());
+                break;
+            case MotionEvent.ACTION_UP:
+                mListener.markerTouchEnd(this);
+                break;
         }
         return true;
     }
 
     @Override
     protected void onFocusChanged(boolean gainFocus, int direction,
-                                  Rect previouslyFocusedRect) {
-        if (gainFocus && mListener != null)
+            Rect previouslyFocusedRect) {
+        if (gainFocus && mListener != null) {
             mListener.markerFocus(this);
+        }
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
     }
 
@@ -98,8 +111,9 @@ public class MarkerView extends ImageView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if (mListener != null)
+        if (mListener != null) {
             mListener.markerDraw();
+        }
     }
 
     @Override
@@ -125,8 +139,9 @@ public class MarkerView extends ImageView {
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         mVelocity = 0;
-        if (mListener != null)
+        if (mListener != null) {
             mListener.markerKeyUp();
+        }
         return super.onKeyDown(keyCode, event);
     }
 }

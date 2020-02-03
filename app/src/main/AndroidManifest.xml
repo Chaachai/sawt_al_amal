@@ -15,13 +15,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.SpeechActivity"></activity>
+        <activity android:name=".activity.CreateGeste"></activity>
+        <activity
+            android:name=".activity.GesteActivity"
+            android:label="تعلم الأرقام والأعداد"
+            android:parentActivityName=".activity.NumbersActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.NumbersActivity"/>
+        </activity>
         <activity android:name=".activity.DisplayActivity"></activity>
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.SpeechActivity" />
-        <activity android:name=".activity.CreateGeste" />
-        <activity android:name=".activity.GesteActivity" />
         <activity android:name=".activity.NumZeroActivity" />
-        <activity android:name=".activity.NumbersActivity" /> <!-- SOUND REC -->
+        <activity
+            android:name=".activity.NumbersActivity"
+            android:label="تعلم الأرقام والأعداد"
+            android:parentActivityName=".activity.LevelsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.LevelsActivity"
+            />
+        </activity>
+        <!-- SOUND REC -->
         <activity
             android:name=".activity.soundRec.vr.record.MainActivity2"
             android:configChanges="keyboard|orientation|screenSize"

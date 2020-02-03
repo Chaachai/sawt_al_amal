@@ -1,6 +1,7 @@
 package com.example.sawt_al_amal.bean;
 
 public class Category {
+
     private int id;
     private String libelle;
 

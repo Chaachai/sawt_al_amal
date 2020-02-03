@@ -17,36 +17,37 @@
 
 package com.example.sawt_al_amal.activity.soundRec.savarese.spatial;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * A RangeSearchTree is a spatial data structure that supports the
  * retrieval of data associated with point keys as well as the
  * searching of data that occurs within a specified range of points.
- * 
+ *
  * <p>Note: RangeSearchTree does not implement SortedMap for range
  * searching bcause the SortedMap interface is not well-suited to
  * multi-dimensional range search trees.</p>
  */
 public interface RangeSearchTree<Coord extends Comparable<? super Coord>,
-                                     P extends Point<Coord>, V>
-  extends Map<P, V>
-{
-  /**
-   * Returns an iterator for mappings that are contained in the
-   * rectangle defined by the given lower left-hand and upper
-   * right-hand corners.  The mappings returned include those occuring
-   * at points on the bounding rectangle, not just those inside.
-   *
-   * @param lower The lower left-hand corner of the bounding
-   * rectangle.  A null value can be used to specify the region is
-   * unbounded in that direction.
-   * @param upper The upper right-hand corner of the bounding
-   * rectangle.  A null value can be used to specify the region is
-   * unbounded in that direction.
-   * @return An iterator for mappings that are contained in the
-   * specified rectangle.
-   */
-  public Iterator<Map.Entry<P,V>> iterator(P lower, P upper);
+        P extends Point<Coord>, V>
+        extends Map<P, V> {
+
+    /**
+     * Returns an iterator for mappings that are contained in the
+     * rectangle defined by the given lower left-hand and upper
+     * right-hand corners.  The mappings returned include those occuring
+     * at points on the bounding rectangle, not just those inside.
+     *
+     * @param lower The lower left-hand corner of the bounding
+     *              rectangle.  A null value can be used to specify the region is
+     *              unbounded in that direction.
+     * @param upper The upper right-hand corner of the bounding
+     *              rectangle.  A null value can be used to specify the region is
+     *              unbounded in that direction.
+     * @return An iterator for mappings that are contained in the
+     * specified rectangle.
+     */
+    public Iterator<Map.Entry<P, V>> iterator(P lower, P upper);
 
 }

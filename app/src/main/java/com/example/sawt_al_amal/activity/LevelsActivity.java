@@ -9,20 +9,31 @@ import android.view.View;
 
 import com.example.sawt_al_amal.R;
 import com.example.sawt_al_amal.bean.Category;
+import com.example.sawt_al_amal.bean.Cours;
+import com.example.sawt_al_amal.bean.Niveau;
 import com.example.sawt_al_amal.facade.CategoryFacade;
+import com.example.sawt_al_amal.facade.CoursFacade;
+import com.example.sawt_al_amal.facade.NiveauFacade;
+
+import java.util.List;
 
 public class LevelsActivity extends AppCompatActivity {
 
     CardView numbers_cv;
 
-//    NiveauFacade niveauFacade = new NiveauFacade(this);
 //    CoursFacade coursFacade = new CoursFacade(this);
-//    CategoryFacade categoryFacade = new CategoryFacade(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
+
+//        List<Cours> cours = coursFacade.findAll();
+
+//        if (cours.size() == 0) {
+//            coursFacade.create(new Cours())
+//        }
+//
 
 //        categoryFacade.create(new Category("TEST 1"));
 //        categoryFacade.create(new Category( "TEST 2"));
@@ -70,6 +81,7 @@ public class LevelsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LevelsActivity.this, NumbersActivity.class));
+                finish();
             }
         });
     }

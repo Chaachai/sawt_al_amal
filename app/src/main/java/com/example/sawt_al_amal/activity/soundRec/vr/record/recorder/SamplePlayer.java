@@ -19,23 +19,35 @@ package com.example.sawt_al_amal.activity.soundRec.vr.record.recorder;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
-
 import java.nio.ShortBuffer;
 
 class SamplePlayer {
+
     public interface OnCompletionListener {
+
         public void onCompletion();
-    };
+    }
+
+    ;
 
     private ShortBuffer mSamples;
+
     private int mSampleRate;
+
     private int mChannels;
+
     private int mNumSamples;  // Number of samples per channel.
+
     private AudioTrack mAudioTrack;
+
     private short[] mBuffer;
+
     private int mPlaybackStart;  // Start offset, in samples.
+
     private Thread mPlayThread;
+
     private boolean mKeepPlaying;
+
     private OnCompletionListener mListener;
 
     public SamplePlayer(ShortBuffer samples, int sampleRate, int channels, int numSamples) {
@@ -53,7 +65,7 @@ class SamplePlayer {
         if (bufferSize < mChannels * mSampleRate * 2) {
             bufferSize = mChannels * mSampleRate * 2;
         }
-        mBuffer = new short[bufferSize/2]; // bufferSize is in Bytes.
+        mBuffer = new short[bufferSize / 2]; // bufferSize is in Bytes.
         mAudioTrack = new AudioTrack(
                 AudioManager.STREAM_MUSIC,
                 mSampleRate,
@@ -65,17 +77,18 @@ class SamplePlayer {
         mAudioTrack.setNotificationMarkerPosition(mNumSamples - 1);  // Set the marker to the end.
         mAudioTrack.setPlaybackPositionUpdateListener(
                 new AudioTrack.OnPlaybackPositionUpdateListener() {
-            @Override
-            public void onPeriodicNotification(AudioTrack track) {}
+                    @Override
+                    public void onPeriodicNotification(AudioTrack track) {
+                    }
 
-            @Override
-            public void onMarkerReached(AudioTrack track) {
-                stop();
-                if (mListener != null) {
-                    mListener.onCompletion();
-                }
-            }
-        });
+                    @Override
+                    public void onMarkerReached(AudioTrack track) {
+                        stop();
+                        if (mListener != null) {
+                            mListener.onCompletion();
+                        }
+                    }
+                });
         mPlayThread = null;
         mKeepPlaying = true;
         mListener = null;
@@ -113,10 +126,10 @@ class SamplePlayer {
                 int limit = mNumSamples * mChannels;
                 while (mSamples.position() < limit && mKeepPlaying) {
                     int numSamplesLeft = limit - mSamples.position();
-                    if(numSamplesLeft >= mBuffer.length) {
+                    if (numSamplesLeft >= mBuffer.length) {
                         mSamples.get(mBuffer);
                     } else {
-                        for(int i=numSamplesLeft; i<mBuffer.length; i++) {
+                        for (int i = numSamplesLeft; i < mBuffer.length; i++) {
                             mBuffer[i] = 0;
                         }
                         mSamples.get(mBuffer, 0, numSamplesLeft);
@@ -160,7 +173,7 @@ class SamplePlayer {
     public void seekTo(int msec) {
         boolean wasPlaying = isPlaying();
         stop();
-        mPlaybackStart = (int)(msec * (mSampleRate / 1000.0));
+        mPlaybackStart = (int) (msec * (mSampleRate / 1000.0));
         if (mPlaybackStart > mNumSamples) {
             mPlaybackStart = mNumSamples;  // Nothing to play...
         }
@@ -171,7 +184,7 @@ class SamplePlayer {
     }
 
     public int getCurrentPosition() {
-        return (int)((mPlaybackStart + mAudioTrack.getPlaybackHeadPosition()) *
+        return (int) ((mPlaybackStart + mAudioTrack.getPlaybackHeadPosition()) *
                 (1000.0 / mSampleRate));
     }
 }
