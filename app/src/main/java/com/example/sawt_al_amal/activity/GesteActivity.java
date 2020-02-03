@@ -3,9 +3,12 @@ package com.example.sawt_al_amal.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sawt_al_amal.R;
@@ -24,6 +27,7 @@ public class GesteActivity extends AppCompatActivity {
 
     TextView geste_text;
     GifImageView geste_gif;
+    ImageView geste_image;
     Button createGeste;
     Button next;
     Button back;
@@ -45,6 +49,7 @@ public class GesteActivity extends AppCompatActivity {
         createGeste = findViewById(R.id.createGeste);
         geste_text = findViewById(R.id.geste_text);
         geste_gif = findViewById(R.id.geste_gif);
+        geste_image = findViewById(R.id.geste_image);
 
         next = findViewById(R.id.next_btn);
         back = findViewById(R.id.back_btn);
@@ -80,6 +85,7 @@ public class GesteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(GesteActivity.this, NumbersActivity.class));
+                finish();
             }
         });
 
@@ -98,6 +104,13 @@ public class GesteActivity extends AppCompatActivity {
             if (geste != null) {
                 createGeste.setVisibility(View.GONE);
                 geste_text.setText(geste.getText());
+                if(geste.getImage() != null){
+                    byte[] gesteImage = geste.getImage();
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(gesteImage, 0, gesteImage.length);
+                    geste_image.setImageBitmap(bitmap);
+                }else {
+                    geste_image.setVisibility(View.GONE);
+                }
                 try {
                     geste_gif.setImageDrawable(new GifDrawable(geste.getGif()));
                     geste_gif.setVisibility(View.VISIBLE);
@@ -108,11 +121,13 @@ public class GesteActivity extends AppCompatActivity {
                 createGeste.setVisibility(View.VISIBLE);
                 geste_text.setText("");
                 geste_gif.setVisibility(View.GONE);
+                geste_image.setVisibility(View.GONE);
             }
 
         } else {
             geste_text.setText("");
             geste_gif.setVisibility(View.GONE);
+            geste_image.setVisibility(View.GONE);
         }
 
 

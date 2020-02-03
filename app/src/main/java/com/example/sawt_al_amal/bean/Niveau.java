@@ -12,6 +12,12 @@ public class Niveau {
     public Niveau() {
     }
 
+    public Niveau(String nom, String description, int reqPoints) {
+        this.nom = nom;
+        this.description = description;
+        this.reqPoints = reqPoints;
+    }
+
     public Niveau(int id, String nom, String description, byte[] icon, int reqPoints) {
         this.id = id;
         this.nom = nom;
