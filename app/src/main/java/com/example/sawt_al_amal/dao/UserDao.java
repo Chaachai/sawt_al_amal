@@ -3,12 +3,12 @@ package com.example.sawt_al_amal.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+
 import com.example.sawt_al_amal.bean.User;
 import com.example.sawt_al_amal.dao.helper.AbstractDao;
 import com.example.sawt_al_amal.dao.helper.DbStructure;
 
 public class UserDao extends AbstractDao<User> {
-
     @Override
     public long create(User user) {
         open();
@@ -30,13 +30,12 @@ public class UserDao extends AbstractDao<User> {
         contentValues.put(DbStructure.User.C_PASSWORD, user.getFirstName());
         contentValues.put(DbStructure.User.C_USERNAME, user.getFirstName());
         contentValues.put(DbStructure.User.C_EMAIL, user.getFirstName());
-        return db.update(DbStructure.User.T_NAME, contentValues, DbStructure.User._ID + " = '" + user.getId() + "'",
-                null);
+        return db.update(DbStructure.User.T_NAME, contentValues, DbStructure.User.C_ID + " = '" + user.getId() + "'", null);
     }
 
     public long remove(User user) {
         open();
-        return db.delete(DbStructure.User.T_NAME, DbStructure.User._ID + "=" + user.getId(), null);
+        return db.delete(DbStructure.User.T_NAME, DbStructure.User.C_ID + "=" + user.getId(), null);
     }
 
     protected User transformeCursorToBean(Cursor cursor) {
@@ -53,6 +52,7 @@ public class UserDao extends AbstractDao<User> {
     public UserDao(Context context) {
         super(context);
         columns = new String[]{
+                DbStructure.User.C_ID,
                 DbStructure.User.C_LASTNAME,
                 DbStructure.User.C_FIRSTNAME,
                 DbStructure.User.C_PASSWORD,
@@ -60,6 +60,6 @@ public class UserDao extends AbstractDao<User> {
                 DbStructure.User.C_EMAIL
         };
         tableName = DbStructure.User.T_NAME;
-        idName = DbStructure.User._ID;
+        idName = DbStructure.User.C_ID;
     }
 }

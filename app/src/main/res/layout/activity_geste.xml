@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.GesteActivity">
+
+
+    <Button
+        android:id="@+id/createGeste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/geste_text"
+            style="@style/viewParent.headerText.HomeCardTitle"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="0"
+            android:text="صِفْرٌ"
+            android:textColor="#000000"
+            android:textSize="48dp" />
+
+
+        <ImageView
+            android:id="@+id/geste_image"
+            android:layout_width="213dp"
+            android:layout_height="139dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/goldr0"
+            tools:layout_editor_absoluteX="137dp"
+            tools:layout_editor_absoluteY="189dp" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/geste_gif"
+            android:layout_width="match_parent"
+            android:layout_height="368dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/service_etat_civil"
+            tools:layout_editor_absoluteX="137dp"
+            tools:layout_editor_absoluteY="189dp" />
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|bottom"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/back_btn"
+                android:layout_width="125dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="-1dp"
+                android:layout_weight="0"
+                android:background="@drawable/round_red_button"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="السابق"
+                android:textColor="@color/whiteTextColor"
+                android:textSize="22dp"
+                android:textStyle="bold"></Button>
+
+            <Button
+                android:id="@+id/menu_btn"
+                android:layout_width="125dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="-1dp"
+                android:layout_weight="0"
+                android:background="@drawable/round_red_button"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="القائمة"
+                android:textColor="@color/whiteTextColor"
+                android:textSize="22dp"
+                android:textStyle="bold">
+
+            </Button>
+
+            <Button
+                android:id="@+id/next_btn"
+                android:layout_width="125dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="-1dp"
+                android:layout_weight="0"
+                android:background="@drawable/round_red_button"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="التالي"
+
+                android:textColor="@color/whiteTextColor"
+                android:textSize="22dp"
+                android:textStyle="bold">
+
+            </Button>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
