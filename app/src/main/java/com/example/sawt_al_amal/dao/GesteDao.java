@@ -64,4 +64,9 @@ public class GesteDao extends AbstractDao<Geste> {
         tableName = DbStructure.Geste.T_NAME;
         idName = DbStructure.Geste.C_ID;
     }
+    public Cursor getAllData(String text){
+        open();
+        Cursor resu=db.rawQuery("Select * from "+tableName+" where "+DbStructure.Geste.C_TEXT +" LIKE '%" + text + "%'",null);
+        return resu;
+    }
 }

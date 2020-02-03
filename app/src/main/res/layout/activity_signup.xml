@@ -15,6 +15,7 @@
 
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="2dp"
@@ -33,7 +34,7 @@
                 android:background="@drawable/logo_hopevoice_white" />
 
             <EditText
-                android:id="@+id/login"
+                android:id="@+id/username"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -42,7 +43,39 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/colorWhite"
-                android:hint="@string/login"
+                android:hint="@string/username"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp" />
+            <EditText
+                android:id="@+id/firstname"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/colorWhite"
+                android:hint="@string/first_name"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorHint"
+                android:textSize="16sp" />
+            <EditText
+                android:id="@+id/lastname"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/colorWhite"
+                android:hint="@string/last_name"
                 android:imeOptions="actionNext"
                 android:inputType="text"
                 android:textColor="@color/colorWhite"
@@ -77,8 +110,9 @@
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/colorWhite"
                 android:hint="@string/password"
+                android:gravity="right"
                 android:imeOptions="actionNext"
-                android:inputType="textVisiblePassword"
+                android:inputType="textPassword"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorHint"
                 android:textSize="16sp" />
@@ -95,6 +129,7 @@
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/colorWhite"
                 android:hint="@string/cpassword"
+                android:gravity="right"
                 android:imeOptions="actionNext"
                 android:inputType="textPassword"
                 android:textColor="@color/colorWhite"
@@ -103,7 +138,7 @@
 
 
             <Button
-                android:id="@+id/btsignup"
+                android:id="@+id/register"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -115,6 +150,16 @@
                 android:textAllCaps="false"
                 android:textColor="@color/colorred"
                 android:textSize="18dp" />
+            <Button
+                android:id="@+id/login"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:textColor="@color/whiteTextColor"
+                android:background="@android:color/transparent"
+                android:text="@string/text_already_member"
+                android:textSize="16dp" />
 
 
         </LinearLayout>
