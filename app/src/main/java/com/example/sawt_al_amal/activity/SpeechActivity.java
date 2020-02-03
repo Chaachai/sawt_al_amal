@@ -109,7 +109,7 @@ public class SpeechActivity extends AppCompatActivity {
         List<Geste> list;
         GesteDao ud =new GesteDao(this);
         String mots[] = result.split(SEPARATEUR);
-        textv.setText("\n");
+        //textv.setText("\n");
         int j=-1;
         int nbr=0;
         for (int i = 0; i < mots.length; i++) {
@@ -141,15 +141,8 @@ public class SpeechActivity extends AppCompatActivity {
                 gif[j]=res.getBlob(1);
                 MyAdapter adapter = new MyAdapter(this, text, gif);
                 listView.setAdapter(adapter);
-
-
-
             }
-
         }
-
-
-
     }
     public  void insert(String txt){
         Cours cours=new Cours();
@@ -162,7 +155,6 @@ public class SpeechActivity extends AppCompatActivity {
             Toast.makeText(SpeechActivity.this,"Data not Inserted",Toast.LENGTH_LONG).show();
         else
             Toast.makeText(SpeechActivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
-
     }
 
     class MyAdapter extends ArrayAdapter<String> {
