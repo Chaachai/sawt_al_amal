@@ -1,23 +1,21 @@
 package com.example.sawt_al_amal.activity;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View.OnClickListener;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
 import com.example.sawt_al_amal.R;
 import com.example.sawt_al_amal.adapter.CoursListAdapter;
 import com.example.sawt_al_amal.bean.Cours;
@@ -27,11 +25,10 @@ import com.example.sawt_al_amal.facade.CoursFacade;
 import com.example.sawt_al_amal.facade.GesteFacade;
 import com.example.sawt_al_amal.facade.NiveauFacade;
 import com.example.sawt_al_amal.util.Session;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class NumbersActivity extends AppCompatActivity {
+public class TimeActivity extends AppCompatActivity {
 
     final Context context = this;
 
@@ -51,15 +48,13 @@ public class NumbersActivity extends AppCompatActivity {
 
     NiveauFacade niveauFacade = new NiveauFacade(this);
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
-
-        start = findViewById(R.id.start_numbers_btn);
-        createCours = findViewById(R.id.createCoursBtn);
-        gridView = findViewById(R.id.gridView);
+        setContentView(R.layout.activity_time);
+        start = findViewById(R.id.start_time_btn);
+        createCours = findViewById(R.id.createCoursBtn5);
+        gridView = findViewById(R.id.gridView5);
 
         list = new ArrayList<>();
         adapter = new CoursListAdapter(this, R.layout.cours_items, list);
@@ -67,7 +62,7 @@ public class NumbersActivity extends AppCompatActivity {
 
         list.clear();
 
-        List<Cours> mCourses = coursFacade.findCoursByLvl(1);
+        List<Cours> mCourses = coursFacade.findCoursByLvl(5);
         if (mCourses.isEmpty()) {
             start.setVisibility(View.GONE);
         } else {
@@ -86,7 +81,7 @@ public class NumbersActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Session.updateAttribute(list, "coursList");
                 Session.updateAttribute(0, "currentPosition");
-                startActivity(new Intent(NumbersActivity.this, GesteActivity.class));
+                startActivity(new Intent(TimeActivity.this, GesteActivity.class));
             }
         });
 
@@ -96,7 +91,7 @@ public class NumbersActivity extends AppCompatActivity {
                 //Cours cours = list.get(position);
                 Session.updateAttribute(list, "coursList");
                 Session.updateAttribute(position, "currentPosition");
-                startActivity(new Intent(NumbersActivity.this, GesteActivity.class));
+                startActivity(new Intent(TimeActivity.this, GesteActivity.class));
                 //System.out.println("COURS ===== " + cours.toString());
             }
         });
@@ -106,7 +101,7 @@ public class NumbersActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
 
                 CharSequence[] items = {"Modifier", "Supprimer"};
-                AlertDialog.Builder dialog = new AlertDialog.Builder(NumbersActivity.this);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(TimeActivity.this);
 
                 dialog.setTitle("choisissez une action");
                 dialog.setItems(items, new DialogInterface.OnClickListener() {
@@ -114,7 +109,7 @@ public class NumbersActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int item) {
                         if (item == 0) {
                             // update
-                            showDialogUpdate(NumbersActivity.this, list.get(position));
+                            showDialogUpdate(TimeActivity.this, list.get(position));
                         } else {
                             // delete
                             showDialogDelete(list.get(position));
@@ -149,7 +144,7 @@ public class NumbersActivity extends AppCompatActivity {
                                         // get user input and set it to result
                                         // edit text
                                         //result.setText(userInput.getText());
-                                        Niveau niveau = niveauFacade.find(1);
+                                        Niveau niveau = niveauFacade.find(5);
                                         Cours cours = new Cours(userInput.getText().toString(), niveau);
                                         coursFacade.create(cours);
                                         list.add(cours);
@@ -204,7 +199,7 @@ public class NumbersActivity extends AppCompatActivity {
     }
 
     private void showDialogDelete(final Cours cours) {
-        final AlertDialog.Builder dialogDelete = new AlertDialog.Builder(NumbersActivity.this);
+        final AlertDialog.Builder dialogDelete = new AlertDialog.Builder(TimeActivity.this);
 
         dialogDelete.setTitle("Attention !!");
         dialogDelete.setMessage("Voulez-vous vraiment supprimer ce cours?");
@@ -215,7 +210,6 @@ public class NumbersActivity extends AppCompatActivity {
                 if (geste != null) {
                     mGesteFacade.remove(geste);
                 }
-                mGesteFacade.remove(geste);
                 coursFacade.remove(cours);
                 Toast.makeText(getApplicationContext(), "Cours supprimé avec succès!!!", Toast.LENGTH_SHORT)
                         .show();
@@ -234,7 +228,7 @@ public class NumbersActivity extends AppCompatActivity {
 
     private void updateCoursList() {
         list.clear();
-        List<Cours> mCourses = coursFacade.findCoursByLvl(1);
+        List<Cours> mCourses = coursFacade.findCoursByLvl(5);
         list.addAll(mCourses);
         adapter.notifyDataSetChanged();
     }

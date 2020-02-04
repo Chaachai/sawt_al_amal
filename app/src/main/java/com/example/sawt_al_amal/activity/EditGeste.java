@@ -1,9 +1,5 @@
 package com.example.sawt_al_amal.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,123 +7,136 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
-import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import androidx.core.app.ActivityCompat;
 import com.example.sawt_al_amal.R;
 import com.example.sawt_al_amal.bean.Category;
 import com.example.sawt_al_amal.bean.Cours;
 import com.example.sawt_al_amal.bean.Geste;
-import com.example.sawt_al_amal.facade.CategoryFacade;
 import com.example.sawt_al_amal.facade.CoursFacade;
 import com.example.sawt_al_amal.facade.GesteFacade;
 import com.example.sawt_al_amal.util.FileUtils;
 import com.example.sawt_al_amal.util.Session;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
-public class CreateGeste extends AppCompatActivity {
-    Button choose;
-    Button choose2;
-    Button insert;
-    GifImageView gifImageView;
-    ImageView imageView;
-    EditText geste_text;
-    EditText id_category;
+public class EditGeste extends AppCompatActivity {
 
-    private byte[] b = null;
+    Button edt_choose;
+
+    Button edt_choose2;
+
+    Button edt_insert;
+
+    GifImageView edt_gifImageView;
+
+    ImageView edt_imageView;
+
+    EditText edt_geste_text;
+
+    private byte[] bytes;
 
     final int REQUEST_CODE_GALLERY = 999;
+
     final int REQUEST_CODE_IMAGE = 777;
 
     GesteFacade gesteFacade = new GesteFacade(this);
-    CoursFacade coursFacade = new CoursFacade(this);
-    CategoryFacade categoryFacade = new CategoryFacade(this);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_geste);
+        setContentView(R.layout.activity_edit_geste);
 
-        choose = findViewById(R.id.choose);
-        choose2 = findViewById(R.id.choose2);
-        insert = findViewById(R.id.insert);
-        gifImageView = findViewById(R.id.mygif);
-        imageView = findViewById(R.id.myImage);
-        geste_text = findViewById(R.id.designationGeste);
-        id_category = findViewById(R.id.id_category);
+        edt_choose = findViewById(R.id.edt_choose);
+        edt_choose2 = findViewById(R.id.edt_choose2);
+        edt_insert = findViewById(R.id.edt_insert);
+        edt_gifImageView = findViewById(R.id.edt_mygif);
+        edt_imageView = findViewById(R.id.edt_myImage);
+        edt_geste_text = findViewById(R.id.edt_designationGeste);
 
+        final Geste geste = (Geste) Session.getAttribut("ediGeste");
+        if (geste != null) {
+            if (geste.getGif() != null) {
+                bytes = geste.getGif();
+                try {
+                    edt_gifImageView.setImageDrawable(new GifDrawable(bytes));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (geste.getImage() != null) {
+                byte[] gesteImage = geste.getImage();
+                Bitmap bitmap = BitmapFactory.decodeByteArray(gesteImage, 0, gesteImage.length);
+                edt_imageView.setImageBitmap(bitmap);
+            }
+            if (geste.getText() != null) {
+                edt_geste_text.setText(geste.getText());
+            }
+        }
 
-        choose.setOnClickListener(new View.OnClickListener() {
+        edt_choose.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 ActivityCompat.requestPermissions(
-                        CreateGeste.this,
+                        EditGeste.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         REQUEST_CODE_GALLERY
                 );
             }
         });
 
-        choose2.setOnClickListener(new View.OnClickListener() {
+        edt_choose2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ActivityCompat.requestPermissions(
-                        CreateGeste.this,
+                        EditGeste.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         REQUEST_CODE_IMAGE
                 );
             }
         });
 
-        insert.setOnClickListener(new View.OnClickListener() {
+        edt_insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (b == null || imageViewToByte(imageView) == null) {
+                if (bytes == null || imageViewToByte(edt_imageView) == null) {
                     Toast.makeText(getApplicationContext(), "GIF ola IMAGE null !!", Toast.LENGTH_SHORT).show();
                 } else {
                     try {
-                        Geste geste = new Geste();
-                        int idCours = (int) Session.getAttribut("id_cours");
-                        Cours cours = coursFacade.find(idCours);
-                        Category category = categoryFacade.find(1);
-                        if (cours == null || category == null) {
-                            Toast.makeText(getApplicationContext(), "Cours ola category makayninch", Toast.LENGTH_SHORT).show();
-                        } else {
-                            geste.setGif(b);
-                            geste.setText(geste_text.getText().toString());
-                            geste.setCours(cours);
-                            geste.setCategory(category);
-                            geste.setImage(imageViewToByte(imageView));
-                            gesteFacade.create(geste);
-                            Toast.makeText(getApplicationContext(), "Added successfully!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(CreateGeste.this, GesteActivity.class));
-                            finish();
-                        }
-
+                        geste.setGif(bytes);
+                        geste.setText(edt_geste_text.getText().toString());
+                        geste.setImage(imageViewToByte(edt_imageView));
+                        gesteFacade.edit(geste);
+                        Toast.makeText(getApplicationContext(), "Gest modifié avec succès !", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(EditGeste.this, GesteActivity.class));
+                        finish();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             }
         });
+
     }
 
+
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+            @NonNull int[] grantResults) {
 
         if (requestCode == REQUEST_CODE_GALLERY) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -135,7 +144,8 @@ public class CreateGeste extends AppCompatActivity {
                 intent.setType("image/gif");
                 startActivityForResult(intent, REQUEST_CODE_GALLERY);
             } else {
-                Toast.makeText(getApplicationContext(), "You don't have permission to access file location!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "You don't have permission to access file location!",
+                        Toast.LENGTH_SHORT).show();
             }
             return;
         } else if (requestCode == REQUEST_CODE_IMAGE) {
@@ -144,7 +154,8 @@ public class CreateGeste extends AppCompatActivity {
                 intent.setType("image/*");
                 startActivityForResult(intent, REQUEST_CODE_IMAGE);
             } else {
-                Toast.makeText(getApplicationContext(), "You don't have permission to access file location!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "You don't have permission to access file location!",
+                        Toast.LENGTH_SHORT).show();
             }
             return;
         }
@@ -159,11 +170,11 @@ public class CreateGeste extends AppCompatActivity {
             Uri uri = data.getData();
             String path = FileUtils.getPath(this, uri);
             File file = new File(path);
-            b = new byte[(int) file.length()];
+            bytes = new byte[(int) file.length()];
             try {
                 FileInputStream fileInputStream = new FileInputStream(file);
-                fileInputStream.read(b);
-                for (int i = 0; i < b.length; i++) {
+                fileInputStream.read(bytes);
+                for (int i = 0; i < bytes.length; i++) {
                     //System.out.print("********* " + (char) b[i]);
                 }
             } catch (FileNotFoundException e) {
@@ -175,9 +186,8 @@ public class CreateGeste extends AppCompatActivity {
             }
 
             try {
-                GifDrawable gif = new GifDrawable(b);
-                gifImageView.setVisibility(View.VISIBLE);
-                gifImageView.setImageDrawable(gif);
+                GifDrawable gif = new GifDrawable(bytes);
+                edt_gifImageView.setImageDrawable(gif);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -190,8 +200,7 @@ public class CreateGeste extends AppCompatActivity {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
 
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                imageView.setVisibility(View.VISIBLE);
-                imageView.setImageBitmap(bitmap);
+                edt_imageView.setImageBitmap(bitmap);
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
