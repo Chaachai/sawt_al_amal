@@ -1,5 +1,10 @@
 package com.example.sawt_al_amal.activity;
 
+import android.content.DialogInterface;
+import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -26,12 +31,25 @@ import pl.droidsonroids.gif.GifImageView;
 public class GesteActivity extends AppCompatActivity {
 
     TextView geste_text;
+
     GifImageView geste_gif;
+
     ImageView geste_image;
+
     Button createGeste;
+
+    Button editGeste;
+
+    Button deleteGeste;
+
+    LinearLayout edit_delete_layout;
+
     Button next;
+
     Button back;
+
     Button menu;
+
     GesteFacade gesteFacade = new GesteFacade(this);
 
     @Override
@@ -50,10 +68,30 @@ public class GesteActivity extends AppCompatActivity {
         geste_text = findViewById(R.id.geste_text);
         geste_gif = findViewById(R.id.geste_gif);
         geste_image = findViewById(R.id.geste_image);
+        edit_delete_layout = findViewById(R.id.edit_delete_layout);
+        deleteGeste = findViewById(R.id.delete_geste);
+        editGeste = findViewById(R.id.edit_geste);
 
         next = findViewById(R.id.next_btn);
         back = findViewById(R.id.back_btn);
         menu = findViewById(R.id.menu_btn);
+
+        editGeste.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                Geste geste = gesteFacade.findGesteByCours(cours.getId());
+                Session.updateAttribute(geste, "ediGeste");
+                startActivity(new Intent(GesteActivity.this, EditGeste.class));
+            }
+        });
+
+        deleteGeste.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                Geste geste = gesteFacade.findGesteByCours(cours.getId());
+                showDialogDelete(geste);
+            }
+        });
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,8 +122,34 @@ public class GesteActivity extends AppCompatActivity {
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(GesteActivity.this, NumbersActivity.class));
+//                int lvl = cours.getNiveau().getId();
+//                switch (lvl) {
+//                    case 1:
+//                        startActivity(new Intent(GesteActivity.this, NumbersActivity.class));
+//                        finish();
+//                        break;
+//                    case 2:
+//                        startActivity(new Intent(GesteActivity.this, AlphabetActivity.class));
+//                        finish();
+//                        break;
+//                    case 3:
+//                        startActivity(new Intent(GesteActivity.this, DaysActivity.class));
+//                        finish();
+//                        break;
+//                    case 4:
+//                        startActivity(new Intent(GesteActivity.this, ColorsActivity.class));
+//                        finish();
+//                        break;
+//                    case 5:
+//                        startActivity(new Intent(GesteActivity.this, TimeActivity.class));
+//                        finish();
+//                        break;
+//                    default:
+//                        startActivity(new Intent(GesteActivity.this, LevelsActivity.class));
+//                        finish();
+//                }
                 finish();
+
             }
         });
 
@@ -97,18 +161,18 @@ public class GesteActivity extends AppCompatActivity {
             }
         });
 
-
         if (cours != null) {
 //            System.out.println(cours.toString());
             Geste geste = gesteFacade.findGesteByCours(cours.getId());
             if (geste != null) {
+                edit_delete_layout.setVisibility(View.VISIBLE);
                 createGeste.setVisibility(View.GONE);
                 geste_text.setText(geste.getText());
-                if(geste.getImage() != null){
+                if (geste.getImage() != null) {
                     byte[] gesteImage = geste.getImage();
                     Bitmap bitmap = BitmapFactory.decodeByteArray(gesteImage, 0, gesteImage.length);
                     geste_image.setImageBitmap(bitmap);
-                }else {
+                } else {
                     geste_image.setVisibility(View.GONE);
                 }
                 try {
@@ -122,14 +186,40 @@ public class GesteActivity extends AppCompatActivity {
                 geste_text.setText("");
                 geste_gif.setVisibility(View.GONE);
                 geste_image.setVisibility(View.GONE);
+                edit_delete_layout.setVisibility(View.GONE);
             }
 
         } else {
             geste_text.setText("");
             geste_gif.setVisibility(View.GONE);
             geste_image.setVisibility(View.GONE);
+            edit_delete_layout.setVisibility(View.GONE);
         }
 
 
+    }
+
+    private void showDialogDelete(final Geste geste) {
+        final AlertDialog.Builder dialogDelete = new AlertDialog.Builder(GesteActivity.this);
+
+        dialogDelete.setTitle("Attention !!");
+        dialogDelete.setMessage("Voulez-vous vraiment supprimer ce geste?");
+        dialogDelete.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                gesteFacade.remove(geste);
+                Toast.makeText(getApplicationContext(), "Geste supprimé avec succés ", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
+            }
+        });
+
+        dialogDelete.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        dialogDelete.show();
     }
 }

@@ -11,7 +11,7 @@
     android:background="@drawable/background_signs">
 
     <Button
-        android:id="@+id/createCoursBtn"
+        android:id="@+id/createCoursBtn5"
         android:layout_width="55dp"
         android:layout_height="wrap_content"
         android:background="@drawable/round_red_button"
@@ -33,44 +33,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="130dp"
-        android:layout_height="94dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="0dp"
-        app:srcCompat="@drawable/numbers" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="130dp"
+            android:layout_height="94dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="0dp"
+            app:srcCompat="@drawable/time" />
 
-    <TextView
-        android:id="@+id/textViewSub1Title"
-        style="@style/viewParent.headerText.HomeCardTitle"
-        android:layout_gravity="center"
-        android:layout_marginBottom="5dp"
-        android:text="المستوى الأول"
-        android:textColor="#FFFFFF" />
+        <TextView
+            android:id="@+id/textViewSub1Title"
+            style="@style/viewParent.headerText.HomeCardTitle"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:text="المستوى الخامس"
+            android:textColor="#FFFFFF" />
 
-    <TextView
-        style="@style/viewParent.headerText.homeCardContent"
-        android:layout_below="@id/textViewSub1Title"
-        android:layout_gravity="center"
-        android:layout_marginBottom="5dp"
-        android:text="تعلم الأرقام والأعداد"
-        android:textColor="#FFFFFF" />
+        <TextView
+            style="@style/viewParent.headerText.homeCardContent"
+            android:layout_below="@id/textViewSub1Title"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:text="الوقت"
+            android:textColor="#FFFFFF" />
 
-    <Button
-        android:id="@+id/start_numbers_btn"
-        android:layout_width="183dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/round_green_button"
-        android:text="ابدأ الدرس"
-        android:textColor="@color/whiteTextColor"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/start_time_btn"
+            android:layout_width="183dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/round_green_button"
+            android:text="ابدأ الدرس"
+            android:textColor="@color/whiteTextColor"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <GridView
-            android:id="@+id/gridView"
+            android:id="@+id/gridView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
