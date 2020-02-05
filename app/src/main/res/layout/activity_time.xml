@@ -38,7 +38,7 @@
             android:layout_width="130dp"
             android:layout_height="94dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="0dp"
             app:srcCompat="@drawable/time" />
 

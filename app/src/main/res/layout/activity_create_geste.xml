@@ -27,7 +27,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/round_green_button"
-        android:text="Choisir le geste"
+        android:text="Choisir l'image"
         android:textColor="@color/whiteTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

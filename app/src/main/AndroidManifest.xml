@@ -31,7 +31,6 @@
                 android:value=".activity.NumbersActivity" />
         </activity>
         <activity android:name=".activity.DisplayActivity" />
-        <activity android:name=".activity.NumZeroActivity" />
         <activity
             android:name=".activity.NumbersActivity"
             android:label="تعلم الأرقام والأعداد"
@@ -90,7 +89,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.GifsActivity" />
     </application>
 
 </manifest>

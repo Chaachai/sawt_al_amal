@@ -122,32 +122,33 @@ public class GesteActivity extends AppCompatActivity {
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int lvl = cours.getNiveau().getId();
-                switch (lvl) {
-                    case 1:
-                        startActivity(new Intent(GesteActivity.this, NumbersActivity.class));
-                        finish();
-                        break;
-                    case 2:
-                        startActivity(new Intent(GesteActivity.this, AlphabetActivity.class));
-                        finish();
-                        break;
-                    case 3:
-                        startActivity(new Intent(GesteActivity.this, DaysActivity.class));
-                        finish();
-                        break;
-                    case 4:
-                        startActivity(new Intent(GesteActivity.this, ColorsActivity.class));
-                        finish();
-                        break;
-                    case 5:
-                        startActivity(new Intent(GesteActivity.this, TimeActivity.class));
-                        finish();
-                        break;
-                    default:
-                        startActivity(new Intent(GesteActivity.this, LevelsActivity.class));
-                        finish();
-                }
+//                int lvl = cours.getNiveau().getId();
+//                switch (lvl) {
+//                    case 1:
+//                        startActivity(new Intent(GesteActivity.this, NumbersActivity.class));
+//                        finish();
+//                        break;
+//                    case 2:
+//                        startActivity(new Intent(GesteActivity.this, AlphabetActivity.class));
+//                        finish();
+//                        break;
+//                    case 3:
+//                        startActivity(new Intent(GesteActivity.this, DaysActivity.class));
+//                        finish();
+//                        break;
+//                    case 4:
+//                        startActivity(new Intent(GesteActivity.this, ColorsActivity.class));
+//                        finish();
+//                        break;
+//                    case 5:
+//                        startActivity(new Intent(GesteActivity.this, TimeActivity.class));
+//                        finish();
+//                        break;
+//                    default:
+//                        startActivity(new Intent(GesteActivity.this, LevelsActivity.class));
+//                        finish();
+//                }
+                finish();
 
             }
         });
