@@ -1,6 +1,7 @@
 package com.example.sawt_al_amal.bean;
 
 public class Cours {
+
     private int id;
     private String nom;
     private Niveau niveau;
@@ -16,6 +17,11 @@ public class Cours {
         this.id = id;
         this.nom = nom;
         this.niveau = new Niveau(id_niveau);
+    }
+
+    public Cours(final String nom, final Niveau niveau) {
+        this.nom = nom;
+        this.niveau = niveau;
     }
 
     public String getNom() {

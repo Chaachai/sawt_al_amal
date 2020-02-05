@@ -4,13 +4,28 @@
     <string name="signup"><b> انشاء حساب جديد </b></string>
     <string name="logo_name">صوت الأمل</string>
     <string name="label">قم بتسجيل الدخول أو انشاء حساب جديد</string>
-    <string name="login">اسم المستخدم</string>
     <string name="password">كلمة المرور</string>
     <string name="email">البريد الإلكتروني</string>
     <string name="cpassword">تأكيد كلمة المرور </string>
     <string name="social">سجل دخولك عن طريق</string>
     <string name="facebook">فيس بوك</string>
     <string name="google">جوجل </string>
+    <string name="username">اسم المستخدم</string>
+    <string name="first_name">الإسم الشخصي</string>
+    <string name="last_name">الإسم العائلي</string>
+    <string name="error_username"> اسم المستخدم غير صالح</string>
+    <string name="error_first_name">أدخل الإسم الشخصي</string>
+    <string name="error_last_name">أدخل الإسم العائلي</string>
+    <string name="error_message_email"> البريد الإلكتروني غير صالح</string>
+    <string name="error_message_password">أدخل كلمة المرور</string>
+    <string name="success_message">تم التسجيل بنجاح</string>
+    <string name="error_message">المعلومات غير صحيحة</string>
+    <string name="text_not_member">لا تملك حسابا حتى الآن ؟ انشاء حساب جديد </string>
+    <string name="text_already_member">هل تملك حسابا بالفعل ؟ تسجيل الدخول</string>
+    <string name="error_email_exists">البريد الالكتروني موجود بالفعل</string>
+    <string name="error_user_exists">اسم المستخدم موجود بالفعل</string>
+    <string name="error_password_match">كلمة المرور غير متطابقة</string>
+    <string name="error_valid_user_password">اسم المستخدم أو كلمة المرور خاطئة</string>
 
     <string name="empty_directory">Empty Directory</string>
     <string name="storage_removed">Storage was removed or unmounted.</string>
@@ -172,7 +187,7 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
-    <string name="recordings_list">Recordings list</string>
+    <string name="recordings_list">قائمة التسجيلات</string>
     <string name="title_activity_record">Sounds Recognizer</string>
 
     <string name="start_marker">Start marker</string>
@@ -181,10 +196,10 @@
     <string name="progress_dialog_loading">Loading…</string>
     <string name="enter_recording_name">Enter recording name</string>
     <string name="removed_all_recordings">Removed all recordings</string>
-    <string name="add_recordings">Record sounds, give them names and start sound recognition. Your phone will notify you if it recognizes any sound!</string>
     <string name="str_button_add">إضافة</string>
     <string name="str_button_clear">إفراغ</string>
     <string name="str_button_back">عودة</string>
+    <string name="add_recordings">سجل الاصوات، وامنحهم أسماء و ابدء التعرف على الصوت. سيقوم هاتفك بإخبارك إذا تم التعرف على أي صوت!</string>
 
     <string name="txtvw_word"> </string>
 </resources>

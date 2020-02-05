@@ -26,7 +26,7 @@
                 android:layout_width="157dp"
                 android:layout_height="143dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 app:srcCompat="@drawable/logo_hopevoice" />
 
@@ -60,7 +60,7 @@
                         android:id="@+id/textViewSub1Title"
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="تعلم لغة الإشارة"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
@@ -77,6 +77,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/commun_cv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -93,6 +94,8 @@
                     <TextView
                         android:id="@+id/textViewSub1Title2"
                         style="@style/viewParent.headerText.HomeCardTitle"
+                        android:text="التواصل بالإشارات"
+                        android:textColor="#000000" />
                         android:text="الترجمة الصوتية"
                         android:textColor="#000000"/>
 
@@ -164,13 +167,13 @@
                         android:id="@+id/textViewSub1Title4"
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="التعرف على الأصوات"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title4"
                         android:text="تعرف على نوع الأصوات في الجوار"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <ImageView
                         style="@style/homeCardImage"
@@ -198,13 +201,13 @@
                         android:id="@+id/textViewSub1Title3"
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="الإعدادات"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title3"
                         android:text="ضبط إعدادات التطبيق"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <ImageView
                         style="@style/homeCardImage"

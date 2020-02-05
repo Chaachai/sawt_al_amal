@@ -26,7 +26,7 @@
                 android:layout_width="130dp"
                 android:layout_height="94dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 app:srcCompat="@drawable/learn" />
 
@@ -40,7 +40,7 @@
                 android:layout_marginBottom="20dp"
                 android:text="تعلم لغة الاشارة"
                 android:textSize="24dp"
-                android:textColor="#000000"/>
+                android:textColor="#000000" />
 
 
             <androidx.cardview.widget.CardView
@@ -62,7 +62,7 @@
                         android:id="@+id/textViewSub1Title"
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="المستوى الأول"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
@@ -79,6 +79,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/alphabet_cv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -96,7 +97,7 @@
                         android:id="@+id/textViewSub1Title2"
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="المستوى الثاني"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
@@ -115,6 +116,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/days_cv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -132,7 +134,7 @@
                         android:id="@+id/textViewSub1Title3"
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="المستوى الثالث"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
@@ -149,6 +151,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/colors_cv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -166,7 +169,7 @@
                         android:id="@+id/textViewSub1Title4"
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="المستوى الرابع"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
@@ -183,6 +186,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/time_cv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -200,7 +204,7 @@
                         android:id="@+id/textViewSub1Title5"
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="المستوى الخامس"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"

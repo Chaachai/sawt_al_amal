@@ -1,11 +1,17 @@
 package com.example.sawt_al_amal.bean;
 
 public class Geste {
+
     private int id;
+
     private byte[] gif;
+
     private byte[] image;
+
     private String text;
+
     private Cours cours;
+
     private Category category;
 
 

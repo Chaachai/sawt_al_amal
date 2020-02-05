@@ -3,91 +3,137 @@ package com.example.sawt_al_amal.activity.soundRec.vr.record.recorder;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-
-import com.example.sawt_al_amal.R;
-import com.example.sawt_al_amal.activity.soundRec.vr.record.list.Recording;
-import com.example.sawt_al_amal.activity.soundRec.vr.record.list.RecordingsDatabase;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.fragment.app.FragmentManager;
-import androidx.appcompat.app.AppCompatActivity;
+import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import com.example.sawt_al_amal.R;
+import com.example.sawt_al_amal.activity.soundRec.vr.record.list.Recording;
+import com.example.sawt_al_amal.activity.soundRec.vr.record.list.RecordingsDatabase;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 
 public class RecordActivity extends AppCompatActivity implements WaveformView.WaveformListener,
         MarkerView.MarkerListener, EditNameDialog.EditNameDialogListener {
 
-    private static final String TAG = RecordActivity.class.getSimpleName();
+    int GALLERY = 1;
 
     public static final String ACTION_EDIT = "actionEdit";
+
     public static final String RECORDING = "recording";
+
     private static final String RECORDING_TIME_FORMAT = "%02d:%02d";
+
     private static final Object WAV_EXTENSION = ".wav";
 
+    Bitmap bitmap;
+
+    private static final String TAG = "recordings_db";
+
     private long recordingLastUpdateTime;
+
     private boolean mRecordingKeepGoing;
+
     private double mRecordingTime;
 
     private int mWidth;
+
     private int mMaxPos;
+
     private int mStartPos;
+
     private int mEndPos;
+
     private boolean mStartVisible;
+
     private boolean mEndVisible;
+
     private int mLastDisplayedStartPos;
+
     private int mLastDisplayedEndPos;
+
     private int mOffset;
+
     private int mOffsetGoal;
+
     private int mFlingVelocity;
+
     private int mPlayStartMsec;
+
     private int mPlayEndMsec;
+
     private boolean mKeyDown;
 
     private String filename;
 
     private SoundFile soundFile;
+
     private File file;
+
     private Thread loadSoundFileThread;
+
     private Thread recordAudioThread;
+
     private Thread saveSoundFileThread;
 
     private Handler handler;
+
     private TextView timerView;
 
     private SamplePlayer mPlayer;
 
     private RecordingsDatabase recordingsDatabase;
+
     private WaveformView waveformView;
 
     private boolean mIsPlaying;
+
     private boolean mTouchDragging;
+
     private float mTouchStart;
+
     private int mTouchInitialOffset;
+
     private int mTouchInitialStartPos;
+
     private int mTouchInitialEndPos;
+
     private long mWaveformTouchStartMsec;
+
     private float mDensity;
 
     private int mMarkerLeftInset;
+
     private int mMarkerRightInset;
+
     private int mMarkerTopOffset;
+
     private int mMarkerBottomOffset;
 
     private MarkerView mStartMarker;
+
     private MarkerView mEndMarker;
+
     private ImageButton play;
+
     private ProgressDialog mProgressDialog;
+
     private long mLoadingLastUpdateTime;
+
     private boolean mLoadingKeepGoing;
 
     enum State {
@@ -96,10 +142,19 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
 
     private State state;
 
+    Button btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record);
+        btn = findViewById(R.id.btn2);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPictureDialog();
+            }
+        });
 
         handler = new Handler();
         recordingsDatabase = new RecordingsDatabase(this);
@@ -109,9 +164,9 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
 
         final Intent intent = getIntent();
         final String action = intent.getAction();
-        if (action != null && ACTION_EDIT.equals(action)){
+        if (action != null && ACTION_EDIT.equals(action)) {
             final Recording recording = (Recording) intent.getSerializableExtra(RECORDING);
-            filename = createRecordingsDir() + "/" +  recording.getTimestamp() + WAV_EXTENSION;
+            filename = createRecordingsDir() + "/" + recording.getTimestamp() + WAV_EXTENSION;
             Log.d(TAG, "action edit, filename " + filename);
             loadFromFile();
             updateState(State.STOPPED);
@@ -135,14 +190,14 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         mDensity = metrics.density;
 
-        mMarkerLeftInset = (int)(46 * mDensity);
-        mMarkerRightInset = (int)(48 * mDensity);
-        mMarkerTopOffset = (int)(10 * mDensity);
-        mMarkerBottomOffset = (int)(10 * mDensity);
+        mMarkerLeftInset = (int) (46 * mDensity);
+        mMarkerRightInset = (int) (48 * mDensity);
+        mMarkerTopOffset = (int) (10 * mDensity);
+        mMarkerBottomOffset = (int) (10 * mDensity);
 
         enableDisableButtons();
 
-        waveformView = (WaveformView)findViewById(R.id.waveform_view);
+        waveformView = (WaveformView) findViewById(R.id.waveform_view);
         waveformView.setListener(this);
 
         mMaxPos = 0;
@@ -155,14 +210,14 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
             mMaxPos = waveformView.maxPos();
         }
 
-        mStartMarker = (MarkerView)findViewById(R.id.startmarker);
+        mStartMarker = (MarkerView) findViewById(R.id.startmarker);
         mStartMarker.setListener(this);
         mStartMarker.setAlpha(1f);
         mStartMarker.setFocusable(true);
         mStartMarker.setFocusableInTouchMode(true);
         mStartVisible = true;
 
-        mEndMarker = (MarkerView)findViewById(R.id.endmarker);
+        mEndMarker = (MarkerView) findViewById(R.id.endmarker);
         mEndMarker.setListener(this);
         mEndMarker.setAlpha(1f);
         mEndMarker.setFocusable(true);
@@ -179,7 +234,7 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
     }
 
     private void onFABClick() {
-        switch(state) {
+        switch (state) {
 
             case READY:
                 recordAudio();
@@ -297,8 +352,9 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
         mOffsetGoal = 0;
         mFlingVelocity = 0;
         resetPositions();
-        if (mEndPos > mMaxPos)
+        if (mEndPos > mMaxPos) {
             mEndPos = mMaxPos;
+        }
 
         updateDisplay();
     }
@@ -319,9 +375,9 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
             public void run() {
                 try {
                     soundFile = SoundFile.record(createListener());
-                if (soundFile == null) {
-                    return;
-                }
+                    if (soundFile == null) {
+                        return;
+                    }
                     mPlayer = new SamplePlayer(soundFile);
                     loadSoundFileToWaveFormView();
                 } catch (final Exception e) {
@@ -390,7 +446,7 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
             soundFile.WriteWAVFile(new File(file + "/" + currentTimeNano + WAV_EXTENSION), startFrame,
                     endFrame - startFrame);
             Toast.makeText(this, R.string.recording_saved, Toast.LENGTH_SHORT).show();
-            recordingsDatabase.saveRecording(new Recording(name, currentTimeNano));
+            recordingsDatabase.saveRecording(new Recording(name, currentTimeNano, getBitmapAsByteArray(bitmap)));
             updateState(State.SAVED);
         } catch (IOException e) {
             Log.e(TAG, "saveRecording IOException", e);
@@ -398,6 +454,12 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
 
         setResult(RESULT_OK);
         finish();
+    }
+
+    public static byte[] getBitmapAsByteArray(Bitmap bitmap) {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream);
+        return outputStream.toByteArray();
     }
 
     private File createRecordingsDir() {
@@ -479,7 +541,7 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
 
     @Override
     public void waveformTouchMove(float x) {
-        mOffset = trap((int)(mTouchInitialOffset + (mTouchStart - x)));
+        mOffset = trap((int) (mTouchInitialOffset + (mTouchStart - x)));
         updateDisplay();
     }
 
@@ -492,7 +554,7 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
         if (elapsedMsec < 300) {
             if (mIsPlaying) {
                 int seekMsec = waveformView.pixelsToMillisecs(
-                        (int)(mTouchStart + mOffset));
+                        (int) (mTouchStart + mOffset));
                 if (seekMsec >= mPlayStartMsec &&
                         seekMsec < mPlayEndMsec) {
                     mPlayer.seekTo(seekMsec);
@@ -500,7 +562,7 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
                     handlePause();
                 }
             } else {
-                onPlay((int)(mTouchStart + mOffset));
+                onPlay((int) (mTouchStart + mOffset));
             }
         }
     }
@@ -509,16 +571,16 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
     public void waveformFling(float vx) {
         mTouchDragging = false;
         mOffsetGoal = mOffset;
-        mFlingVelocity = (int)(-vx);
+        mFlingVelocity = (int) (-vx);
         updateDisplay();
     }
 
     @Override
     public void waveformDraw() {
         mWidth = waveformView.getMeasuredWidth();
-        if (mOffsetGoal != mOffset && !mKeyDown)
+        if (mOffsetGoal != mOffset && !mKeyDown) {
             updateDisplay();
-        else if (mIsPlaying) {
+        } else if (mIsPlaying) {
             updateDisplay();
         } else if (mFlingVelocity != 0) {
             updateDisplay();
@@ -548,10 +610,12 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
     }
 
     private int trap(int pos) {
-        if (pos < 0)
+        if (pos < 0) {
             return 0;
-        if (pos > mMaxPos)
+        }
+        if (pos > mMaxPos) {
             return mMaxPos;
+        }
         return pos;
     }
 
@@ -641,16 +705,17 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
             } else {
                 offsetDelta = mOffsetGoal - mOffset;
 
-                if (offsetDelta > 10)
+                if (offsetDelta > 10) {
                     offsetDelta = offsetDelta / 10;
-                else if (offsetDelta > 0)
+                } else if (offsetDelta > 0) {
                     offsetDelta = 1;
-                else if (offsetDelta < -10)
+                } else if (offsetDelta < -10) {
                     offsetDelta = offsetDelta / 10;
-                else if (offsetDelta < 0)
+                } else if (offsetDelta < 0) {
                     offsetDelta = -1;
-                else
+                } else {
                     offsetDelta = 0;
+                }
 
                 mOffset += offsetDelta;
             }
@@ -753,10 +818,12 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
         }
 
         mOffsetGoal = offset;
-        if (mOffsetGoal + mWidth / 2 > mMaxPos)
+        if (mOffsetGoal + mWidth / 2 > mMaxPos) {
             mOffsetGoal = mMaxPos - mWidth / 2;
-        if (mOffsetGoal < 0)
+        }
+        if (mOffsetGoal < 0) {
             mOffsetGoal = 0;
+        }
     }
 
     @Override
@@ -776,12 +843,13 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
         float delta = x - mTouchStart;
 
         if (marker == mStartMarker) {
-            mStartPos = trap((int)(mTouchInitialStartPos + delta));
-            mEndPos = trap((int)(mTouchInitialEndPos + delta));
+            mStartPos = trap((int) (mTouchInitialStartPos + delta));
+            mEndPos = trap((int) (mTouchInitialEndPos + delta));
         } else {
-            mEndPos = trap((int)(mTouchInitialEndPos + delta));
-            if (mEndPos < mStartPos)
+            mEndPos = trap((int) (mTouchInitialEndPos + delta));
+            if (mEndPos < mStartPos) {
                 mEndPos = mStartPos;
+            }
         }
 
         updateDisplay();
@@ -829,19 +897,22 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
         if (marker == mStartMarker) {
             int saveStart = mStartPos;
             mStartPos += velocity;
-            if (mStartPos > mMaxPos)
+            if (mStartPos > mMaxPos) {
                 mStartPos = mMaxPos;
+            }
             mEndPos += (mStartPos - saveStart);
-            if (mEndPos > mMaxPos)
+            if (mEndPos > mMaxPos) {
                 mEndPos = mMaxPos;
+            }
 
             setOffsetGoalStart();
         }
 
         if (marker == mEndMarker) {
             mEndPos += velocity;
-            if (mEndPos > mMaxPos)
+            if (mEndPos > mMaxPos) {
                 mEndPos = mMaxPos;
+            }
 
             setOffsetGoalEnd();
         }
@@ -876,5 +947,54 @@ public class RecordActivity extends AppCompatActivity implements WaveformView.Wa
                 updateDisplay();
             }
         }, 100);
+    }
+
+    private void showPictureDialog() {
+        AlertDialog.Builder pictureDialog = new AlertDialog.Builder(this);
+        pictureDialog.setTitle("Select Action");
+        String[] pictureDialogItems = {
+                "Select photo from gallery"};
+        pictureDialog.setItems(pictureDialogItems,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                choosePhotoFromGallary();
+                                break;
+
+                        }
+                    }
+                });
+        pictureDialog.show();
+    }
+
+    public void choosePhotoFromGallary() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+        startActivityForResult(galleryIntent, GALLERY);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == this.RESULT_CANCELED) {
+            return;
+        }
+        if (requestCode == GALLERY) {
+            if (data != null) {
+                Uri contentURI = data.getData();
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
     }
 }

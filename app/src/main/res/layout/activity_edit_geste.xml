@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.EditGeste"
+    android:background="@drawable/background_signs">
+
+    <Button
+        android:id="@+id/edt_choose"
+        android:layout_width="174dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/round_green_button"
+        android:text="Changer le geste"
+        android:textColor="@color/whiteTextColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/edt_choose2"
+        android:layout_width="174dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_green_button"
+        android:text="Changer l'image"
+        android:textColor="@color/whiteTextColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_mygif" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/edt_mygif"
+        android:layout_width="190dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="24dp"
+        android:visibility="visible"
+        android:src="@drawable/service_etat_civil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_choose" />
+
+
+    <Button
+        android:id="@+id/edt_insert"
+        android:layout_width="174dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/round_green_button"
+        android:text="Modifier"
+        android:textColor="@color/whiteTextColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_designationGeste" />
+
+    <EditText
+        android:id="@+id/edt_designationGeste"
+        android:layout_width="297dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:background="@drawable/round_input"
+        android:hint="Le text associé"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_myImage" />
+
+    <EditText
+        android:id="@+id/id_category"
+        android:layout_width="301dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:visibility="gone"
+        android:hint="id dyal category (khaso ykon comboox)"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_designationGeste" />
+
+    <ImageView
+        android:id="@+id/edt_myImage"
+        android:layout_width="177dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="12dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_choose2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,53 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.CreateGeste">
+    tools:context=".activity.CreateGeste"
+    android:background="@drawable/background_signs">
 
     <Button
         android:id="@+id/choose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="174dp"
+        android:layout_height="45dp"
         android:layout_marginTop="24dp"
-        android:text="UPLOAD GESTE"
+        android:background="@drawable/round_green_button"
+        android:text="Choisir le geste"
+        android:textColor="@color/whiteTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <Button
+        android:id="@+id/choose2"
+        android:layout_width="174dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_green_button"
+        android:text="Choisir l'image"
+        android:textColor="@color/whiteTextColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mygif" />
+
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/mygif"
-        android:layout_width="275dp"
-        android:layout_height="246dp"
+        android:layout_width="190dp"
+        android:layout_height="159dp"
         android:layout_marginTop="24dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/choose" />
 
+
     <Button
         android:id="@+id/insert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="174dp"
+        android:layout_height="45dp"
         android:layout_marginTop="16dp"
-        android:text="INSERT"
+        android:background="@drawable/round_green_button"
+        android:text="Créer"
+        android:textColor="@color/whiteTextColor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_category" />
+        app:layout_constraintTop_toBottomOf="@+id/designationGeste" />
 
     <EditText
         android:id="@+id/designationGeste"
         android:layout_width="297dp"
         android:layout_height="45dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Kteb chi haja hna"
+        android:background="@drawable/round_input"
+        android:hint="Le text associé"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mygif" />
-
+        app:layout_constraintTop_toBottomOf="@+id/myImage" />
 
     <EditText
         android:id="@+id/id_category"
@@ -58,10 +77,21 @@
         android:layout_height="40dp"
         android:layout_marginTop="28dp"
         android:ems="10"
+        android:visibility="gone"
         android:hint="id dyal category (khaso ykon comboox)"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/designationGeste" />
+
+    <ImageView
+        android:id="@+id/myImage"
+        android:layout_width="177dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="12dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

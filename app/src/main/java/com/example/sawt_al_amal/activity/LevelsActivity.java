@@ -8,21 +8,29 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.sawt_al_amal.R;
-import com.example.sawt_al_amal.bean.Category;
-import com.example.sawt_al_amal.facade.CategoryFacade;
 
 public class LevelsActivity extends AppCompatActivity {
 
     CardView numbers_cv;
 
-//    NiveauFacade niveauFacade = new NiveauFacade(this);
+    CardView alphabet_cv;
+    CardView days_cv;
+    CardView colors_cv;
+    CardView time_cv;
+
 //    CoursFacade coursFacade = new CoursFacade(this);
-//    CategoryFacade categoryFacade = new CategoryFacade(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
+
+//        List<Cours> cours = coursFacade.findAll();
+
+//        if (cours.size() == 0) {
+//            coursFacade.create(new Cours())
+//        }
+//
 
 //        categoryFacade.create(new Category("TEST 1"));
 //        categoryFacade.create(new Category( "TEST 2"));
@@ -65,6 +73,10 @@ public class LevelsActivity extends AppCompatActivity {
 //
 
         numbers_cv = findViewById(R.id.numbers_cv);
+        alphabet_cv = findViewById(R.id.alphabet_cv);
+        days_cv = findViewById(R.id.days_cv);
+        colors_cv = findViewById(R.id.colors_cv);
+        time_cv = findViewById(R.id.time_cv);
 
         numbers_cv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,5 +84,35 @@ public class LevelsActivity extends AppCompatActivity {
                 startActivity(new Intent(LevelsActivity.this, NumbersActivity.class));
             }
         });
+
+        alphabet_cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LevelsActivity.this, AlphabetActivity.class));
+            }
+        });
+
+        days_cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LevelsActivity.this, DaysActivity.class));
+            }
+        });
+
+        colors_cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LevelsActivity.this, ColorsActivity.class));
+            }
+        });
+
+        time_cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LevelsActivity.this, TimeActivity.class));
+            }
+        });
+
+
     }
 }
