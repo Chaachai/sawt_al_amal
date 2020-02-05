@@ -182,5 +182,9 @@
     <string name="enter_recording_name">Enter recording name</string>
     <string name="removed_all_recordings">Removed all recordings</string>
     <string name="add_recordings">Record sounds, give them names and start sound recognition. Your phone will notify you if it recognizes any sound!</string>
+    <string name="str_button_add">إضافة</string>
+    <string name="str_button_clear">إفراغ</string>
+    <string name="str_button_back">عودة</string>
 
+    <string name="txtvw_word"> </string>
 </resources>

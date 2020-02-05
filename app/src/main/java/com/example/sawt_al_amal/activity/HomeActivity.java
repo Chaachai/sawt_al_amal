@@ -14,6 +14,7 @@ public class HomeActivity extends AppCompatActivity {
 
     CardView lessons_cv;
     CardView noise_cv;
+    CardView cam_cv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class HomeActivity extends AppCompatActivity {
 
         lessons_cv = findViewById(R.id.lessons_cv);
         noise_cv = findViewById(R.id.noise_cv);
+        cam_cv=findViewById(R.id.cam_cv);
 
         lessons_cv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +36,12 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, MainActivity2.class));
+            }
+        });
+        cam_cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, MainActivity3.class));
             }
         });
     }

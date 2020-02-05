@@ -103,10 +103,10 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/button_red"
                 android:text="تسجيل الدخول بحساب غوغل"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
+                android:background="@drawable/button_red"
                 android:textSize="18dp" />
 
 
