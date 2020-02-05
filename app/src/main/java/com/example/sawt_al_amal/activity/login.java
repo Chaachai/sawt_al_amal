@@ -89,10 +89,10 @@ public class login extends AppCompatActivity {
         //User user= new User();
         Cursor res =userDao.checklogin(username.getText().toString().trim(),pwd.getText().toString().trim());
         if (res.getCount() != 0) {
-            Session.updateAttribute(username.getText(), "connectedUser");
+            Session.updateAttribute(username.getText().toString(), "connectedUser");
             Intent intent = new Intent(login.this,HomeActivity.class);
             //intent.putExtra("user", username.getText().toString().trim());
-            empty();
+            //empty();
             startActivity(intent);
             finish();
         }

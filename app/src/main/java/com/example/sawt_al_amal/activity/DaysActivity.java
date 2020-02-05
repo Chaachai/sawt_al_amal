@@ -60,6 +60,14 @@ public class DaysActivity extends AppCompatActivity {
         adapter = new CoursListAdapter(this, R.layout.cours_items, list);
         gridView.setAdapter(adapter);
 
+        String user = (String) Session.getAttribut("connectedUser");
+
+        if (!user.equals("chaachai")) {
+            createCours.setVisibility(View.GONE);
+        } else {
+            createCours.setVisibility(View.VISIBLE);
+        }
+
         list.clear();
 
         List<Cours> mCourses = coursFacade.findCoursByLvl(3);

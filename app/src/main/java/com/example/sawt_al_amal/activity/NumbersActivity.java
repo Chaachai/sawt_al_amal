@@ -61,6 +61,19 @@ public class NumbersActivity extends AppCompatActivity {
         createCours = findViewById(R.id.createCoursBtn);
         gridView = findViewById(R.id.gridView);
 
+
+
+
+
+        String user = (String) Session.getAttribut("connectedUser");
+
+        System.out.println("============================== "+user);
+        if (!user.trim().equals("chaachai")) {
+            createCours.setVisibility(View.GONE);
+        } else {
+            createCours.setVisibility(View.VISIBLE);
+        }
+
         list = new ArrayList<>();
         adapter = new CoursListAdapter(this, R.layout.cours_items, list);
         gridView.setAdapter(adapter);

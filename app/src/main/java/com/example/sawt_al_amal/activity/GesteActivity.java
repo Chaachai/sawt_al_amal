@@ -76,6 +76,24 @@ public class GesteActivity extends AppCompatActivity {
         back = findViewById(R.id.back_btn);
         menu = findViewById(R.id.menu_btn);
 
+
+        String user = (String) Session.getAttribut("connectedUser");
+
+        System.out.println("============================== "+user);
+        if (!user.trim().equals("chaachai")) {
+            System.out.println("============= 00000000000  ================= ");
+//            edit_delete_layout.setVisibility(View.);
+            editGeste.setVisibility(View.GONE);
+            deleteGeste.setVisibility(View.GONE);
+            createGeste.setVisibility(View.GONE);
+        } else {
+            System.out.println("============= 11111111111  ================= ");
+            editGeste.setVisibility(View.VISIBLE);
+            deleteGeste.setVisibility(View.VISIBLE);
+            createGeste.setVisibility(View.VISIBLE);
+
+        }
+
         editGeste.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(final View view) {
