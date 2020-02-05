@@ -58,7 +58,7 @@ public abstract class AbstractDao<T> {
     }
 
     public AbstractDao(Context context) {
-        dbHelper = new DbConnect(context);
+       dbHelper = new DbConnect(context);
     }
 
     public void open() {

@@ -14,12 +14,12 @@ public class MainActivity1 extends AppCompatActivity {
 
     private Button btSigIn;
 
-    UserFacade userFacade = new UserFacade(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_1);
+        UserFacade userFacade = new UserFacade(this);
 
         userFacade.open();
         userFacade.close();

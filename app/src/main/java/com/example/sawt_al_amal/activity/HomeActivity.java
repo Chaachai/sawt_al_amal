@@ -23,14 +23,14 @@ public class HomeActivity extends AppCompatActivity {
     CardView noise_cv;
     CardView commun_cv;
 
-    NiveauFacade niveauFacade = new NiveauFacade(this);
-    CategoryFacade categoryFacade = new CategoryFacade(this);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        NiveauFacade niveauFacade = new NiveauFacade(this);
+        CategoryFacade categoryFacade = new CategoryFacade(this);
         List<Category> categories = categoryFacade.findAll();
         List<Niveau> niveaux = niveauFacade.findAll();
 

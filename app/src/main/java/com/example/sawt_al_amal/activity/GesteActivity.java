@@ -32,12 +32,12 @@ public class GesteActivity extends AppCompatActivity {
     Button next;
     Button back;
     Button menu;
-    GesteFacade gesteFacade = new GesteFacade(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_geste);
+        GesteFacade gesteFacade = new GesteFacade(this);
 
         final List<Cours> coursList = (List<Cours>) Session.getAttribut("coursList");
         int pos = (int) Session.getAttribut("currentPosition");

@@ -46,13 +46,13 @@ public class NumbersActivity extends AppCompatActivity {
 //    Button start_numbers_btn;
 //    Button zero_btn;
 
-    CoursFacade coursFacade = new CoursFacade(this);
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
+        CoursFacade coursFacade = new CoursFacade(this);
 
         start = findViewById(R.id.start_numbers_btn);
         gridView = findViewById(R.id.gridView);
