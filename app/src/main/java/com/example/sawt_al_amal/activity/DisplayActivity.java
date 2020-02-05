@@ -46,14 +46,6 @@ public class DisplayActivity extends AppCompatActivity {
         listView = findViewById(R.id.listView);
         Intent intent = getIntent();
         result = intent.getStringExtra(nom);
-        /*int times = 0;
-        GesteDao ud = new GesteDao(this);
-         String SEPARATEUR = " ";
-        Pattern TO = Pattern.compile(SEPARATEUR);
-        Matcher m = TO.matcher(result);
-        if (m.find()) {
-                while (m.find()) times++;}
-            mots=new String[times];*/
         search(result);
     }
        public  void search(String result){
@@ -63,15 +55,6 @@ public class DisplayActivity extends AppCompatActivity {
             int j=-1;
             int nbr=0;
             for (int i = 0; i < mots.length; i++) {
-             /*String contraint =DbStructure.Geste.C_TEXT  + " LIKE '%" + mots[i] + "%'";
-             Toast.makeText(SpeechActivity.this,contraint,Toast.LENGTH_LONG).show();
-            list=ud.loadAll(contraint);
-           Toast.makeText(SpeechActivity.this,"1",Toast.LENGTH_LONG).show();
-            for(int j = 0; j<list.size();j++)
-            {
-                textv.append(list.get(i).getText());
-        }
-        }*/
                 Cursor res = ud.getAllData(mots[i]);
                 if(res.getCount() == 0) {
                     Toast.makeText(DisplayActivity.this,"لا توجد أي اقتراحات, المرجو إعادة المحاولة",Toast.LENGTH_LONG).show();

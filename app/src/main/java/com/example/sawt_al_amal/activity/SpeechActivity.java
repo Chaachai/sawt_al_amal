@@ -115,16 +115,3 @@ public class SpeechActivity extends AppCompatActivity {
 
 
     }
-
-/*
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }*/
-
-
