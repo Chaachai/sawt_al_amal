@@ -19,6 +19,7 @@ import com.example.sawt_al_amal.bean.User;
 import com.example.sawt_al_amal.dao.GesteDao;
 import com.example.sawt_al_amal.dao.UserDao;
 import com.example.sawt_al_amal.dao.helper.DbStructure;
+import com.example.sawt_al_amal.util.Session;
 import com.example.sawt_al_amal.util.Validation;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -88,10 +89,12 @@ public class login extends AppCompatActivity {
         //User user= new User();
         Cursor res =userDao.checklogin(username.getText().toString().trim(),pwd.getText().toString().trim());
         if (res.getCount() != 0) {
+            Session.updateAttribute(username.getText(), "connectedUser");
             Intent intent = new Intent(login.this,HomeActivity.class);
             //intent.putExtra("user", username.getText().toString().trim());
             empty();
             startActivity(intent);
+            finish();
         }
         else {
             //Toast.makeText(login.this,R.string.error_valid_email_password,Toast.LENGTH_LONG).show();

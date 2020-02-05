@@ -39,16 +39,17 @@
                 style="@style/viewParent.headerText.HomeCardTitle"
                 android:textColor="#ffffff"
                 android:background="@drawable/button_transparent"
-                android:drawableLeft="@drawable/microphone"
+                android:drawableTop="@drawable/microphone"
                 android:layout_centerHorizontal="true" />
             <TextView
                 android:layout_marginTop="10dp"
                 android:id="@+id/textv"
                 style="@style/viewParent.headerText.contentText"
                 android:layout_gravity="center"
+                android:textSize="25dp"
                 android:layout_marginBottom="20dp"
-                android:text="....." />
-            <Button
+                android:text=".........." />
+            <!--<Button
                 android:id="@+id/ok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -58,12 +59,11 @@
                 android:textColor="#ffffff"
                 android:background="@drawable/button_transparent"
                 android:layout_centerHorizontal="true"
-                android:visibility="invisible"
                 />
 
 
 
-            <!--<EditText
+            <EditText
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:id="@+id/textadd"/>
