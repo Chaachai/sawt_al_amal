@@ -1,2 +1,2 @@
-include ':app'
+include ':app', 'opencv343'
 rootProject.name='sawt_al_amal'

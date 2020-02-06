@@ -30,6 +30,7 @@ public class HomeActivity extends AppCompatActivity {
     NiveauFacade niveauFacade = new NiveauFacade(this);
 
     CategoryFacade categoryFacade = new CategoryFacade(this);
+    CardView cam_cv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class HomeActivity extends AppCompatActivity {
         noise_cv = findViewById(R.id.noise_cv);
         commun_cv = findViewById(R.id.commun_cv);
         logout_cv = findViewById(R.id.logout_cv);
+        cam_cv=findViewById(R.id.cam_cv);
 
         lessons_cv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +84,12 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        cam_cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, MainActivity3.class));
+            }
+        });
         logout_cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
