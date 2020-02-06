@@ -196,6 +196,10 @@
     <string name="progress_dialog_loading">Loading…</string>
     <string name="enter_recording_name">Enter recording name</string>
     <string name="removed_all_recordings">Removed all recordings</string>
+    <string name="str_button_add">إضافة</string>
+    <string name="str_button_clear">إفراغ</string>
+    <string name="str_button_back">عودة</string>
     <string name="add_recordings">سجل الاصوات، وامنحهم أسماء و ابدء التعرف على الصوت. سيقوم هاتفك بإخبارك إذا تم التعرف على أي صوت!</string>
 
+    <string name="txtvw_word"> </string>
 </resources>

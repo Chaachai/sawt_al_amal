@@ -10,6 +10,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/background_signs">
 
+    <Button
+        android:id="@+id/createCoursBtn"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_red_button"
+        android:text="+"
+        android:textColor="@color/whiteTextColor"
+        android:visibility="visible"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/myLay"
         android:layout_width="match_parent"
@@ -24,7 +38,7 @@
         android:layout_width="130dp"
         android:layout_height="94dp"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="0dp"
         app:srcCompat="@drawable/numbers" />
 

@@ -26,7 +26,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="0dp"
                 android:gravity="center"
-                android:textColor="@color/accent"
+                android:textColor="@color/whiteTextColor"
                 android:textSize="70sp"
                 tools:text="00:10:45" />
 
@@ -40,7 +40,7 @@
                     android:id="@+id/waveform_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/accent" />
+                    android:background="@color/colorPrimary" />
 
                 <com.example.sawt_al_amal.activity.soundRec.vr.record.recorder.MarkerView
                     android:id="@+id/startmarker"
@@ -68,7 +68,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:background="@color/accent"
+                android:background="@color/colorPrimary"
                 android:padding="20dp"
                 android:src="@drawable/ic_play_arrow_white_24dp" />
 
@@ -85,7 +85,7 @@
                 android:id="@+id/btn2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/accent"
+                android:background="@color/colorPrimary"
                 android:text="اختر صورة"
                 android:textColor="@color/icons" />
 

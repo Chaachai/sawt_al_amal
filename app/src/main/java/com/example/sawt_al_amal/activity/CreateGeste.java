@@ -103,7 +103,7 @@ public class CreateGeste extends AppCompatActivity {
                         Geste geste = new Geste();
                         int idCours = (int) Session.getAttribut("id_cours");
                         Cours cours = coursFacade.find(idCours);
-                        Category category = categoryFacade.find(id_category.getText());
+                        Category category = categoryFacade.find(1);
                         if (cours == null || category == null) {
                             Toast.makeText(getApplicationContext(), "Cours ola category makayninch", Toast.LENGTH_SHORT).show();
                         } else {
@@ -115,6 +115,7 @@ public class CreateGeste extends AppCompatActivity {
                             gesteFacade.create(geste);
                             Toast.makeText(getApplicationContext(), "Added successfully!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(CreateGeste.this, GesteActivity.class));
+                            finish();
                         }
 
                     } catch (Exception e) {

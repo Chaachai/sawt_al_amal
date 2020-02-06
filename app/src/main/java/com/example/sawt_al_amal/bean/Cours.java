@@ -19,6 +19,11 @@ public class Cours {
         this.niveau = new Niveau(id_niveau);
     }
 
+    public Cours(final String nom, final Niveau niveau) {
+        this.nom = nom;
+        this.niveau = niveau;
+    }
+
     public String getNom() {
         return nom;
     }

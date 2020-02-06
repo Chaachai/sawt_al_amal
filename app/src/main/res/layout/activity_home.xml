@@ -26,7 +26,7 @@
                 android:layout_width="157dp"
                 android:layout_height="143dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 app:srcCompat="@drawable/logo_hopevoice" />
 
@@ -96,10 +96,47 @@
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="التواصل بالإشارات"
                         android:textColor="#000000" />
+                        android:text="الترجمة الصوتية"
+                        android:textColor="#000000"/>
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title2"
+                        android:textColor="#000000"
+                        android:text="ترجمة من الصوت للإشارات" />
+
+                    <ImageView
+                        style="@style/homeCardImage"
+                        android:maxHeight="90dp"
+                        android:src="@drawable/communication" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cam_cv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="15dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/home_white_card"
+                    android:minHeight="100dp"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewSub1Title5"
+                        style="@style/viewParent.headerText.HomeCardTitle"
+                        android:text="التواصل بالإشارات "
+                        android:textColor="#000000"/>
+
+                    <TextView
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/textViewSub1Title5"
                         android:textColor="#000000"
                         android:text="تواصل بسهولة مع الآخرين عن طريق الإشارات" />
 

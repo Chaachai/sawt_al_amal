@@ -17,11 +17,11 @@
 
         <ImageView
             android:id="@+id/imglogo"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="291dp"
+            android:layout_height="267dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/logo_hopevoice_white"
             android:text="@string/logo_name"
             android:textColor="@color/colorWhite"

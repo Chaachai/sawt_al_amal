@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -15,27 +16,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SpeechActivity"></activity>
-        <activity android:name=".activity.CreateGeste"></activity>
+        <activity android:screenOrientation="landscape" android:name=".activity.MainActivity3"  />
+
+
+        <activity android:name=".activity.CreateGeste" />
+        <activity android:name=".activity.TimeActivity"></activity>
+        <activity android:name=".activity.ColorsActivity" />
+        <activity android:name=".activity.DaysActivity" />
+        <activity android:name=".activity.AlphabetActivity" />
+        <activity android:name=".activity.EditGeste" />
+        <activity android:name=".activity.SpeechActivity" />
         <activity
             android:name=".activity.GesteActivity"
             android:label="تعلم الأرقام والأعداد"
             android:parentActivityName=".activity.NumbersActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.NumbersActivity"/>
+                android:value=".activity.NumbersActivity" />
         </activity>
-        <activity android:name=".activity.NumZeroActivity" />
+        <activity android:name=".activity.DisplayActivity" />
         <activity
             android:name=".activity.NumbersActivity"
             android:label="تعلم الأرقام والأعداد"
             android:parentActivityName=".activity.LevelsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.LevelsActivity"
-            />
-        </activity>
-        <!-- SOUND REC -->
+                android:value=".activity.LevelsActivity" />
+        </activity> <!-- SOUND REC -->
         <activity
             android:name=".activity.soundRec.vr.record.MainActivity2"
             android:configChanges="keyboard|orientation|screenSize"
@@ -86,7 +93,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.GifsActivity" />
     </application>
 
 </manifest>

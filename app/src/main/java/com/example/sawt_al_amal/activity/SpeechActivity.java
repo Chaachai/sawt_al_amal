@@ -34,13 +34,11 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class SpeechActivity extends AppCompatActivity {
     private final int REQ_CODE_SPEECH_INPUT = 100;
-    private Button speech,ok;
+    private Button speech;
     private TextView textv;
     private EditText textadd;
     private String resultat;
-    private ListView listView;
-    String text[]={};
-    byte[] gif[]={};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,21 +52,13 @@ public class SpeechActivity extends AppCompatActivity {
                 Speech();
             }
         };
-        View.OnClickListener okListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                search(textv.getText().toString());
-            }
-        };
 
 
-        listView = findViewById(R.id.listView);
         textv =findViewById(R.id.textv);
         //textadd =findViewById(R.id.textadd);
         speech =findViewById(R.id.speech);
         speech.setOnClickListener(speechListener);
-        ok =findViewById(R.id.ok);
-        ok.setOnClickListener(okListener);
+
 
 
 
@@ -96,7 +86,7 @@ public class SpeechActivity extends AppCompatActivity {
                     ArrayList<String> buffer = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     resultat=buffer.get(0);
                     textv.setText(resultat);
-                    ok.setVisibility(View.VISIBLE);
+                    search(resultat);
                 }
                 break;
             }
@@ -105,50 +95,9 @@ public class SpeechActivity extends AppCompatActivity {
     }
 
     public  void search(String result){
-        final String SEPARATEUR = " ";
-        List<Geste> list;
-        GesteDao ud =new GesteDao(this);
-        String mots[] = result.split(SEPARATEUR);
-        textv.setText("\n");
-        int j=-1;
-        int nbr=0;
-        for (int i = 0; i < mots.length; i++) {
-             /*String contraint =DbStructure.Geste.C_TEXT  + " LIKE '%" + mots[i] + "%'";
-             Toast.makeText(SpeechActivity.this,contraint,Toast.LENGTH_LONG).show();
-            list=ud.loadAll(contraint);
-           Toast.makeText(SpeechActivity.this,"1",Toast.LENGTH_LONG).show();
-            for(int j = 0; j<list.size();j++)
-            {
-                textv.append(list.get(i).getText());
-        }
-        }*/
-            Cursor res = ud.getAllData(mots[i]);
-            if(res.getCount() == 0) {
-            }
-            while (res.moveToNext()) {
-                nbr++;
-            }
-        }
-        text = new String[nbr];
-        gif = new byte[nbr][];
-        for (int i = 0; i < mots.length; i++) {
-            Cursor res = ud.getAllData(mots[i]);
-            if(res.getCount() == 0) {
-            }
-            while (res.moveToNext()) {
-                j++;
-                text[j]=res.getString(3);
-                gif[j]=res.getBlob(1);
-                MyAdapter adapter = new MyAdapter(this, text, gif);
-                listView.setAdapter(adapter);
-
-
-
-            }
-
-        }
-
-
+        Intent intent=new Intent(SpeechActivity.this,DisplayActivity.class);
+        intent.putExtra("mots",result);
+        startActivity(intent);
 
     }
     public  void insert(String txt){
@@ -162,54 +111,7 @@ public class SpeechActivity extends AppCompatActivity {
             Toast.makeText(SpeechActivity.this,"Data not Inserted",Toast.LENGTH_LONG).show();
         else
             Toast.makeText(SpeechActivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
-
     }
 
-    class MyAdapter extends ArrayAdapter<String> {
 
-        Context context;
-        String rtitre[];
-        byte[] rgif[];
-
-        MyAdapter (Context c, String text[], byte[] gif[]) {
-            super(c, R.layout.row, text);
-            this.context = c;
-            this.rtitre = text;
-            this.rgif = gif;
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            LayoutInflater layoutInflater = (LayoutInflater)getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-            View row = layoutInflater.inflate(R.layout.row, parent, false);
-
-            GifImageView gif = row.findViewById(R.id.gif);
-            TextView text = row.findViewById(R.id.textView1);
-
-            try {
-                gif.setImageDrawable(new GifDrawable(rgif[position]));
-                text.setText(rtitre[position]);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
-            return row;
-        }
     }
-
-/*
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }*/
-
-
-}

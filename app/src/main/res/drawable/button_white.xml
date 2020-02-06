@@ -18,6 +18,7 @@
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="25.0dip" />
+
             <stroke android:width="0.5dip" android:color="@color/colorWhite" />
             <solid android:color="@color/colorWhite" />
         </shape>
