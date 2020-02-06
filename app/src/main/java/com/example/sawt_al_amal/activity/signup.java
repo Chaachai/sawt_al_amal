@@ -17,6 +17,7 @@ import com.example.sawt_al_amal.dao.helper.DbStructure;
 import com.example.sawt_al_amal.util.Validation;
 import com.google.android.material.snackbar.Snackbar;
 
+/*AZALMAD Ilham*/
 public class signup extends AppCompatActivity {
     EditText username,firstname,lastname,pwd,cpwd,email;
     LinearLayout linearLayout;
@@ -61,6 +62,8 @@ public class signup extends AppCompatActivity {
         register.setOnClickListener(registerListener);
 
     }
+
+    // vérifier les input
     private void post() {
         if (!validation.isInputEditText(username,getString(R.string.error_username))) {
             return;
@@ -100,6 +103,7 @@ public class signup extends AppCompatActivity {
                     empty();
                 }
             }
+            // vérifier qui username et email n'existe pas dans la base de données
             else
             {Snackbar.make(linearLayout, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
             }

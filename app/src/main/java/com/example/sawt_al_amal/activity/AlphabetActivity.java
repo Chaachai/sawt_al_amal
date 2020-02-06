@@ -27,6 +27,8 @@ import com.example.sawt_al_amal.facade.NiveauFacade;
 import com.example.sawt_al_amal.util.Session;
 import java.util.ArrayList;
 import java.util.List;
+//le cours des alphabets
+//CHAACHAI Youssef
 
 public class AlphabetActivity extends AppCompatActivity {
 
@@ -66,16 +68,21 @@ public class AlphabetActivity extends AppCompatActivity {
         adapter = new CoursListAdapter(this, R.layout.cours_items, list);
         gridView.setAdapter(adapter);
 
+        //Recuperer l'utilisateur connecté
         String user = (String) Session.getAttribut("connectedUser");
 
+
+        //Si l'utilisateur est un admin, on lui affiche des boutons pour l'administration
         if (!user.equals("chaachai")) {
             createCours.setVisibility(View.GONE);
+            //sinon, on cache les boutons
         } else {
             createCours.setVisibility(View.VISIBLE);
         }
 
         list.clear();
 
+        //Alimentation de l'adapter avec la liste des cours
         List<Cours> mCourses = coursFacade.findCoursByLvl(2);
         if (mCourses.isEmpty()) {
             start.setVisibility(View.GONE);
@@ -185,6 +192,7 @@ public class AlphabetActivity extends AppCompatActivity {
 
     }
 
+    //Affichage d'un popup pour faire la mise a jour
     private void showDialogUpdate(Activity activity, final Cours cours) {
 
         final Dialog dialog = new Dialog(activity);
@@ -193,9 +201,9 @@ public class AlphabetActivity extends AppCompatActivity {
         final EditText nomCrs = dialog.findViewById(R.id.edtCrs);
         Button btnUpdate = dialog.findViewById(R.id.btnUpdate);
 
-        // set width for dialog
+        // Changer la largeur du popup
         int width = (int) (activity.getResources().getDisplayMetrics().widthPixels * 0.95);
-        // set height for dialog
+        // Changer la hauteur du popup
         int height = (int) (activity.getResources().getDisplayMetrics().heightPixels * 0.5);
         dialog.getWindow().setLayout(width, height);
         dialog.show();
@@ -212,6 +220,7 @@ public class AlphabetActivity extends AppCompatActivity {
         });
     }
 
+    //Affichage d'un popup pour la suppression
     private void showDialogDelete(final Cours cours) {
         final AlertDialog.Builder dialogDelete = new AlertDialog.Builder(AlphabetActivity.this);
 
@@ -240,6 +249,8 @@ public class AlphabetActivity extends AppCompatActivity {
         dialogDelete.show();
     }
 
+
+    //apres chaque modification au niveau de la liste, on met a jour l'adapter
     private void updateCoursList() {
         list.clear();
         List<Cours> mCourses = coursFacade.findCoursByLvl(2);

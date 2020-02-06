@@ -37,11 +37,10 @@ public class ContinuousRecorder implements AudioRecord.OnRecordPositionUpdateLis
     @Override
     public void onPeriodicNotification(AudioRecord recorder) {
         recorder.read(buffer, 0, buffer.length);
-//        liveAnalysis.update(buffer);
-        //Log.e(TAG, "onPeriodicNotification " + buffer);
+//
         onBufferReadyListener.onBufferReady(buffer);
     }
-
+//demarrer l'audio
     public void start() {
         audioRecord = new AudioRecord(
                 MediaRecorder.AudioSource.MIC,
@@ -54,7 +53,7 @@ public class ContinuousRecorder implements AudioRecord.OnRecordPositionUpdateLis
         audioRecord.startRecording();
     }
 
-    public void stop() {
+public void stop() {
         audioRecord.setRecordPositionUpdateListener(null);
         if (AudioRecord.STATE_UNINITIALIZED != audioRecord.getState()) {
             audioRecord.stop();

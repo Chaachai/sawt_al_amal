@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.sawt_al_amal.R;
 
-
+//FEKRANE Zakaria
+// cette classe permet de afficher les données recuperé depuis la base de donnée sous forme de des items dans la listview
 public class RecordingsListActivity extends AppCompatActivity implements RecordingsAdapter.OnRemovedAllListener {
 
-    private static final String TAG = RecordingsListActivity.class.getSimpleName();
 
     private static final int REQ_CODE_EDIT = 1;
 
@@ -24,7 +24,7 @@ public class RecordingsListActivity extends AppCompatActivity implements Recordi
         setContentView(R.layout.activity_recordings_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+//afficher l'action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recordingsRecyclerView);
@@ -34,7 +34,7 @@ public class RecordingsListActivity extends AppCompatActivity implements Recordi
         adapter = new RecordingsAdapter(this, this, REQ_CODE_EDIT);
         recyclerView.setAdapter(adapter);
     }
-
+//afficher les audio dans l'interface
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -45,7 +45,7 @@ public class RecordingsListActivity extends AppCompatActivity implements Recordi
             adapter.notifyDataSetChanged();
         }
     }
-
+///supprimer tout les audio
     @Override
     public void onRemovedAll() {
         Toast.makeText(this, R.string.removed_all_recordings, Toast.LENGTH_SHORT).show();

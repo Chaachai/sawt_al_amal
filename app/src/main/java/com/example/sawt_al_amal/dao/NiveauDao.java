@@ -8,7 +8,9 @@ import com.example.sawt_al_amal.bean.Niveau;
 import com.example.sawt_al_amal.dao.helper.AbstractDao;
 import com.example.sawt_al_amal.dao.helper.DbStructure;
 
+//HALI Hossam
 public class NiveauDao extends AbstractDao<Niveau> {
+    //creer un niveau
     @Override
     public long create(Niveau niveau) {
         open();
@@ -19,7 +21,7 @@ public class NiveauDao extends AbstractDao<Niveau> {
         contentValues.put(DbStructure.Niveau.C_REQPOINTS, niveau.getReqPoints());
         return getDb().insert(DbStructure.Niveau.T_NAME, null, contentValues);
     }
-
+//modifier le cours
     @Override
     public long edit(Niveau niveau) {
         open();
@@ -30,12 +32,12 @@ public class NiveauDao extends AbstractDao<Niveau> {
         contentValues.put(DbStructure.Niveau.C_REQPOINTS, niveau.getReqPoints());
         return db.update(DbStructure.Niveau.T_NAME, contentValues, DbStructure.Niveau.C_ID + " = '" + niveau.getId() + "'", null);
     }
-
+//supprimer le cours
     public long remove(Niveau niveau) {
         open();
         return db.delete(DbStructure.Niveau.T_NAME, DbStructure.Niveau.C_ID + "=" + niveau.getId(), null);
     }
-
+//recuperer le cours
     protected Niveau transformeCursorToBean(Cursor cursor) {
         Niveau niveau = new Niveau();
         niveau.setId(cursor.getInt(0));

@@ -33,7 +33,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
-
+//CHAACHAI Youssef
 public class EditGeste extends AppCompatActivity {
 
     Button edt_choose;

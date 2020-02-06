@@ -10,7 +10,8 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 import java.util.LinkedList;
 import java.util.List;
-
+///le ficher Helper
+//FEKRANE Zakaria
 public class RecordingsDatabase {
 
     public class DbHelper extends SQLiteOpenHelper {
@@ -53,7 +54,7 @@ public class RecordingsDatabase {
     public static final String COLUMN_IMAGE = "image";
 
     private static DbHelper dbHelper;
-
+/// recuperer l'image
     public static Bitmap findImage(String sound) {
         Log.d(TAG, "saveRecording " + 2);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -77,7 +78,7 @@ public class RecordingsDatabase {
         return getImage(column1);
 
     }
-
+///covertir l'image de type byte a bitmap
     public static Bitmap getImage(byte[] image) {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
@@ -94,7 +95,7 @@ public class RecordingsDatabase {
 
         return db.delete(TABLE_NAME, selection, selectionArgs) > 0;
     }
-
+//recuperer la list des audio
     public List<Recording> getAllRecordings() {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
@@ -120,7 +121,7 @@ public class RecordingsDatabase {
 
         return recordings;
     }
-
+//enregistrer  audio
     public void saveRecording(Recording recording) {
         Log.d(TAG, "saveRecording " + recording.getName() + " timestamp " + recording.getTimestamp());
 

@@ -81,7 +81,7 @@
 
         <service android:name=".activity.soundRec.vr.record.recorder.ContinuousRecordingService" />
 
-        <activity android:name=".activity.soundRec.vr.record.Licenses" /> <!-- FIN SOUND REC -->
+        <!-- FIN SOUND REC -->
         <activity android:name=".activity.LevelsActivity" />
         <activity android:name=".activity.signup" />
         <activity android:name=".activity.login" />

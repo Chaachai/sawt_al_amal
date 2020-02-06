@@ -22,7 +22,8 @@ import com.example.sawt_al_amal.activity.soundRec.vr.record.list.RecordingsListA
 import com.example.sawt_al_amal.activity.soundRec.vr.record.recorder.ContinuousRecordingService;
 import com.example.sawt_al_amal.activity.soundRec.vr.record.recorder.RecordActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
+//HALI Hossam
+//l'activity correspod a l'interface du detection du bruit
 public class MainActivity2 extends AppCompatActivity {
 
     private static final int REQ_CODE_EDIT = 1;
@@ -142,7 +143,6 @@ public class MainActivity2 extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_licenses) {
-            startActivity(new Intent(this, Licenses.class));
             return true;
         }
 

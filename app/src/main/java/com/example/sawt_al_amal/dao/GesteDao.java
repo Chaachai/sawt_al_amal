@@ -10,7 +10,10 @@ import com.example.sawt_al_amal.bean.Geste;
 import com.example.sawt_al_amal.dao.helper.AbstractDao;
 import com.example.sawt_al_amal.dao.helper.DbStructure;
 
+//CHAACHAI Youssef
+
 public class GesteDao extends AbstractDao<Geste> {
+    //creer un geste
     @Override
     public long create(Geste geste) {
         open();
@@ -22,7 +25,7 @@ public class GesteDao extends AbstractDao<Geste> {
         contentValues.put(DbStructure.Geste.C_ID_COURS, geste.getCours().getId());
         return getDb().insert(DbStructure.Geste.T_NAME, null, contentValues);
     }
-
+//modifier le gestes
     @Override
     public long edit(Geste geste) {
         open();
@@ -34,12 +37,12 @@ public class GesteDao extends AbstractDao<Geste> {
         contentValues.put(DbStructure.Geste.C_ID_COURS, geste.getCours().getId());
         return db.update(DbStructure.Geste.T_NAME, contentValues, DbStructure.Geste.C_ID + " = '" + geste.getId() + "'", null);
     }
-
+//supprimer le geste
     public long remove(Geste geste) {
         open();
         return db.delete(DbStructure.Geste.T_NAME, DbStructure.Geste.C_ID + "=" + geste.getId(), null);
     }
-
+//recuperer le geste
     protected Geste transformeCursorToBean(Cursor cursor) {
         Geste geste = new Geste();
         geste.setId(cursor.getInt(0));
@@ -64,6 +67,7 @@ public class GesteDao extends AbstractDao<Geste> {
         tableName = DbStructure.Geste.T_NAME;
         idName = DbStructure.Geste.C_ID;
     }
+    //recuperer tout les lignes
     public Cursor getAllData(String text){
         open();
         Cursor resu=db.rawQuery("Select * from "+tableName+" where "+DbStructure.Geste.C_TEXT +" LIKE '%" + text + "%'",null);

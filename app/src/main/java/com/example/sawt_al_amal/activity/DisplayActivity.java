@@ -26,6 +26,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
+//AZALMAD Ilham
 
 public class DisplayActivity extends AppCompatActivity {
 
@@ -48,6 +49,8 @@ public class DisplayActivity extends AppCompatActivity {
         result = intent.getStringExtra(nom);
         search(result);
     }
+
+    //recherche des gifs correspondants au text retourné par l'intent de la reconnaissance vocale et remplir la listeview
        public  void search(String result){
             final String SEPARATEUR = " ";
            GesteDao ud =new GesteDao(this);
@@ -82,6 +85,9 @@ public class DisplayActivity extends AppCompatActivity {
            MyAdapter adapter = new MyAdapter(this, text, gif);
            listView.setAdapter(adapter);
         }
+
+        // Adapter pour la listeview
+
         class MyAdapter extends ArrayAdapter<String> {
 
             Context context;

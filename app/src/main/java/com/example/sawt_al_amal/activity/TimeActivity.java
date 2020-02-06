@@ -186,6 +186,7 @@ public class TimeActivity extends AppCompatActivity {
 
     }
 
+    //Affichage d'un popup pour faire la mise a jour
     private void showDialogDelete(final Cours cours) {
         final AlertDialog.Builder dialogDelete = new AlertDialog.Builder(TimeActivity.this);
 
@@ -241,6 +242,7 @@ public class TimeActivity extends AppCompatActivity {
         });
     }
 
+    //apres chaque modification au niveau de la liste, on met a jour l'adapter
     private void updateCoursList() {
         list.clear();
         List<Cours> mCourses = coursFacade.findCoursByLvl(5);

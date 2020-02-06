@@ -8,7 +8,9 @@ import com.example.sawt_al_amal.bean.User;
 import com.example.sawt_al_amal.dao.helper.AbstractDao;
 import com.example.sawt_al_amal.dao.helper.DbStructure;
 
+//AZALMAD Ilham
 public class UserDao extends AbstractDao<User> {
+    //creer un utilisateur
     @Override
     public long create(User user) {
         open();
@@ -20,7 +22,7 @@ public class UserDao extends AbstractDao<User> {
         contentValues.put(DbStructure.User.C_EMAIL, user.getEmail());
         return getDb().insert(DbStructure.User.T_NAME, null, contentValues);
     }
-
+//Modifier les données d'utlisateur
     @Override
     public long edit(User user) {
         open();
@@ -32,12 +34,12 @@ public class UserDao extends AbstractDao<User> {
         contentValues.put(DbStructure.User.C_EMAIL, user.getEmail());
         return db.update(DbStructure.User.T_NAME, contentValues, DbStructure.User.C_ID + " = '" + user.getId() + "'", null);
     }
-
+//supprimer un utilisateur
     public long remove(User user) {
         open();
         return db.delete(DbStructure.User.T_NAME, DbStructure.User.C_ID + "=" + user.getId(), null);
     }
-
+//recuperer l'utilisateur
     protected User transformeCursorToBean(Cursor cursor) {
         User user = new User();
         user.setId(cursor.getInt(0));
@@ -72,11 +74,13 @@ public class UserDao extends AbstractDao<User> {
         }
         return false;
     }
+    //recuperer tout les lignes
     public Cursor all() {
         open();
         Cursor cursor = db.rawQuery("select * from "+tableName,null);
         return cursor;
     }
+    //verifier le login
     public Cursor checklogin(String val1,String val2) {
         open();
         Cursor cursor = db.rawQuery("select * from "+tableName+" where "

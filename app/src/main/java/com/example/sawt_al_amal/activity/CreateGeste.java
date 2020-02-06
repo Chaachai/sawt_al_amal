@@ -38,7 +38,8 @@ import java.io.InputStream;
 
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
-
+//l'interface admin pour creer les gestes
+//CHAACHAI Youssef
 public class CreateGeste extends AppCompatActivity {
     Button choose;
     Button choose2;
@@ -101,6 +102,7 @@ public class CreateGeste extends AppCompatActivity {
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //si aucune image est chargé
                 if (b == null || imageViewToByte(imageView) == null) {
                     Toast.makeText(getApplicationContext(), "GIF ola IMAGE null !!", Toast.LENGTH_SHORT).show();
                 } else {
@@ -133,7 +135,7 @@ public class CreateGeste extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-
+        //l'utilisateur a choisi un GIF
         if (requestCode == REQUEST_CODE_GALLERY) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
@@ -143,6 +145,7 @@ public class CreateGeste extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "You don't have permission to access file location!", Toast.LENGTH_SHORT).show();
             }
             return;
+            //l'utilisateur a choisi une IMAGE
         } else if (requestCode == REQUEST_CODE_IMAGE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
@@ -205,7 +208,7 @@ public class CreateGeste extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
     }
-
+//onvertir image de bitmap aen byte
     public static byte[] imageViewToByte(ImageView image) {
         if (image == null) {
             return null;

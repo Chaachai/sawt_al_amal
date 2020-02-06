@@ -12,7 +12,8 @@ import android.widget.TextView;
 import androidx.fragment.app.DialogFragment;
 import com.example.sawt_al_amal.R;
 
-
+//Hali Hossam
+//afficher un dialog pour saisir le nom du fichier a enregistrer
 public class EditNameDialog extends DialogFragment implements TextView.OnEditorActionListener {
 
     public interface EditNameDialogListener {

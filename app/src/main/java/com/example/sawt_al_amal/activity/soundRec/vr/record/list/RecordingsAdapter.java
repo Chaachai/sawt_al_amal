@@ -15,7 +15,8 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
+/// la class adapter
+//FEKRANE Zakaria
 public class RecordingsAdapter extends RecyclerView.Adapter<RecordingsAdapter.ViewHolder> {
 
     private static final String TAG = RecordingsAdapter.class.getSimpleName();
@@ -36,6 +37,7 @@ public class RecordingsAdapter extends RecyclerView.Adapter<RecordingsAdapter.Vi
 
         void onRemovedAll();
     }
+    ///permet d'afficher la list des audio !!
 
     public RecordingsAdapter(Activity activity, OnRemovedAllListener onRemovedAllListener,
             int requestCodeEdit) {
@@ -55,7 +57,7 @@ public class RecordingsAdapter extends RecyclerView.Adapter<RecordingsAdapter.Vi
 
         return new ViewHolder(v);
     }
-
+// methode qui sera appellée dans la fonction : RecordingsAdapter
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         final Recording recording = recordingList.get(position);
@@ -87,13 +89,13 @@ public class RecordingsAdapter extends RecyclerView.Adapter<RecordingsAdapter.Vi
             }
         });
     }
-
+//Supprimer les fichier
     private void removeFile(Long timestamp) {
         File file = new File(activity.getExternalFilesDir(null) + "/recordings/" + timestamp + ".wav");
         final boolean delete = file.delete();
         Log.e(TAG, "deleted file " + file + " " + delete);
     }
-
+//formater la date
     private String getFormattedDate(Long timestamp) {
         return dateFormat.format(new Date(timestamp));
     }
@@ -102,7 +104,7 @@ public class RecordingsAdapter extends RecyclerView.Adapter<RecordingsAdapter.Vi
     public int getItemCount() {
         return recordingList.size();
     }
-
+//
     public void loadRecordings() {
         recordingList = recordingsDatabase.getAllRecordings();
         if (recordingList.size() == 0 && onRemovedAllListener != null) {

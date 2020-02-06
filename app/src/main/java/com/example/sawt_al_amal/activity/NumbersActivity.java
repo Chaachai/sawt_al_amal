@@ -187,6 +187,7 @@ public class NumbersActivity extends AppCompatActivity {
 
     }
 
+    //Affichage d'un popup pour la suppression
     private void showDialogDelete(final Cours cours) {
         final AlertDialog.Builder dialogDelete = new AlertDialog.Builder(NumbersActivity.this);
 //        final CoursFacade coursFacade = new CoursFacade(getApplicationContext());
@@ -216,6 +217,7 @@ public class NumbersActivity extends AppCompatActivity {
         dialogDelete.show();
     }
 
+    //Affichage d'un popup pour faire la mise a jour
     private void showDialogUpdate(Activity activity, final Cours cours) {
 
         final Dialog dialog = new Dialog(activity);
@@ -244,8 +246,8 @@ public class NumbersActivity extends AppCompatActivity {
         });
     }
 
+    //apres chaque modification au niveau de la liste, on met a jour l'adapter
     private void updateCoursList() {
-//        final CoursFacade coursFacade = new CoursFacade(getApplicationContext());
         list.clear();
         List<Cours> mCourses = coursFacade.findCoursByLvl(1);
         list.addAll(mCourses);

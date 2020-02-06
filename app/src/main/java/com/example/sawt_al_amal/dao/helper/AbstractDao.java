@@ -5,7 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
-
+//CHAACHAI Youssef
+//c'est classe qui regroupe les methodes qui permet d'interagir avec database
 public abstract class AbstractDao<T> {
 
     protected SQLiteDatabase db;
