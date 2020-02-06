@@ -94,10 +94,8 @@
                     <TextView
                         android:id="@+id/textViewSub1Title2"
                         style="@style/viewParent.headerText.HomeCardTitle"
-                        android:text="التواصل بالإشارات"
-                        android:textColor="#000000" />
                         android:text="الترجمة الصوتية"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
@@ -107,8 +105,10 @@
 
                     <ImageView
                         style="@style/homeCardImage"
+                        android:layout_width="75dp"
+                        android:layout_height="78dp"
                         android:maxHeight="90dp"
-                        android:src="@drawable/communication" />
+                        android:src="@drawable/mic" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -198,14 +198,14 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:id="@+id/textViewSub1Title3"
+                        android:id="@+id/textViewSub1Title99"
                         style="@style/viewParent.headerText.HomeCardTitle"
                         android:text="الإعدادات"
                         android:textColor="#000000" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
-                        android:layout_below="@id/textViewSub1Title3"
+                        android:layout_below="@id/textViewSub1Title99"
                         android:text="ضبط إعدادات التطبيق"
                         android:textColor="#000000" />
 
@@ -216,6 +216,44 @@
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/logout_cv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="15dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/home_white_card"
+                    android:minHeight="100dp"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewSub1Title3"
+                        style="@style/viewParent.headerText.HomeCardTitle"
+                        android:text="تسجيل الخروج"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/textViewSub1Title3"
+                        android:text=""
+                        android:textColor="#000000" />
+
+                    <ImageView
+                        style="@style/homeCardImage"
+                        android:layout_width="73dp"
+                        android:layout_height="63dp"
+                        android:maxHeight="90dp"
+                        android:src="@drawable/logout" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

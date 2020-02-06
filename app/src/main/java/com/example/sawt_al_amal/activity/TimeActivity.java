@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,7 +16,6 @@ import android.widget.GridView;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.sawt_al_amal.R;
 import com.example.sawt_al_amal.adapter.CoursListAdapter;
 import com.example.sawt_al_amal.bean.Cours;
@@ -30,9 +30,11 @@ import java.util.List;
 
 public class TimeActivity extends AppCompatActivity {
 
+    CoursListAdapter adapter = null;
+
     final Context context = this;
 
-    Button start;
+    CoursFacade coursFacade;
 
     Button createCours;
 
@@ -40,18 +42,21 @@ public class TimeActivity extends AppCompatActivity {
 
     List<Cours> list;
 
-    CoursListAdapter adapter = null;
+    GesteFacade mGesteFacade;
 
-    CoursFacade coursFacade = new CoursFacade(this);
+    NiveauFacade niveauFacade;
 
-    GesteFacade mGesteFacade = new GesteFacade(this);
-
-    NiveauFacade niveauFacade = new NiveauFacade(this);
+    Button start;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time);
+
+        coursFacade = new CoursFacade(this);
+        mGesteFacade = new GesteFacade(this);
+        niveauFacade = new NiveauFacade(this);
+
         start = findViewById(R.id.start_time_btn);
         createCours = findViewById(R.id.createCoursBtn5);
         gridView = findViewById(R.id.gridView5);
@@ -59,6 +64,16 @@ public class TimeActivity extends AppCompatActivity {
         list = new ArrayList<>();
         adapter = new CoursListAdapter(this, R.layout.cours_items, list);
         gridView.setAdapter(adapter);
+
+        String user = (String) Session.getAttribut("connectedUser");
+
+        System.out.println("============================== " + user);
+
+        if (!user.equals("chaachai")) {
+            createCours.setVisibility(View.GONE);
+        } else {
+            createCours.setVisibility(View.VISIBLE);
+        }
 
         list.clear();
 
@@ -171,33 +186,6 @@ public class TimeActivity extends AppCompatActivity {
 
     }
 
-    private void showDialogUpdate(Activity activity, final Cours cours) {
-
-        final Dialog dialog = new Dialog(activity);
-        dialog.setContentView(R.layout.update_cours_activity);
-        dialog.setTitle("Modifier");
-        final EditText nomCrs = dialog.findViewById(R.id.edtCrs);
-        Button btnUpdate = dialog.findViewById(R.id.btnUpdate);
-
-        // set width for dialog
-        int width = (int) (activity.getResources().getDisplayMetrics().widthPixels * 0.95);
-        // set height for dialog
-        int height = (int) (activity.getResources().getDisplayMetrics().heightPixels * 0.5);
-        dialog.getWindow().setLayout(width, height);
-        dialog.show();
-
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cours.setNom(nomCrs.getText().toString());
-                coursFacade.edit(cours);
-                dialog.dismiss();
-                Toast.makeText(getApplicationContext(), "Mis à jour avec succés !!!", Toast.LENGTH_SHORT).show();
-                updateCoursList();
-            }
-        });
-    }
-
     private void showDialogDelete(final Cours cours) {
         final AlertDialog.Builder dialogDelete = new AlertDialog.Builder(TimeActivity.this);
 
@@ -224,6 +212,33 @@ public class TimeActivity extends AppCompatActivity {
             }
         });
         dialogDelete.show();
+    }
+
+    private void showDialogUpdate(Activity activity, final Cours cours) {
+
+        final Dialog dialog = new Dialog(activity);
+        dialog.setContentView(R.layout.update_cours_activity);
+        dialog.setTitle("Modifier");
+        final EditText nomCrs = dialog.findViewById(R.id.edtCrs);
+        Button btnUpdate = dialog.findViewById(R.id.btnUpdate);
+
+        // set width for dialog
+        int width = (int) (activity.getResources().getDisplayMetrics().widthPixels * 0.95);
+        // set height for dialog
+        int height = (int) (activity.getResources().getDisplayMetrics().heightPixels * 0.5);
+        dialog.getWindow().setLayout(width, height);
+        dialog.show();
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cours.setNom(nomCrs.getText().toString());
+                coursFacade.edit(cours);
+                dialog.dismiss();
+                Toast.makeText(getApplicationContext(), "Mis à jour avec succés !!!", Toast.LENGTH_SHORT).show();
+                updateCoursList();
+            }
+        });
     }
 
     private void updateCoursList() {

@@ -50,13 +50,13 @@ public class GesteActivity extends AppCompatActivity {
 
     Button menu;
 
-    //GesteFacade gesteFacade = new GesteFacade(this);
+    GesteFacade gesteFacade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_geste);
-        final GesteFacade gesteFacade = new GesteFacade(this);
+        gesteFacade = new GesteFacade(this);
 
         final List<Cours> coursList = (List<Cours>) Session.getAttribut("coursList");
         int pos = (int) Session.getAttribut("currentPosition");
@@ -76,6 +76,24 @@ public class GesteActivity extends AppCompatActivity {
         next = findViewById(R.id.next_btn);
         back = findViewById(R.id.back_btn);
         menu = findViewById(R.id.menu_btn);
+
+
+        String user = (String) Session.getAttribut("connectedUser");
+
+        System.out.println("============================== "+user);
+        if (!user.trim().equals("chaachai")) {
+            System.out.println("============= 00000000000  ================= ");
+//            edit_delete_layout.setVisibility(View.);
+            editGeste.setVisibility(View.GONE);
+            deleteGeste.setVisibility(View.GONE);
+            createGeste.setVisibility(View.GONE);
+        } else {
+            System.out.println("============= 11111111111  ================= ");
+            editGeste.setVisibility(View.VISIBLE);
+            deleteGeste.setVisibility(View.VISIBLE);
+            createGeste.setVisibility(View.VISIBLE);
+
+        }
 
         editGeste.setOnClickListener(new OnClickListener() {
             @Override
@@ -201,7 +219,7 @@ public class GesteActivity extends AppCompatActivity {
     }
 
     private void showDialogDelete(final Geste geste) {
-        final GesteFacade gesteFacade = new GesteFacade(this);
+//        final GesteFacade gesteFacade = new GesteFacade(this);
         final AlertDialog.Builder dialogDelete = new AlertDialog.Builder(GesteActivity.this);
 
         dialogDelete.setTitle("Attention !!");

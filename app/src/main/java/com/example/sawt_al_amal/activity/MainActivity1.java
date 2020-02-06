@@ -7,6 +7,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.sawt_al_amal.R;
 import com.example.sawt_al_amal.facade.UserFacade;
+import com.example.sawt_al_amal.util.Session;
 
 public class MainActivity1 extends AppCompatActivity {
 
@@ -21,6 +22,12 @@ public class MainActivity1 extends AppCompatActivity {
         setContentView(R.layout.activity_main_1);
         UserFacade userFacade = new UserFacade(this);
 
+        String username = (String) Session.getAttribut("connectedUser");
+        if (username != null) {
+            startActivity(new Intent(MainActivity1.this, HomeActivity.class));
+            finish();
+        }
+
         userFacade.open();
         userFacade.close();
 
@@ -34,6 +41,7 @@ public class MainActivity1 extends AppCompatActivity {
 
                     case R.id.btlogin:
                         startActivity(new Intent(MainActivity1.this, login.class));
+                        finish();
                         break;
                     default:
                         break;

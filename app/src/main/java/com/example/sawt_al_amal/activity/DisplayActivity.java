@@ -57,9 +57,10 @@ public class DisplayActivity extends AppCompatActivity {
             for (int i = 0; i < mots.length; i++) {
                 Cursor res = ud.getAllData(mots[i]);
                 if(res.getCount() == 0) {
-                    Toast.makeText(DisplayActivity.this,"لا توجد أي اقتراحات, المرجو إعادة المحاولة",Toast.LENGTH_LONG).show();
-                    Intent intent=new Intent(DisplayActivity.this,SpeechActivity.class);
-                    startActivity(intent);
+
+                    Toast.makeText(DisplayActivity.this,"  لا توجد أي اقتراحات ل "+mots[i]+" , المرجو إعادة المحاولة ",Toast.LENGTH_LONG).show();
+                    //Intent intent=new Intent(DisplayActivity.this,SpeechActivity.class);
+                    //startActivity(intent);
                 }
                 while (res.moveToNext()) {
                     nbr++;

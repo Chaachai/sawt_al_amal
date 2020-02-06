@@ -54,12 +54,14 @@ public class EditGeste extends AppCompatActivity {
 
     final int REQUEST_CODE_IMAGE = 777;
 
-    GesteFacade gesteFacade = new GesteFacade(this);
+    GesteFacade gesteFacade ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_geste);
+
+        gesteFacade = new GesteFacade(this);
 
         edt_choose = findViewById(R.id.edt_choose);
         edt_choose2 = findViewById(R.id.edt_choose2);

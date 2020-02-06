@@ -25,6 +25,7 @@ import com.example.sawt_al_amal.bean.Geste;
 import com.example.sawt_al_amal.facade.CategoryFacade;
 import com.example.sawt_al_amal.facade.CoursFacade;
 import com.example.sawt_al_amal.facade.GesteFacade;
+import com.example.sawt_al_amal.facade.NiveauFacade;
 import com.example.sawt_al_amal.util.FileUtils;
 import com.example.sawt_al_amal.util.Session;
 
@@ -52,15 +53,19 @@ public class CreateGeste extends AppCompatActivity {
     final int REQUEST_CODE_GALLERY = 999;
     final int REQUEST_CODE_IMAGE = 777;
 
-    GesteFacade gesteFacade = new GesteFacade(this);
-    CoursFacade coursFacade = new CoursFacade(this);
-    CategoryFacade categoryFacade = new CategoryFacade(this);
+    GesteFacade gesteFacade ;
+    CoursFacade coursFacade ;
+    CategoryFacade categoryFacade;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_geste);
+
+        coursFacade = new CoursFacade(this);
+        gesteFacade = new GesteFacade(this);
+        categoryFacade = new CategoryFacade(this);
 
         choose = findViewById(R.id.choose);
         choose2 = findViewById(R.id.choose2);

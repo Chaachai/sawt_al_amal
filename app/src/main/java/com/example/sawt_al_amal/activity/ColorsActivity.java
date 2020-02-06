@@ -42,16 +42,21 @@ public class ColorsActivity extends AppCompatActivity {
 
     CoursListAdapter adapter = null;
 
-    CoursFacade coursFacade = new CoursFacade(this);
+    CoursFacade coursFacade;
 
-    GesteFacade mGesteFacade = new GesteFacade(this);
+    GesteFacade mGesteFacade ;
 
-    NiveauFacade niveauFacade = new NiveauFacade(this);
+    NiveauFacade niveauFacade ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_colors);
+
+        coursFacade = new CoursFacade(this);
+        mGesteFacade = new GesteFacade(this);
+        niveauFacade = new NiveauFacade(this);
+
         start = findViewById(R.id.start_colors_btn);
         createCours = findViewById(R.id.createCoursBtn4);
         gridView = findViewById(R.id.gridView4);
@@ -59,6 +64,14 @@ public class ColorsActivity extends AppCompatActivity {
         list = new ArrayList<>();
         adapter = new CoursListAdapter(this, R.layout.cours_items, list);
         gridView.setAdapter(adapter);
+
+        String user = (String) Session.getAttribut("connectedUser");
+
+        if (!user.equals("chaachai")) {
+            createCours.setVisibility(View.GONE);
+        } else {
+            createCours.setVisibility(View.VISIBLE);
+        }
 
         list.clear();
 
