@@ -6,12 +6,12 @@ import com.example.sawt_al_amal.bean.Cours;
 import com.example.sawt_al_amal.dao.CoursDao;
 import java.util.ArrayList;
 import java.util.List;
-
+//CHAACHAI Youssef
 public class CoursFacade extends CoursDao {
     public CoursFacade(Context context) {
         super(context);
     }
-
+//recuperer les cours
     public List<Cours> findCoursByLvl(int lvl_id) {
         List<Cours> list = findAll();
         List<Cours> res = new ArrayList<>();

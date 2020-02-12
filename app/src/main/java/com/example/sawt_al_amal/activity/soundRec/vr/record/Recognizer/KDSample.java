@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class KDSample {
 
-    //KD-LIB
+    //c'est une api
     //https://www.savarese.com/software/libssrckdtree-j/
     public static void fillMap(Map map, Set points) {
         for (Object point : points) {

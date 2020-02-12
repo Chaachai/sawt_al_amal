@@ -6,12 +6,12 @@ import com.example.sawt_al_amal.bean.Geste;
 import com.example.sawt_al_amal.dao.GesteDao;
 
 import java.util.List;
-
+//CHAACHAI Youssef
 public class GesteFacade extends GesteDao {
     public GesteFacade(Context context) {
         super(context);
     }
-
+//recuperer les gestes
     public Geste findGesteByCours(int cours_id) {
         List<Geste> gestes = findAll();
         for (Geste geste : gestes) {

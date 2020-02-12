@@ -1,12 +1,13 @@
 package com.example.sawt_al_amal.dao.helper;
 
 import android.provider.BaseColumns;
-
+//le fichier contrat
+//HALI Hossam
 public final class DbStructure {
 
     public static final String dbName = "sawt_al_amal.db";
     public static final int DB_VERSION = 9;
-
+// la table user
     public static abstract class User implements BaseColumns {
         public static final String T_NAME = "user";
         public static final String C_ID = "id";
@@ -26,7 +27,7 @@ public final class DbStructure {
 
         public static final String SQL_DROP = "DROP TABLE IF EXISTS " + T_NAME;
     }
-
+// la table geste
     public static abstract class Geste implements BaseColumns {
         public static final String T_NAME = "geste";
         public static final String C_ID = "id";
@@ -46,7 +47,7 @@ public final class DbStructure {
 
         public static final String SQL_DROP = "DROP TABLE IF EXISTS " + T_NAME;
     }
-
+//la table cours
     public static abstract class Cours implements BaseColumns {
         public static final String T_NAME = "cours";
         public static final String C_ID = "id";
@@ -60,7 +61,7 @@ public final class DbStructure {
 
         public static final String SQL_DROP = "DROP TABLE IF EXISTS " + T_NAME;
     }
-
+//la table Niveau
     public static abstract class Niveau implements BaseColumns {
         public static final String T_NAME = "niveau";
         public static final String C_ID = "id";

@@ -45,7 +45,7 @@ import com.example.sawt_al_amal.activity.camSpeech.processing.preprocessing.Inpu
 import com.example.sawt_al_amal.activity.camSpeech.rendering.IRenderer;
 import com.example.sawt_al_amal.activity.camSpeech.rendering.MainRenderer;
 import com.example.sawt_al_amal.activity.camSpeech.svm.FrameClassifier;
-
+//CAMERA
 public class MainActivity3 extends Activity implements CvCameraViewListener2 {
 
     private CameraBridgeViewBase mOpenCvCameraView;

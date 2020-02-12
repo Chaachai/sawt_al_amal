@@ -34,6 +34,7 @@ public class ResultsManager {
         img = image;
     }
 
+    //afficher le resultat dans l'interface
     public static void setRecognizedSound(String sound) {
         Log.d(TAG, "hhhhhhhhh " + sound);
 

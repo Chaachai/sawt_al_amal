@@ -27,7 +27,8 @@ import com.example.sawt_al_amal.facade.NiveauFacade;
 import com.example.sawt_al_amal.util.Session;
 import java.util.ArrayList;
 import java.util.List;
-
+//l'interface des jours de la semaine
+//CHAACHAI Youssef
 public class DaysActivity extends AppCompatActivity {
 
     final Context context = this;
@@ -184,6 +185,7 @@ public class DaysActivity extends AppCompatActivity {
 
     }
 
+    //Affichage d'un popup pour faire la mise a jour
     private void showDialogUpdate(Activity activity, final Cours cours) {
 
         final Dialog dialog = new Dialog(activity);
@@ -211,6 +213,7 @@ public class DaysActivity extends AppCompatActivity {
         });
     }
 
+    //Affichage d'un popup pour la suppression
     private void showDialogDelete(final Cours cours) {
         final AlertDialog.Builder dialogDelete = new AlertDialog.Builder(DaysActivity.this);
 
@@ -239,6 +242,7 @@ public class DaysActivity extends AppCompatActivity {
         dialogDelete.show();
     }
 
+    //apres chaque modification au niveau de la liste, on met a jour l'adapter
     private void updateCoursList() {
         list.clear();
         List<Cours> mCourses = coursFacade.findCoursByLvl(3);

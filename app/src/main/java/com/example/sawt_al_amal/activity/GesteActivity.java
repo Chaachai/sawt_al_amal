@@ -27,7 +27,7 @@ import java.util.List;
 
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
-
+//CHAACHAI Youssef
 public class GesteActivity extends AppCompatActivity {
 
     TextView geste_text;
@@ -218,6 +218,7 @@ public class GesteActivity extends AppCompatActivity {
 
     }
 
+    //Affichage d'un popup pour la suppression
     private void showDialogDelete(final Geste geste) {
 //        final GesteFacade gesteFacade = new GesteFacade(this);
         final AlertDialog.Builder dialogDelete = new AlertDialog.Builder(GesteActivity.this);

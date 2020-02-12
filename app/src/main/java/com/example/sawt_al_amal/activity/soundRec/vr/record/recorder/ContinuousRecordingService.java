@@ -14,7 +14,9 @@ import java.io.IOException;
 import java.nio.ShortBuffer;
 import java.util.LinkedList;
 import java.util.List;
+//Hali Hossam
 
+//un Setvice qui sera lancer pour detecter les bruit et alerter l'utilisateur
 public class ContinuousRecordingService extends Service implements ContinuousRecorder.OnBufferReadyListener {
 
     private static final Object WAV_EXTENSION = ".wav";
@@ -39,7 +41,7 @@ public class ContinuousRecordingService extends Service implements ContinuousRec
 
         continuousRecorder = new ContinuousRecorder(this);
         final RecordingsDatabase recordingsDatabase = new RecordingsDatabase(this);
-
+// creer in thread
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -95,7 +97,7 @@ public class ContinuousRecordingService extends Service implements ContinuousRec
             soundsManager.addSound(array, wzorNazwy.get(i));
         }
     }
-
+//creer le repertoire
     private File createRecordingsDir() {
         File file = new File(getExternalFilesDir(null) + "/recordings");
         if (!file.exists()) {
@@ -115,8 +117,8 @@ public class ContinuousRecordingService extends Service implements ContinuousRec
     public void onBufferReady(short[] array) {
         String s = soundsManager.recognizeSound(array);
         if (!s.contains("noise")) {
-            //Notify recognized sound.
-            ResultsManager.setRecognizedSound(s);
+//notifier l'utilisateur
+        ResultsManager.setRecognizedSound(s);
         }
         Log.e(TAG, "FINAL RECOGNITION: " + s);
     }

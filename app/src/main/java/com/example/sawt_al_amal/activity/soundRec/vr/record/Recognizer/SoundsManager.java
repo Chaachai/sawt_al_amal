@@ -32,7 +32,7 @@ public class SoundsManager {
         nn = new NearestNeighbors<Double, GenericPoint<Double>, String>();
         tree = new KDTree<Double, GenericPoint<Double>, String>();
     }
-
+///Enregistrer audio
     public void addSound(byte[] soundSample, String soundDescriptor) {
         //Prepare MelVectors.
         double[] sample = Utils.convertRawByteArrayToDoubleArray(soundSample);
@@ -94,7 +94,8 @@ public class SoundsManager {
 
     private Map<String, Integer> counter = new HashMap<>();
 
-    public String recognizeSound(short[] soundSample) {
+//verifier si le bruit existe dans notre database
+public String recognizeSound(short[] soundSample) {
         counter = new HashMap<>();
         //Prepare MelVectors.
         double[] sample = Utils.convertRawShortArrayToDoubleArray(soundSample);
@@ -122,6 +123,8 @@ public class SoundsManager {
         return counter;
     }
 
+
+    //recuperer la source du bruit
     private String ResultDecider() {
         if (counter == null) {
             return "error";

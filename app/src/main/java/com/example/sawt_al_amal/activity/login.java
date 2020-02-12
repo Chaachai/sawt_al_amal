@@ -23,6 +23,7 @@ import com.example.sawt_al_amal.util.Session;
 import com.example.sawt_al_amal.util.Validation;
 import com.google.android.material.snackbar.Snackbar;
 
+/*AZALMAD Ilham*/
 public class login extends AppCompatActivity {
 
     Button btlogin,btlogingoogle,register;
@@ -58,27 +59,11 @@ public class login extends AppCompatActivity {
         };
         btlogin.setOnClickListener(loginListener);
         register.setOnClickListener(registerListener);
-        btlogingoogle.setOnClickListener(googleListener);
 
 
     }
 
-    View.OnClickListener googleListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            google();
-        }
-    };
-    public void google() {
-       /* Cursor res = userDao.all();
-        if(res.getCount() == 0) {
-            Toast.makeText(login.this,"لا توجد اقتراحات ",Toast.LENGTH_LONG).show();
-        }
-        while (res.moveToNext()) {
-            Toast.makeText(login.this,res.getString(3)+"\n"+res.getString(4)+"\n",Toast.LENGTH_LONG).show();
-        }*/
-
-    }
+    // verification du username et mot de passe et se connecter
     public void verify() {
         if (!validation.isInputEditText(username, getString(R.string.error_username))) {
             return;

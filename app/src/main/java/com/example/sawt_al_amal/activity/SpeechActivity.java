@@ -32,6 +32,7 @@ import java.util.List;
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
+/* AZALMAD Ilham */
 public class SpeechActivity extends AppCompatActivity {
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private Button speech;
@@ -64,7 +65,7 @@ public class SpeechActivity extends AppCompatActivity {
 
     }
 
-
+    // intent qui déclanche l'activité de reconnaissance vocale
     private void Speech() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
@@ -77,6 +78,7 @@ public class SpeechActivity extends AppCompatActivity {
         }
     }
 
+    // fonction qui récupere le text retourner par l'intent ACTION_RECOGNIZE_SPEECH
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -93,24 +95,11 @@ public class SpeechActivity extends AppCompatActivity {
             default: break;
         }
     }
-
     public  void search(String result){
         Intent intent=new Intent(SpeechActivity.this,DisplayActivity.class);
         intent.putExtra("mots",result);
         startActivity(intent);
 
-    }
-    public  void insert(String txt){
-        Cours cours=new Cours();
-        Geste geste=new Geste();
-        geste.setText(txt);
-        geste.setCours(cours);
-        GesteDao ud =new GesteDao(this);
-        Long res=ud.create(geste);
-        if(res == -1)
-            Toast.makeText(SpeechActivity.this,"Data not Inserted",Toast.LENGTH_LONG).show();
-        else
-            Toast.makeText(SpeechActivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
     }
 
 

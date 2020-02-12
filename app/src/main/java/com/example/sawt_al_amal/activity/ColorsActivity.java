@@ -27,7 +27,8 @@ import com.example.sawt_al_amal.facade.NiveauFacade;
 import com.example.sawt_al_amal.util.Session;
 import java.util.ArrayList;
 import java.util.List;
-
+// le cours des couleur
+//CHAACHAI Youssef
 public class ColorsActivity extends AppCompatActivity {
 
     final Context context = this;
@@ -75,6 +76,7 @@ public class ColorsActivity extends AppCompatActivity {
 
         list.clear();
 
+        //Alimentation de l'adapter avec la liste des cours
         List<Cours> mCourses = coursFacade.findCoursByLvl(4);
         if (mCourses.isEmpty()) {
             start.setVisibility(View.GONE);
@@ -184,6 +186,7 @@ public class ColorsActivity extends AppCompatActivity {
 
     }
 
+    //Affichage d'un popup pour faire la mise a jour
     private void showDialogUpdate(Activity activity, final Cours cours) {
 
         final Dialog dialog = new Dialog(activity);
@@ -211,6 +214,7 @@ public class ColorsActivity extends AppCompatActivity {
         });
     }
 
+    //Affichage d'un popup pour la suppression
     private void showDialogDelete(final Cours cours) {
         final AlertDialog.Builder dialogDelete = new AlertDialog.Builder(ColorsActivity.this);
 
@@ -239,6 +243,7 @@ public class ColorsActivity extends AppCompatActivity {
         dialogDelete.show();
     }
 
+    //apres chaque modification au niveau de la liste, on met a jour l'adapter
     private void updateCoursList() {
         list.clear();
         List<Cours> mCourses = coursFacade.findCoursByLvl(4);
