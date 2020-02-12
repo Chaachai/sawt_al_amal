@@ -23,7 +23,7 @@ Pour pouvoir obtenir un bon environnement de développement, nous vous conseillo
 * Si vous utilisez Android Studio, ouvrez le projet et appuyez sur Exécuter
 
 
-### Installation
+### Test
 
 Pour se connecter en tant qu'admin, veuillez utiliser :
 * USERNAME : chaachai 
