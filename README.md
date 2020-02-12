@@ -5,86 +5,70 @@
 
 L’objectif de l’application est de changer la façon dont les sourds-muets communiquent avec la communauté et de réduire leur dépendance à l'égard des autres pour communiquer avec la communauté, et donc les impliquer dans la communauté en tant que personnes actives.
 
-## Getting Started
+## Commencer
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Ces instructions vous permettront d'obtenir une copie du projet sur votre ordinateur local à des fins de développement et de test.
 
-### Prerequisites
 
-What things you need to install the software and how to install them
+### Installation
 
-```
-Give examples
-```
+Pour pouvoir obtenir un bon environnement de développement, nous vous conseillons de cloner le projet depuis le référentiel Github, et d'installer les bibliothèques nécessaires.
 
-### Installing
+* Clonez le référentiel sur votre machine locale en utilisant:
 
-A step by step series of examples that tell you how to get a development env running
+    HTTPS: ```git clone https://github.com/Chaachai/sawt_al_amal.git```
+    
+    SSH: ```git clone git@github.com:Chaachai/sawt_al_amal.git```
+   
+* Si vous utilisez Android Studio, ouvrez le projet et appuyez sur Exécuter
 
-Say what the step will be
 
-```
-Give the example
-```
+### Installation
 
-And repeat
+Pour se connecter en tant qu'admin, veuillez utiliser :
+* USERNAME : chaachai 
+* PASSWORD : chaachai
 
-```
-until finished
-```
+Sinon, vous créez un compte..
 
-End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
+### Environnement de développement
 
-Explain how to run the automated tests for this system
+* Créé en utilisant [Android Studio](https://developer.android.com/studio)
 
-### Break down into end to end tests
+## Technologies utilisées ?
 
-Explain what these tests test and why
+* [Java 8](https://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html) - Java Programming Language
+* [Android](https://www.android.com/) - Android OS
+* [Gradle](https://gradle.org/) - Gradle build system
+* [OpenCV](https://opencv.org/) - The Open Source Computer Vision Library
 
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **CHAACHAI Youssef** 
+* **HALI Hossam** 
+* **FEKRANE Zakaria** 
+* **AZALMAD Ilham** 
+* **HOUSSEINI ABBALELE Ibrahim** 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-## License
+## Screenshots
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+![Screenshot chat](https://i.imgur.com/qNUob9V.jpg)
 
-## Acknowledgments
+![sawt_al_amal](https://i.imgur.com/DhoMvP3.jpg)
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+![sawt_al_amal](https://i.imgur.com/KXIGTto.jpg)
+
+![sawt_al_amal](https://i.imgur.com/3vh1pTX.jpg)
+
+![sawt_al_amal](https://i.imgur.com/pDYztM0.jpg)
+
+![sawt_al_amal](https://i.imgur.com/s81wjOq.jpg)
+
+![sawt_al_amal](https://i.imgur.com/KVWmmky.jpg)
+
+![sawt_al_amal](https://i.imgur.com/d7kn8eZ.jpg)
+
+
