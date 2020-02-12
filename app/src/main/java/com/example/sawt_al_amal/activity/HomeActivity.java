@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import com.example.sawt_al_amal.R;
-import com.example.sawt_al_amal.activity.soundRec.vr.record.MainActivity2;
+import com.example.sawt_al_amal.activity.apiSrecog.vr.record.MainActivity2;
 import com.example.sawt_al_amal.bean.Category;
 import com.example.sawt_al_amal.bean.Niveau;
 import com.example.sawt_al_amal.facade.CategoryFacade;

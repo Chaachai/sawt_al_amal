@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".activity.soundRec.vr.record.recorder.RecordActivity">
+    tools:context=".activity.apiSrecog.vr.record.recorder.RecordActivity">
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -36,13 +36,13 @@
                 android:layout_height="200dp"
                 android:layout_below="@id/record_audio_timer">
 
-                <com.example.sawt_al_amal.activity.soundRec.vr.record.recorder.WaveformView
+                <com.example.sawt_al_amal.activity.apiSrecog.vr.record.recorder.WaveformView
                     android:id="@+id/waveform_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimary" />
 
-                <com.example.sawt_al_amal.activity.soundRec.vr.record.recorder.MarkerView
+                <com.example.sawt_al_amal.activity.apiSrecog.vr.record.recorder.MarkerView
                     android:id="@+id/startmarker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                     android:nextFocusDown="@+id/endmarker"
                     android:src="@drawable/marker_left" />
 
-                <com.example.sawt_al_amal.activity.soundRec.vr.record.recorder.MarkerView
+                <com.example.sawt_al_amal.activity.apiSrecog.vr.record.recorder.MarkerView
                     android:id="@+id/endmarker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

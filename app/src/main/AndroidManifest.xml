@@ -44,42 +44,42 @@
                 android:value=".activity.LevelsActivity" />
         </activity> <!-- SOUND REC -->
         <activity
-            android:name=".activity.soundRec.vr.record.MainActivity2"
+            android:name=".activity.apiSrecog.vr.record.MainActivity2"
             android:configChanges="keyboard|orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.soundRec.vr.record.list.RecordingsListActivity"
+            android:name=".activity.apiSrecog.vr.record.list.RecordingsListActivity"
             android:configChanges="keyboard|orientation|screenSize"
             android:label="@string/title_activity_recordings_list"
-            android:parentActivityName=".activity.soundRec.vr.record.MainActivity2"
+            android:parentActivityName=".activity.apiSrecog.vr.record.MainActivity2"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.soundRec.vr.record.MainActivity2" />
+                android:value=".activity.apiSrecog.vr.record.MainActivity2" />
         </activity>
         <activity
-            android:name=".activity.soundRec.vr.record.recorder.RecordActivity"
+            android:name=".activity.apiSrecog.vr.record.recorder.RecordActivity"
             android:configChanges="keyboard|orientation|screenSize"
             android:label="@string/title_activity_record"
-            android:parentActivityName=".activity.soundRec.vr.record.MainActivity2"
+            android:parentActivityName=".activity.apiSrecog.vr.record.MainActivity2"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.soundRec.vr.record.MainActivity2" />
+                android:value=".activity.apiSrecog.vr.record.MainActivity2" />
         </activity>
         <activity
-            android:name=".activity.soundRec.vr.record.SettingsActivity"
+            android:name=".activity.apiSrecog.vr.record.SettingsActivity"
             android:configChanges="keyboard|orientation|screenSize"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".activity.soundRec.vr.record.MainActivity2">
+            android:parentActivityName=".activity.apiSrecog.vr.record.MainActivity2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.soundRec.vr.record.MainActivity2" />
+                android:value=".activity.apiSrecog.vr.record.MainActivity2" />
         </activity>
-        <activity android:name=".activity.soundRec.vr.record.Testing" />
+        <activity android:name=".activity.apiSrecog.vr.record.Testing" />
 
-        <service android:name=".activity.soundRec.vr.record.recorder.ContinuousRecordingService" />
+        <service android:name=".activity.apiSrecog.vr.record.recorder.ContinuousRecordingService" />
 
         <!-- FIN SOUND REC -->
         <activity android:name=".activity.LevelsActivity" />

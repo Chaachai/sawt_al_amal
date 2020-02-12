@@ -3,9 +3,7 @@ package com.example.sawt_al_amal.activity;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -29,22 +27,22 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 
 import com.example.sawt_al_amal.R;
-import com.example.sawt_al_amal.activity.camSpeech.imaging.IFrame;
-import com.example.sawt_al_amal.activity.camSpeech.processing.DetectionMethod;
-import com.example.sawt_al_amal.activity.camSpeech.processing.DownSamplingFrameProcessor;
-import com.example.sawt_al_amal.activity.camSpeech.processing.IFrameProcessor;
-import com.example.sawt_al_amal.activity.camSpeech.processing.MainFrameProcessor;
-import com.example.sawt_al_amal.activity.camSpeech.processing.ResizingFrameProcessor;
-import com.example.sawt_al_amal.activity.camSpeech.processing.SizeOperation;
-import com.example.sawt_al_amal.activity.camSpeech.processing.postprocessing.IFramePostProcessor;
-import com.example.sawt_al_amal.activity.camSpeech.processing.postprocessing.OutputFramePostProcessor;
-import com.example.sawt_al_amal.activity.camSpeech.processing.postprocessing.UpScalingFramePostProcessor;
-import com.example.sawt_al_amal.activity.camSpeech.processing.preprocessing.CameraFrameAdapter;
-import com.example.sawt_al_amal.activity.camSpeech.processing.preprocessing.IFramePreProcessor;
-import com.example.sawt_al_amal.activity.camSpeech.processing.preprocessing.InputFramePreProcessor;
-import com.example.sawt_al_amal.activity.camSpeech.rendering.IRenderer;
-import com.example.sawt_al_amal.activity.camSpeech.rendering.MainRenderer;
-import com.example.sawt_al_amal.activity.camSpeech.svm.FrameClassifier;
+import com.example.sawt_al_amal.activity.apiMacspeech.imaging.IFrame;
+import com.example.sawt_al_amal.activity.apiMacspeech.processing.DetectionMethod;
+import com.example.sawt_al_amal.activity.apiMacspeech.processing.DownSamplingFrameProcessor;
+import com.example.sawt_al_amal.activity.apiMacspeech.processing.IFrameProcessor;
+import com.example.sawt_al_amal.activity.apiMacspeech.processing.MainFrameProcessor;
+import com.example.sawt_al_amal.activity.apiMacspeech.processing.ResizingFrameProcessor;
+import com.example.sawt_al_amal.activity.apiMacspeech.processing.SizeOperation;
+import com.example.sawt_al_amal.activity.apiMacspeech.processing.postprocessing.IFramePostProcessor;
+import com.example.sawt_al_amal.activity.apiMacspeech.processing.postprocessing.OutputFramePostProcessor;
+import com.example.sawt_al_amal.activity.apiMacspeech.processing.postprocessing.UpScalingFramePostProcessor;
+import com.example.sawt_al_amal.activity.apiMacspeech.processing.preprocessing.CameraFrameAdapter;
+import com.example.sawt_al_amal.activity.apiMacspeech.processing.preprocessing.IFramePreProcessor;
+import com.example.sawt_al_amal.activity.apiMacspeech.processing.preprocessing.InputFramePreProcessor;
+import com.example.sawt_al_amal.activity.apiMacspeech.rendering.IRenderer;
+import com.example.sawt_al_amal.activity.apiMacspeech.rendering.MainRenderer;
+import com.example.sawt_al_amal.activity.apiMacspeech.svm.FrameClassifier;
 //CAMERA
 public class MainActivity3 extends Activity implements CvCameraViewListener2 {
 
